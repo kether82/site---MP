@@ -1,0 +1,19 @@
+body{
+    margin-top: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.col-md-2{
+    background-color: aliceblue;
+    height: 100vh;
+}
+
+.col-md-10{
+    background-color: antiquewhite;
+}
+
+.btn-group.special{
+    display: flex;
+}
+
