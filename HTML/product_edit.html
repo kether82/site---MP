@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-	<link rel="stylesheet" href="../CSS/product.css">
+	<link rel="stylesheet" href="../CSS/product_edit.css">
   </head>
   <body>
 	<!-- Optional JavaScript -->
@@ -17,7 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<!-- <script type="text/javascript" src="../JS/product.js"></script> -->
+	<script type="text/javascript" src="../JS/product_edit.js"></script>
     <div class="container-fluid">
 		<div class="row">
 			<div class="col-md-2">
@@ -42,41 +42,29 @@
 		
 		 <!-- outside -->
 			<div class="col-md-10 ">
-				<div class="row content">
-					<div class="col-md-4">
-						<img src="../Images/mhxa1c.png" class="picture card-img">
-						<br><br>
-						<div class="offset-1">
-							<a class="btn btn-outline-dark" href="product_edit.html"><span class="fas fa-pencil-alt"></span> Edit Info</a>
+				<div class="card">
+                    <div class="card-header">Item Name</div>
+                    <div class="card-body">Item Description</div>
+                </div>
 
-						</div>
-					</div>
-					<div class="content col-md-8">
-						<div class=" description card-body">
+                <form role="form" id="edit_item" action="product_edit_process.html" onsubmit="return confirm_edit()">
+				<script type="text/javascript" src="../JS/product_edit.js"></script>	<div class="form-group ">
+						<label for="Item Name">
 							Item Name
-						</div>
-						<div class="description card-header">
+						</label>
+						<input type="text" class="form-control" id="item_name" />
+					</div>
+					<div class="form-group ">
+						<label for="Item Description">
 							Item Description
-						</div>
-						<div class="description card-body">
-							TextTextTextTextTextTextTextTextText
-						</div>
+						</label>
+						<input type="text" class="form-control" id="item_description" />
 					</div>
-					<br><br>
-				</div>
-				<div class="description card-body">
-					<strong>Comments</strong>
-				</div>
-				<div class="comment description">
-					<div class="card-header person">
-						Guy 1
-						<span class="updel"><button class="btn btn-outline-dark"><span class="fas fa-pencil-alt"></span></button>
-						<button class="btn btn-outline-dark"><span class="fas fa-trash-alt"></span></button></span>
-					</div>
-					<div class="card-body text">
-						Comment 1Comment 1Comment 1Comment 1Comment 1
-					</div>
-				</div>
+					<button type="submit" id="edit" value="edit" class="btn btn-primary">
+						Edit
+					</button>
+					
+				</form>
 			</div>
 		</div>
 	</div>
