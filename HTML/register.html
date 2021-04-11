@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,7 +12,8 @@
 	<link rel="stylesheet" href="../CSS/register.css">
   </head>
   <body>
-    <!-- Optional JavaScript -->
+	<!-- Optional JavaScript -->
+	<script src="../JS/register.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -44,25 +46,31 @@
 						<label for="fullName">
 							Full Name
 						</label>
-						<input type="text" class="form-control" id="fullName" />
+						<input type="text" id="name" class="form-control" id="fullName" />
 					</div>
 					<div class="form-group ">
 						<label for="username">
 							Username
 						</label>
-						<input type="email" class="form-control" id="username" />
+						<input type="email" id="u_name" class="form-control" id="username" />
 					</div>
 					<div class="form-group ">
 						<label for="password">
 							Password
 						</label>
-						<input type="password" class="form-control" id="password" />
+						<input type="password" id="p_word" class="form-control" id="password" />
+					</div>
+					<div class="form-group ">
+						<label for="confirm_password">
+							Confirm Password
+						</label>
+						<input type="password" id="cp_word" class="form-control" id="password" />
 					</div>
 					<div class="form-group ">
 						<label for="contactNumber">
 							Contact Number
 						</label>
-						<input type="tel" class="form-control" id="contactNumber" />
+						<input type="tel" id="number" class="form-control" id="contactNumber" />
 					</div>
 					<div class="form-group">
 						<label for="profilePicture">
