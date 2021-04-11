@@ -1,0 +1,29 @@
+@import url(main.css);
+
+.profile{
+    max-height: 400px;
+    max-width: 400px;
+}
+
+.card-img-top{
+    height: 256px;
+    width: 256px;
+}
+
+.name{
+    font-size: 70px;
+}
+
+.description{
+    font-size: 50px;
+
+}
+
+p{
+    font-size: 40px;
+    font-weight: 200;
+}
+
+.content{
+    margin-left: 20px;
+}

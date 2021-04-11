@@ -1,0 +1,22 @@
+
+body{
+    margin-top: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.col-md-2{
+    background-color: ghostwhite;
+    height:100vh;
+    position: sticky;
+    margin-top: 0px;
+    top: 0px;
+}
+
+.col-md-10{
+    
+}
+
+.btn-group.special{
+    display: flex;
+}

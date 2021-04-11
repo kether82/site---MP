@@ -1,0 +1,11 @@
+@import url(../CSS/main.css);
+
+.name{
+    font-size: 70px;
+    font-weight: 300;
+}
+
+.description{
+    font-size: 50px;
+    font-weight: 100;
+}
