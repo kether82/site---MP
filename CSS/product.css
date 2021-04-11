@@ -28,3 +28,8 @@
     float: right;
     font-size: 30px;
 }
+
+.offset-1{
+    display: flex;
+    justify-content: space-between;
+}
