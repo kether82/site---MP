@@ -14,9 +14,9 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 <body>
-	<div class="container-fluid fixed">
-		<div class="row">
-			<div class="col-md-2 float-left">
+	<div class="container-fluid">
+		<div class="d-flex">
+			<div class="col-md-2 float-left ">
 				<div class="btn-group btn-group-vertical special navibar" role="group">
 					<a class="btn btn-secondary" type="button" href="index.html">
 						Home
@@ -41,22 +41,45 @@
 					</a>
 				</div>
 			</div>
-			<div class="container">
-				<h2>Message</h2>
+			<div class="container-fluid">
+				<h2>Contacts</h2> <br>
+				<div class="card">
+					<div class="card-header input-group">
+						<input class="form-control float-left" placeholder="Search"></input>
+							<button type="button" class="btn btn-outline-secondary float-right"><i class="fa fa-search" aria-hidden="true"></i></button>
+					</div>
+					<div class="card-body">
+						<div class="d-flex justify-content">
+							<i class="fa fa-user mt-1" aria-hidden="true"></i>
+							<div class="container-fluid">Ivan Kitir Lim<span class="status-online">Online</span></div>
+						</div>
+						<div class="d-flex justify-content">
+							<i class="fa fa-user mt-1" aria-hidden="true"></i>
+							<div class="container-fluid">Pat Chon<span class="status-offline">Offline</span></div>
+						</div>
+						<div class="d-flex justify-content">
+							<i class="fa fa-user mt-1" aria-hidden="true"></i>
+							<div class="container-fluid">Kyle Chua<span class="status-offline">Offline</span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<h2>Message</h2> <br>
 				<div class="card">
 					<div class="card-header"><i class="fa fa-user" aria-hidden="true"></i> Ivan Kitir Lim</div>
 					<div class="card-body ">
-						<div class="d-flex justify-content-start mb-4">
-							<i class="fa fa-user" aria-hidden="true"></i>
+						<div class="d-flex justify-content-start mb-3">
+							<i class="fa fa-user mt-3" aria-hidden="true"></i>
 							<div class="msg_container_other">
 								Hey!
 							</div>
 						</div>
-						<div class="d-flex justify-content-end mb-4">
+						<div class="d-flex justify-content-end mb-3">
 							<div class="msg_container_you">
 								Heeeeeeeeey!
 							</div>
-							<i class="fa fa-user" aria-hidden="true"></i>
+							<i class="fa fa-user mt-3" aria-hidden="true"></i>
 						</div>
 					</div>
 					<div class="card-footer clearfix">
