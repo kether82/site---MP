@@ -13,10 +13,30 @@ $(document).ready(function(){
         console.log(confirm_password.val());
         console.log(contact_number.val());
 
-        if(password.val() === confirm_password.val())
-            alert("Successfully registered as " + username.val() + ".");
+        if(full_name.val() === "")
+            alert("ERROR: Full name is empty.");
+        
+        else if(username.val() === "")
+            alert("ERROR: Username is empty.");
+
+        else if(password.val() === "")
+            alert("ERROR: Password is empty.");
+
+        else if(confirm_password.val() === "")
+            alert("ERROR: Confirm Password is empty.");
+
+        else if(contact_number.val() === "")
+            alert("ERROR: Contact Number is empty.");
+
+        else if(Number.isInteger(contact_number.val()) == false)
+            alert("ERROR: Please put a number in the contact number field.");
+
+        else {
+            if(password.val() === confirm_password.val())
+                alert("Successfully registered as " + username.val() + ".");
           
         else
-            alert("Invalid credentials. Password doesn't match.");
+            alert("ERROR:  Password and Confirm Password doesn't match.");
+        }
     });        
 });
