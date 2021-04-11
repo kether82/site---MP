@@ -6,8 +6,8 @@
 }
 
 .card-img-top{
-    height: 256px;
-    width: 256px;
+    height: 300px;
+    width: 300px;
 }
 
 .name{
@@ -16,7 +16,9 @@
 
 .description{
     font-size: 50px;
-
+    display: flex;
+    word-wrap: break-word;
+    overflow-x: hidden;
 }
 
 p{

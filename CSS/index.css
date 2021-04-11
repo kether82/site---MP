@@ -9,3 +9,8 @@
     width: 256px;
     height: 256px;
 }
+
+.card-text{
+    word-wrap: break-word;
+    overflow-x: hidden;
+}

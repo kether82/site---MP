@@ -1,8 +1,12 @@
 
+html{
+    overflow-x: hidden;
+}
 body{
     margin-top: 2px;
     margin-left: 2px;
     margin-right: 2px;
+    
 }
 
 .col-md-2{
@@ -13,8 +17,9 @@ body{
     top: 0px;
 }
 
-.col-md-10{
-    
+.description{
+    word-wrap: break-word;
+    overflow-x: hidden;
 }
 
 .btn-group.special{
