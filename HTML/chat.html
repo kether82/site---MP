@@ -1,38 +1,73 @@
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="col-md-4">
-					<img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" />
-				</div>
-				<div class="col-md-8">
-					<h2>
-						Heading
-					</h2>
-					<p>
-						Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-					</p>
-					<p>
-						<a class="btn" href="#">View details »</a>
-					</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="../CSS/index.css">
+	<link rel="stylesheet" href="../CSS/chat.css">
+	<!-- Icons -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container-fluid fixed">
+		<div class="row">
+			<div class="col-md-2 float-left">
+				<div class="btn-group btn-group-vertical special navibar" role="group">
+					<a class="btn btn-secondary" type="button" href="index.html">
+						Home
+					</a> 
+					<a class="btn btn-secondary" type="button" href="profile.html">
+						Profile
+					</a> 
+					<a class="btn btn-secondary" type="button" href="chat.html">
+						Chat
+					</a> 
+					<a class="btn btn-secondary" type="button" href="login.html">
+						Login
+					</a>
+					<a class="btn btn-secondary" type="button" href="register.html">
+						Register
+					</a>
+					<a class="btn btn-secondary" type="button" href="accounts.html">
+						Accounts
+					</a>
+					<a class="btn btn-secondary" type="button" href="listings.html">
+						Listings
+					</a>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-8">
-					<h2>
-						Heading
-					</h2>
-					<p>
-						Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-					</p>
-					<p>
-						<a class="btn" href="#">View details »</a>
-					</p>
-				</div>
-				<div class="col-md-4">
-					<img alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" />
+			<div class="container">
+				<h2>Message</h2>
+				<div class="card">
+					<div class="card-header"><i class="fa fa-user" aria-hidden="true"></i> Ivan Kitir Lim</div>
+					<div class="card-body ">
+						<div class="d-flex justify-content-start mb-4">
+							<i class="fa fa-user" aria-hidden="true"></i>
+							<div class="msg_container_other">
+								Hey!
+							</div>
+						</div>
+						<div class="d-flex justify-content-end mb-4">
+							<div class="msg_container_you">
+								Heeeeeeeeey!
+							</div>
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</div>
+					</div>
+					<div class="card-footer clearfix">
+						<div class="input-group">
+							<textarea class="form-control float-left msg_box" placeholder="Type a message.."></textarea>
+							<button type="button" class="btn btn-outline-secondary float-right">Send</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+</body>
+</html>
