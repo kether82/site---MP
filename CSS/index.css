@@ -1,8 +1,9 @@
 @import url(main.css);
 
 .searchBar{
-    width: 95%;
+    width: 90%;
     display: inline-block;
+    margin-top: 10px;
 }
 
 .card-img-top{
