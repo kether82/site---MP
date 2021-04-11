@@ -11,11 +11,11 @@
 }
 
 .name{
-    font-size: 70px;
+    font-size: 50px;
 }
 
 .description{
-    font-size: 50px;
+    font-size: 20px;
     display: flex;
     word-wrap: break-word;
     overflow-x: hidden;

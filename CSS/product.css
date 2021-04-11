@@ -17,3 +17,9 @@
     max-height: 400px;
     max-width: 400px;
 }
+
+.person{
+    display: flex;
+    justify-content: space-between;
+    
+}
