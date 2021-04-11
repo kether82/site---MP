@@ -5,7 +5,7 @@ $(document).ready(function () {
 function login_form() {
     var username = $('#username').val();
     var pw = $('#password').val();
-    var check = $('#rememberMe').checked();
+    var check = $('#rememberMe').is(":checked");
     console.log(username);
     console.log(pw);
     console.log(check);
@@ -19,4 +19,5 @@ function login_form() {
     }else{
         alert("Something");
     }
+
   }
