@@ -1,7 +1,11 @@
-.fixed {
-    position: relative;
+body {
     width: 100%;
-    display: table;
+    height: 100%;
+    overflow: hidden;
+}
+
+h2 {
+    margin-top: 5px;
 }
 
 .picture {
@@ -33,4 +37,16 @@
 
 .msg_box{
     overflow-y: auto;
+}
+
+.status-online{
+    color:green;
+    font-size: smaller;
+    margin-left: 10px;
+}
+
+.status-offline{
+    color: red;
+    font-size: smaller;
+    margin-left: 10px;
 }
