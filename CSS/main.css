@@ -3,18 +3,22 @@ html{
     overflow-x: hidden;
 }
 body{
-    margin-top: 2px;
-    margin-left: 2px;
     margin-right: 2px;
-    
+    height: 100%;
+    width: 100%;
 }
 
 .col-md-2{
-    background-color: ghostwhite;
+    background-color: lightcoral;
     height:100vh;
     position: sticky;
     margin-top: 0px;
     top: 0px;
+}
+
+.col-md-2 .btn{
+    background-color: midnightblue;
+    border-color:gray;
 }
 
 .description{

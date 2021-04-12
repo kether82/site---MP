@@ -1,3 +1,4 @@
+@import url(../CSS/main.css);
 body {
     width: 100%;
     height: 100%;
@@ -7,6 +8,7 @@ body {
 h2 {
     margin-top: 5px;
 }
+
 
 .picture {
     max-height: 30px;

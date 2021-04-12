@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-	<link rel="stylesheet" href="../CSS/product.css">
+	<link rel="stylesheet" href="../CSS/comment_del.css">
   </head>
   <body>
 	<!-- Optional JavaScript -->
@@ -17,7 +17,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	<!-- <script type="text/javascript" src="../JS/product.js"></script> -->
+	<script type="text/javascript" src="../JS/comment_del.js"></script>
     <div class="container-fluid">
 		<div class="row">
 			<div class="col-md-2">
@@ -42,47 +42,17 @@
 		
 		 <!-- outside -->
 			<div class="col-md-10 ">
-				<div class="row content">
-					<div class="col-md-4">
-						<img src="../Images/msi b450 tomahawk.jpg" class="picture card-img">
-						<br><br>
-						<div class="CRUD">
-							<a class="btn btn-outline-dark" href="product_edit.html"><span
-									class="fas fa-pencil-alt"></span> Edit Info</a>
-							<a class="btn btn-outline-dark" href="product_del.html"><span class="fas fa-trash"></span> Delete</a>
-							<a href="chat.html" class="btn btn-outline-dark"><span class="fas fa-phone"></span> Contact
-								Seller</a>
-						</div>
-					</div>
-					<div class="content col-md-8">
-						<div class=" description card-body">
-							MSI B450 Tomahawk
-						</div>
-						<div class="description card-header">
-							Item Description
-						</div>
-						<div class="description card-body">
-							2 left
-						</div>
-					</div>
-					<br><br>
-				</div>
-				<hr>
-				<div class="description card-body">
-					<strong>Comments</strong>
-				</div>
-				<div class="comment description">
-					<div class="card-header person">
-						Cool Pepe
-						<span class="updel"><button class="btn btn-outline-dark"><span class="fas fa-pencil-alt"></span></button>
-						<a class="btn btn-outline-dark" href="comment_del.html"><span class="fas fa-trash-alt"></span></a></span>
-					</div>
-					<div class="card-body text">
-						Nice!
-					</div>
-					<br><br>
-					<a class="btn btn-outline-dark" href="comment_create.html"><span class="fas fa-plus-square"></span> Add comment</a>
-				</div>
+				<div class="card">
+                    <div class="card-header">Poster</div>
+                    <div class="card-body">Comment</div>
+                </div>
+                <br><br>
+                <form role="form" id="del_comment" action="comment_del_process.html" onsubmit="return confirm_del()">
+					<button type="submit" id="edit" value="edit" class="btn btn-danger">
+						Confirm Delete
+					</button>
+					
+				</form>
 			</div>
 		</div>
 	</div>
