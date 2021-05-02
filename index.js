@@ -1,3 +1,5 @@
+// to run nodemon/start app
+// npm run start
 
 // import module `express`
 const express = require('express');

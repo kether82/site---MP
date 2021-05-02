@@ -6,14 +6,6 @@
 const controller = {
 
     /*
-        executed when the client sends an HTTP GET request `/favicon.ico`
-        as defined in `../routes/routes.js`
-    */
-    getFavicon: function (req, res) {
-        res.status(204);
-    },
-
-    /*
         executed when the client sends an HTTP GET request `/`
         as defined in `../routes/routes.js`
     */

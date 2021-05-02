@@ -19,6 +19,7 @@ body{
 .col-md-2 .btn{
     background-color: midnightblue;
     border-color:gray;
+    width: 100%;
 }
 
 .description{
