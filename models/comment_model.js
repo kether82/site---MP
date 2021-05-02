@@ -8,7 +8,7 @@ var CommentSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    owner:{
+    poster:{
         type: Number,
         required: true
     },

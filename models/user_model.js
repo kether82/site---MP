@@ -8,6 +8,10 @@ var UserSchema = new mongoose.Schema({
         type:String,
         required: true
     },
+    user_name:{
+        type: String,
+        required: true  
+    },
     full_name: {
         type: String,
         required: true
@@ -20,10 +24,15 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    image:{
-        type: Buffer,
+    description:{
+        type: String,
         required: true
     }
+    // image:{
+    //     type: Buffer,
+    //     required: true
+    // } idk baka ilagay ko nlng sa folder tas dun nlng 
+    // YEP
 });
 
 /*

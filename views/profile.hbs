@@ -26,8 +26,9 @@
 		<div class="col-md-10">
 			<div class="row profile-content">
 				<div class="col-md-4">
-					<img class="profile card-img" src="../Images/{{user_id}}.png" />
+					<img class="profile card-img" src="../Images/{{user_name}}.png" alt="{{user_name}}" />
 					<br><br>
+					
 					<div class="CRUD">
 						<a href="profile_edit.html"><button class="btn btn-outline-dark"><span class="fas fa-pencil-alt"></span>Edit Info</button></a>
 						<a href="rating_create.html"  class="btn btn-outline-dark"><span class="fas fa-plus-square" ></span> Rate Account</a>
@@ -37,19 +38,18 @@
 				<div class="content card-body col-md-7">
 
 					<div class="name">
-						<p>{{user.fname}} {{user.lname}}</p>
+						<p>{{full_name}}</p>
 					</div>
-
+					
 					<div class="rating">
+						{{rating}}
 						<span class="fas fa-star"></span>
-						<span class="fas fa-star"></span>
-						<span class="fas fa-star"></span>
-						<span class="fas fa-star"></span>
-						<span class="fas fa-star"></span>
+						{{!-- pahirap e --}}
+						{{!-- un nga e parang honkler clown --}}
 					</div>
 					<br>
 					<div class="description">
-							{{user.description}}
+							{{description}}
 					</div>
 				</div>
 			</div>
