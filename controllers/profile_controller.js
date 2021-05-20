@@ -44,7 +44,7 @@ const profile_controller = {
                 if the user exists in the database
                 render the profile page with their details
             */
-            console.log(result);
+            //console.log(result);
             if(result != null) {
                 var details = {
                     "user_id": result.user_id,

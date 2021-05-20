@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="../CSS/accounts.css">
+	<link rel="stylesheet" href="../CSS/listings.css">
   </head>
   <body>
 	<!-- Optional JavaScript -->
@@ -24,19 +24,19 @@
 			{{>nav_partial}}
 			<div class="col-md-10 no-gutters">
 				<div class="page-header">
-					<h1>Accounts</h1>
+					<h1>Listings</h1>
 					<form role="form">
                         <div class="form-group container-fluid search">
                             <input type="search" class="form-control searchBar" id="searchBar"
-                                placeholder="Search for accounts" />
+                                placeholder="Search for listings" />
                             <label for="searchBar"><button type="button" class="btn btn-secondary mb-1"><span
                                         class="fas fa-search"></span> Search</button></label>
                         </div>
 				    </form>
 				</div>
                 <div class="row card-deck">
-                    {{#each account}}
-                        {{>account_partial}}
+                    {{#each listing}}
+                        {{>listing_partial}}
                     {{/each}}
                 </div>
 			</div>
