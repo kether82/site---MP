@@ -23,8 +23,8 @@ const controller = {
         res.render('login');
     },
 
-    get_signup: function(req,res){
-        res.render('signup');
+    get_register: function(req,res){
+        res.render('register',{flag : false});
     },
 }
 

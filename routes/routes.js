@@ -10,15 +10,15 @@ const controller = require('../controllers/controller.js');
 const profile_controller = require('../controllers/profile_controller.js');
 const login_controller = require('../controllers/login_controller.js');
 const signup_controller = require('../controllers/register_controller.js');
-
+const accounts_controller = require('../controllers/accounts_controller.js');
 app.get('/', controller.get_index);
 app.get('/index',controller.get_index);
 app.get('/profile/:user_name', profile_controller.getProfile);
 // app.get('/chat',controller.get_chat);
 // app.get('/login',login_controller.getLogIn); leave for now
-app.get('/signup',controller.get_signup);
+app.get('/register',controller.get_register);
 // app.get('/register',controller.get_register);
-// app.get('/accounts',controller.get_accounts);
+// app.get('/accounts',accounts_controller.get_accounts);
 // app.get('/listings',controller.get_listings);
 // app.get('/search_accounts',controller.get_search_accounts);
 // app.get('/logout',controller.get_logout);

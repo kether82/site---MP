@@ -56,7 +56,7 @@ const registerController = {
             details.flag = false;
 
         // render `../views/signup.hbs`
-        res.render('signup', details);
+        res.render('register', details);
     },
 
     /*
@@ -126,7 +126,7 @@ const registerController = {
                 render `../views/signup.hbs`
                 display the errors defined in the object `details`
             */
-            res.render('signup', details);
+            res.render('register', details);
         }
 
         else {
@@ -137,11 +137,18 @@ const registerController = {
                 Example: the value entered in <input type="text" name="fName">
                 can be retrieved using `req.body.fName`
             */
-            var fName = req.body.fName;
-            var lName = req.body.lName;
-            var idNum = req.body.idNum;
-            var pw = req.body.pw;
+            var full_name = req.body.fullName;
+            var username = req.body.username;
+            var pw = req.body.password;
+            var contact_num = req.body.contactNumber;
+            var description = req.body.description;
+            var user_id2 = 1000;
+            var rating = 0;
+            User.findOne().sort('-user_id').exec(function(err, acc){
+                user_id2 = parseInt(acc.user_id) + 1;
+            })
 
+            // var user_id = db.users.find().sort({user_id:-1}).limit(1) 
             /*
                 use hash() method of module `bcrypt`
                 to hash the password entered by the user
@@ -151,10 +158,13 @@ const registerController = {
             bcrypt.hash(pw, saltRounds, function(err, hash) {
 
                 var user = {
-                    fName: fName,
-                    lName: lName,
-                    idNum: idNum,
-                    pw: hash
+                    full_name: full_name,
+                    username : username,
+                    pw: hash,
+                    contact_num : contact_num,
+                    description : description,
+                    user_id : user_id2,
+                    rating : rating
                 }
 
                 /*
@@ -172,7 +182,7 @@ const registerController = {
                             which calls getSuccess() method
                             defined in `./successController.js`
                         */
-                        res.redirect('/success?fName=' + fName +'&lName=' + lName + '&idNum=' + idNum);
+                        res.redirect('/success?username=' + username +'&fullName=' + full_name + '&userID=' + user_id2);
                     }
                 });
             });
@@ -191,7 +201,7 @@ const registerController = {
             Example url: `http://localhost/getCheckID?idNum=11312345`
             To retrieve the value of parameter `idNum`: `req.query.idNum`
         */
-        var idNum = req.query.idNum;
+        var id = req.query.id;
 
         /*
             calls the function findOne()
@@ -200,7 +210,7 @@ const registerController = {
             sends an empty string to the user if there are no match
             otherwise, sends an object containing the `idNum`
         */
-        db.findOne(User, {idNum: idNum}, 'idNum', function (result) {
+        db.findOne(User, {user_id: id}, 'user_id', function (result) {
             res.send(result);
         });
     }
