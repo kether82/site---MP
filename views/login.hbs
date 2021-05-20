@@ -43,10 +43,18 @@
 							Remember me
 						</label>
 					</div>
-					<button type="submit w-50 p-3" id="login" value="login" class="btn btn-primary">
-						Submit
-					</button>
-					
+					<div class ="buttons">
+						<button type="submit" id="login" value="login" class="btn btn-primary submit">
+							Submit
+						</button>
+						<a type="" href="/signup" class="btn btn-primary signup">
+							Signup
+						</a>
+					</div>
+
+					<div class="error">
+						{{error}}
+					</div>
 				</form>
 			</div>
 		</div>

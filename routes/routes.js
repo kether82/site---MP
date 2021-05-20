@@ -8,10 +8,15 @@ const express = require('express');
 const app = express();
 const controller = require('../controllers/controller.js');
 const profile_controller = require('../controllers/profile_controller.js');
-app.get('/index', controller.get_index);
+const login_controller = require('../controllers/login_controller.js');
+const signup_controller = require('../controllers/register_controller.js');
+
+app.get('/', controller.get_index);
+app.get('/index',controller.get_index);
 app.get('/profile/:user_name', profile_controller.getProfile);
 // app.get('/chat',controller.get_chat);
-// app.get('/login',controller.get_login);
+// app.get('/login',login_controller.getLogIn); leave for now
+app.get('/signup',controller.get_signup);
 // app.get('/register',controller.get_register);
 // app.get('/accounts',controller.get_accounts);
 // app.get('/listings',controller.get_listings);

@@ -16,8 +16,16 @@ const controller = {
     get_index: function (req, res) {
 
         // render `../views/index.hbs`
-        res.render('index');
-    }
+        res.render('index',{flag : false});
+    },
+
+    get_login: function(req,res){
+        res.render('login');
+    },
+
+    get_signup: function(req,res){
+        res.render('signup');
+    },
 }
 
 /*

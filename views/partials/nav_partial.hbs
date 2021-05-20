@@ -5,32 +5,39 @@
         <br>
     </div>
     <div class="btn-group btn-group-vertical special navibar" role="group">
-        <a class="btn btn-secondary" type="button" href="index">
+        <a class="btn btn-secondary" type="button" href="/index">
             Home
         </a>
-        <a class="btn btn-secondary" type="button" href="profile">
+        <a class="btn btn-secondary" type="button" href="/profile/{{user_name}}">
             Profile
         </a>
-        <a class="btn btn-secondary" type="button" href="chat">
+        <a class="btn btn-secondary" type="button" href="/chat">
             Chat
         </a>
-        <a class="btn btn-secondary" type="button" href="login">
+        {{#unless flag}}
+        <a class="btn btn-secondary" type="button" href="/login">
             Login
         </a>
-        <a class="btn btn-secondary" type="button" href="register">
+        {{/unless}}
+        <a class="btn btn-secondary" type="button" href="/register">
             Register
         </a>
-        <a class="btn btn-secondary" type="button" href="accounts">
+        <a class="btn btn-secondary" type="button" href="/accounts">
             Accounts
         </a>
-        <a class="btn btn-secondary" type="button" href="listings">
+        <a class="btn btn-secondary" type="button" href="/listings">
             Listings
         </a>
-        <a class="btn btn-secondary" type="button" href="search_acc">
+        <a class="btn btn-secondary" type="button" href="/search_acc">
             Search Accounts
         </a>
-        <a class="btn btn-secondary" type="button" href="index">
+        {{#if flag}}
+        <a class="btn btn-secondary" type="button" href="/index">
             Logout
         </a>
+        <p>
+            {{user_fullname}}
+        </p>
+        {{/if}}
     </div>
 </div>

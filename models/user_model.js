@@ -27,12 +27,15 @@ var UserSchema = new mongoose.Schema({
     description:{
         type: String,
         required: true
+    },
+    contact_number:{
+        type: String,
+        required: true
     }
     // image:{
     //     type: Buffer,
     //     required: true
-    // } idk baka ilagay ko nlng sa folder tas dun nlng 
-    // YEP
+    // } 
 });
 
 /*

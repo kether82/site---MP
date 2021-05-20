@@ -4,7 +4,7 @@ const db = require('../models/db.js');
 const Handlebars = require('handlebars')
 // import module `User` from `../models/UserModel.js`
 const User = require('../models/user_model.js');
-
+const Listing = require('../models/listing_model.js');
 /*
     defines an object which contains functions executed as callback
     when a client requests for `profile` paths in the server
@@ -22,7 +22,7 @@ const profile_controller = {
         // var query ={full_name: req.params.user_id };
         var query = {user_name: req.params.user_name};
         // console.log(req.params.user_id);
-        // console.log(query);
+        //console.log(query);
  
         var projection = 'user_id full_name user_name description rating';
         /*
@@ -47,15 +47,29 @@ const profile_controller = {
             console.log(result);
             if(result != null) {
                 var details = {
-                    user_id: result.user_id,
-                    full_name: result.full_name,
-                    description: result.description,
-                    user_name : result.user_name,
-                    rating : result.rating
+                    "user_id": result.user_id,
+                    "full_name": result.full_name,
+                    "description": result.description,
+                    "user_name" : result.user_name,
+                    "rating" : result.rating
                 };
+                var query = {owner: details.user_id}
+                var projection = "name listing_id description";
+                db.findMany(Listing, query, projection, function(result){
+                    console.log(result);
+                    
+                    if(result != null) {
+                        details.item = result.map(arr =>({
+                                        "item_name": arr['name'],
+                                        "item_desc": arr['description'],
+                                        "item_id": arr['listing_id']
+                                    }));
 
-                // render `../views/profile.hbs`
-                res.render('profile', details);
+                        console.log(details);
+                        res.render('profile', details);
+                    }
+                })
+                
             }
             /*
                 if the user does not exist in the database
@@ -70,12 +84,6 @@ const profile_controller = {
     }
 }
 
-Handlebars.registerHelper('times', function(n, block) {
-    var accum = '';
-    for(var i = 0; i < n; ++i)
-        accum += block.fn(i);
-    return accum;
-});
 
 /*
     exports the object `profileController` (defined above)
