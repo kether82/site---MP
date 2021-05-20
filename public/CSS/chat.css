@@ -7,8 +7,17 @@ body {
 
 h2 {
     margin-top: 5px;
+    margin-left: 14px;
 }
 
+.card_message {
+    width: 900px;
+    
+}
+
+.card_contacts {
+    width: 300px;
+}
 
 .picture {
     max-height: 30px;
