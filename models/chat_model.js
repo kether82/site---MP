@@ -41,7 +41,10 @@ var chatSchema = new mongooseSchema
     },
 
 
-    time: Date
+    time: {
+        type: Date,
+        default: Date.now
+    }
 
 
 

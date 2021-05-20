@@ -21,6 +21,5 @@ app.get('/profile/:user_name', profile_controller.getProfile);
 app.get('/register',controller.get_register);
 app.get('/accounts',accounts_controller.getAccounts);
 app.get('/listings',listings_controller.getListings);
-// app.get('/search_accounts',controller.get_search_accounts);
 // app.get('/logout',controller.get_logout);
 module.exports = app;
