@@ -18,10 +18,28 @@ const User = require('../models/user_model.js');
 */
 const  chatController = {
 
-    /*
-        executed when the client sends an HTTP GET request `/chat`
-        as defined in `../routes/routes.js`
-    */
-    
+    getConversation: function (req, res) {
+        var query = {}
+        db.findMany(User, {}, "", function (result) {
+            console.log(result);
+            var details ={};
+            if (result != null) {
+                details.account = result.map(arr => ({
+                    "name": arr['full_name'],
+                    "rating": arr['rating'],
+                    "description": arr['description'],
+                    "user_name": arr['user_name']
+
+                }));
+
+                //console.log(details);
+                res.render('accounts', details);
+            } else {
+                // render `../views/error.hbs`
+                console.log("here");
+                res.render('error');
+            }
+        })
+    }
 
 }

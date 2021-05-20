@@ -9,6 +9,7 @@ body{
     margin-right: 2px;
     height: 100%;
     width: 100%;
+    background-color: rgba(240, 248, 255, 0.808);
 }
 
 .col-md-2{
@@ -25,6 +26,8 @@ body{
 }
 
 
+
+
 .description{
     word-wrap: break-word;
     overflow-x: hidden;
@@ -38,13 +41,40 @@ body{
     font-size: 40px;
     font-weight: 400;
     font-family: 'Josefin Sans', sans-serif;
-   
+    text-decoration: none;
 }
 
-.nav-title{
+#nav-title:hover{
+    text-decoration: none;
+}
+
+.nav-title , .nav-title:hover{
    /* border-color: midnightblue;
     border-width: 2px;
     border-style: dotted;
     border-radius: 20px; */
     text-align: center;
+    text-decoration: none;
+}
+
+
+.navibar>.btn:hover{
+    background-color: whitesmoke;
+    color:midnightblue;
+    font-weight: 700;
+    
+}
+
+.nav-title:hover{
+    color: midnightblue;
+}
+
+.btn:hover{
+    background-color: white;
+    color: midnightblue;
+}
+
+.card{
+    padding: 10px;
+    margin: 15px;
 }
