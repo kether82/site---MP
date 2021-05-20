@@ -19,6 +19,7 @@ const User = require('../models/user_model.js');
 const  chatController = {
 
     getConversation: function (req, res) {
+        var query = {}
         db.findMany(User, {}, "", function (result) {
             console.log(result);
             var details ={};
