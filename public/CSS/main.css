@@ -1,5 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
 html{
     overflow-x: hidden;
 }
@@ -35,14 +37,14 @@ body{
 #nav-title{
     font-size: 40px;
     font-weight: 400;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Josefin Sans', sans-serif;
    
 }
 
 .nav-title{
-    border-color: midnightblue;
+   /* border-color: midnightblue;
     border-width: 2px;
     border-style: dotted;
-    border-radius: 20px;
-    
+    border-radius: 20px; */
+    text-align: center;
 }
