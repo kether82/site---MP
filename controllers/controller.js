@@ -26,6 +26,11 @@ const controller = {
     get_register: function(req,res){
         res.render('register',{flag : false});
     },
+
+    get_chat: function (req, res) {
+
+        res.render('chat',{flag : false});
+    }
 }
 
 /*

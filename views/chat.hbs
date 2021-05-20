@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/JS/chat.js" type="text/javascript"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -15,13 +17,14 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
 </head>
 
 <body>
     <div class="container-fluid p-0">
         <div class="d-flex">
             {{>nav_partial}}
-            <div class="container-fluid">
+            <div class="container-fluid mt-5 ml-1">
                 <h2>Contacts</h2> <br>
                 <div class="card">
                     <div class="card-header input-group">
@@ -45,7 +48,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container-fluid">
+            <div class="container-fluid mt-5">
                 <h2>Message</h2> <br>
                 <div class="card">
                     <div class="card-header"><i class="fa fa-user" aria-hidden="true"></i> Ivan Kitir Lim</div>
@@ -65,8 +68,9 @@
                     </div>
                     <div class="card-footer clearfix">
                         <div class="input-group">
-                            <textarea class="form-control float-left msg_box" placeholder="Type a message.."></textarea>
-                            <button type="button" class="btn btn-outline-secondary float-right">Send</button>
+                            <textarea id="message" class="form-control float-left msg_box"
+                                placeholder="Type a message.."></textarea>
+                            <button id="send" type="button" class="btn btn-outline-secondary float-right">Send</button>
                         </div>
                     </div>
                 </div>

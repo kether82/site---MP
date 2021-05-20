@@ -16,7 +16,7 @@ const listings_controller = require('../controllers/listings_controller.js');
 app.get('/', controller.get_index);
 app.get('/index',controller.get_index);
 app.get('/profile/:user_name', profile_controller.getProfile);
-// app.get('/chat',controller.get_chat);
+app.get('/chat',controller.get_chat);
 // app.get('/login',login_controller.getLogIn);
 app.get('/register',controller.get_register);
 app.get('/accounts',accounts_controller.getAccounts);
