@@ -48,22 +48,22 @@ const listings_controller = {
         })
     },
 
-    findListings: function(req, res){
-        let name = req.query.name;
-        let details={};
-        db.findMany(Listing,{name:name},"",(result)=>{
-            if(result!=null){
-                details.listing = result.map(arr =>({
-                    "name" : arr["name"],
-                    "description" : arr["description"],
-                    "listing_id" : arr["listing_id"]
-                }));
-                console.log(result);
-                // res.status(200).send();
-                res.render('listings', details);
-            }
-        })
-    }
+    // findListings: function(req, res){
+    //     let name = req.query.name;
+    //     let details={};
+    //     db.findMany(Listing,{name:name},"",(result)=>{
+    //         if(result!=null){
+    //             details.listing = result.map(arr =>({
+    //                 "name" : arr["name"],
+    //                 "description" : arr["description"],
+    //                 "listing_id" : arr["listing_id"]
+    //             }));
+    //             console.log(result);
+    //             // res.status(200).send();
+    //             res.render('listings', details);
+    //         }
+    //     })
+    // }
 }
 
 
