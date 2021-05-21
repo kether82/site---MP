@@ -182,19 +182,6 @@ const registerController = {
                     });
                 });
             })
-
-
-
-            // var user_id = db.users.find().sort({user_id:-1}).limit(1) 
-            /*
-                use hash() method of module `bcrypt`
-                to hash the password entered by the user
-                the hashed password is stored in variable `hash`
-                in the callback function
-            */
-
-
-
         }
     },
 
