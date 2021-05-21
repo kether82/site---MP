@@ -2,40 +2,43 @@
 var mongoose = require('mongoose');
 
 
-var chatSchema = new mongooseSchema
-({
+var chatSchema = new mongoose.Schema({
+    conversationId:{
+        type: Number,
+        required: true
+    },
 
-    senderId:{
-            
-        type:String,
+    senderId: {
+
+        type: Number,
         required: true
     },
 
 
-    senderName:{
+    senderName: {
 
-        type:String,
+        type: String,
         required: true
 
     },
 
-    receiverId:{
+    receiverId: {
 
-        type:String,
+        type: Number,
         required: true
 
     },
 
-    receiverName:{
+    receiverName: {
 
-        type:String,
+        type: String,
         required: true
 
     },
-   
-    message:{
 
-        type:String,
+    message: {
+
+        type: String,
         required: true
 
     },
@@ -51,6 +54,6 @@ var chatSchema = new mongooseSchema
 });
 
 
-module.exports = mongoose.model('Chat', UserSchema);
+module.exports = mongoose.model('Chat', chatSchema);
 
 

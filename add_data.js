@@ -77,7 +77,8 @@ for(var i = 0; i<6; i++){
         full_name: 'firstname_lastname' + i,
         rating: 2,
         pw: 'password1',
-        description : 'description' + i
+        description : 'description' + i,
+        contact_number : i
     }
     db.insertOne(collection, user);
 }
@@ -133,3 +134,18 @@ for(var i = 0; i<6; i++){
     }
     db.insertOne(collection, listing);
 }
+
+collection = 'chats';
+
+for(var i = 0; i<6; i++){
+    var chat = {
+        conversationId: 1000+i,
+        senderId : 10+i,
+        receiverId : 16-i,
+        senderName : 'name'+i,
+        receiverName : 'namer'+i,
+        message : "text"+i
+    }
+    db.insertOne(collection, chat);
+}
+
