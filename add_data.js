@@ -99,7 +99,8 @@ for(var i = 0; i<6; i++){
     var comment = {
         comment_id: 100+i,
         poster : 1001+i,
-        description : 'description' + i
+        description : 'description' + i,
+        listing_id: 10000+i
     }
     db.insertOne(collection, comment);
 }
@@ -127,7 +128,8 @@ for(var i = 0; i<6; i++){
         listing_id: 10000+i,
         name : 'name' + i,
         description : 'description' + i,
-        owner : 1001+i
+        owner : 1001+i,
+        rating : 2
     }
     db.insertOne(collection, listing);
 }

@@ -30,9 +30,11 @@
 					<br><br>
 					
 					<div class="CRUD">
-						<a href="profile_edit.html"><button class="btn btn-outline-dark"><span class="fas fa-pencil-alt"></span>Edit Info</button></a>
 						<a href="rating_create.html"  class="btn btn-outline-dark"><span class="fas fa-plus-square" ></span> Rate Account</a>
+						{{#if owner}}
+						<a href="profile_edit.html"><button class="btn btn-outline-dark"><span class="fas fa-pencil-alt"></span>Edit Info</button></a>
 						<a href="profile_del.html"  class="btn btn-outline-dark"><span class="fas fa-trash-alt" ></span> Delete Account</a>
+						{{/if}}
 					</div>
 				</div>
 				<div class="content card-body col-md-7">

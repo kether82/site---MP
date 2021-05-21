@@ -53,7 +53,8 @@ const profile_controller = {
                     "user_name" : result.user_name,
                     "rating" : result.rating
                 };
-                var query = {owner: details.user_id}
+                var query = {owner: details.user_id};
+                console.log(query);
                 var projection = "name listing_id description";
                 db.findMany(Listing, query, projection, function(result){
                     console.log(result);
@@ -64,7 +65,9 @@ const profile_controller = {
                                         "item_desc": arr['description'],
                                         "item_id": arr['listing_id']
                                     }));
-
+                    // if(req.session.id === details.user_id){
+                    //     details.owner = true;
+                    // }
                         console.log(details);
                         res.render('profile', details);
                     }

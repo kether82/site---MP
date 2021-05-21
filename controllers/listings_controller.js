@@ -16,38 +16,37 @@ const listings_controller = {
     */
     getListings: function (req, res) {
 
+        var query = {};
+        var projection = "";
+        var details = {};
         db.findMany(Listing, {}, "", function (result) {
-            var query = {};
-            var projection = "";
-            var details = {};
-            db.findMany(Listing, query, projection, function (result) {
-                console.log(result);
+            console.log(result);
 
-                if (result != null) {
-                    
-                    details.listing = result.map(arr => ({
-                        "name": arr['name'],
-                        "owner": arr['owner'],
-                        "description": arr['description'],
-                        "listing_id": arr['listing_id']
-                    }));
-                    // query ={user_id:owner};
-                    // projection ='full_name';
-                    // var owner_name;
-                    // db.findOne(Listing, query, projection, function(result){
-                    //     owner_name = result.full_name;
-                    // })
-                    //console.log(details);
-                    res.render('listings', details);
-                }
+            if (result != null) {
 
-                else {
-                    // render `../views/error.hbs`
-                    console.log("here");
-                    res.render('error');
-                }
-            })
+                details.listing = result.map(arr => ({
+                    "name": arr['name'],
+                    "owner": arr['owner'],
+                    "description": arr['description'],
+                    "listing_id": arr['listing_id']
+                }));
+                // query ={user_id:owner};
+                // projection ='full_name';
+                // var owner_name;
+                // db.findOne(Listing, query, projection, function(result){
+                //     owner_name = result.full_name;
+                // })
+                //console.log(details);
+                res.render('listings', details);
+            }
+
+            else {
+                // render `../views/error.hbs`
+                console.log("here");
+                res.render('error');
+            }
         })
+
     }
 }
 
