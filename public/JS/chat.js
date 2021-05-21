@@ -60,6 +60,10 @@ $(document).ready(function() {
             </div>`
 
             $("#contacts_main_container").append(html);
+
+            $("#name").val("");
+            $("#email").val("");
+            $("#number").val("");
         }
 
         else $('#error-msg-contact').show();
