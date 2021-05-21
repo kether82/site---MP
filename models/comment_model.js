@@ -15,7 +15,16 @@ var CommentSchema = new mongoose.Schema({
     description:{
         type: String,
         required: true
+    },
+    listing_id:{
+        type: Number,
+        required: true
+    },
+    time: {
+        type: Date,
+        default: Date.now
     }
+    
 
 
 });

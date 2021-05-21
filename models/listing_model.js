@@ -19,6 +19,10 @@ var ListingSchema = new mongoose.Schema({
     owner:{
         type: Number,
         required: true
+    },
+    rating:{
+        type: Number,
+        required: true
     }
     // image:{
     //     type: Buffer,
