@@ -1,15 +1,8 @@
-// import module `validationResult` from `express-validator`
-const { validationResult } = require('express-validator');
-
-// import module `bcrypt`
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
-
 // import module `database` from `../models/db.js`
 const db = require('../models/db.js');
 
 // import module `User` from `../models/UserModel.js`
-const User = require('../models/user_model.js');
+const Chat = require('../models/chat_model.js');
 
 
 /*
@@ -19,27 +12,42 @@ const User = require('../models/user_model.js');
 const  chatController = {
 
     getConversation: function (req, res) {
-        var query = {}
-        db.findMany(User, {}, "", function (result) {
+        var user_id = (req.params.user_id).toString();
+        var query = {senderId : user_id};
+        console.log(query);
+        db.findMany(Chat, {}, "", function (result) {
             console.log(result);
-            var details ={};
-            if (result != null) {
-                details.account = result.map(arr => ({
-                    "name": arr['full_name'],
-                    "rating": arr['rating'],
-                    "description": arr['description'],
-                    "user_name": arr['user_name']
+            
+            var convo = result.conversationId;
+            db.findMany(Chat, {conversationId : convo}, "",(result)=>{
+                var details = {};
+                if(result!=null){
 
-                }));
+                    details.conversation = result.map(arr => ({
+                        "start_end" : 'start',
+                        'person' : 'you',
+                        'message' : arr['message']
+                    }));
 
-                //console.log(details);
-                res.render('accounts', details);
-            } else {
-                // render `../views/error.hbs`
-                console.log("here");
-                res.render('error');
-            }
+                    details.contacts = result.map(arr =>({
+                        "name" : arr['receiverName']
+                    }));
+
+
+                    if(user_id === result.senderId){
+                        details.other_party = result.receiverName;
+                    }else{
+                        details.other_party = result.senderName;
+                    }
+
+                    res.render('chat',details);
+                }else{
+                    res.render('error');
+                }
+            })
         })
     }
 
 }
+
+module.exports = chatController;
