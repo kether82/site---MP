@@ -48,7 +48,7 @@ $(document).ready(function() {
 
         if(validateContact(name, email, number)) {
 
-            $('error-msg-contact').hide();
+            $('#error-msg-contact').hide();
             $('.card_add_contacts').hide();
             $('.contacts_container').show();
 
