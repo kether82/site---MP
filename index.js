@@ -9,7 +9,11 @@ const hbs = require('hbs');
 
 // import module `routes` from `./routes/routes.js`
 const routes = require('./routes/routes.js');
+const mongoose = require('mongoose');
+const session = require('express-session');
 
+const MongoStore = require('connect-mongo');
+const mongoURL = 'mongodb://localhost:27017/market_place';
 // import module `database` from `./model/db.js`
 const db = require('./models/db.js');
 
@@ -28,6 +32,14 @@ app.use(express.urlencoded({extended: true}));
 // set the folder `public` as folder containing static assets
 // such as css, js, and image files
 app.use(express.static('public'));
+
+app.use(session({
+    secret: 'market_place',
+    resave: false,
+    saveUnitialized: false,
+    store: MongoStore.create({'mongoUrl': mongoURL})
+    //cookie: { secure: true }
+}))
 
 // define the paths contained in `./routes/routes.js`
 app.use('/', routes);

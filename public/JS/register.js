@@ -1,6 +1,6 @@
 $(document).ready(function(){
-
-    $('button').click(function() {
+    $('.errors').text('');
+    $('#verify').click(function(e) {
         var full_name = $("#name");
         var username = $("#u_name");
         var password = $("#p_word");
@@ -28,15 +28,22 @@ $(document).ready(function(){
         else if(contact_number.val() === "")
             alert("ERROR: Contact Number is empty.");
 
-        else if(Number.isInteger(contact_number.val()) == false)
-            alert("ERROR: Please put a number in the contact number field.");
+        // else 
+        // if(!Number.isInteger(contact_number.val()))
+        //     alert("ERROR: Please put a number in the contact number field.");
 
         else {
-            if(password.val() === confirm_password.val())
-                alert("Successfully registered as " + username.val() + ".");
+            if(password.val() === confirm_password.val()){
+                alert("You may now submit");
+                $('button').prop('disabled',false);
+            }
+                
           
         else
             alert("ERROR:  Password and Confirm Password doesn't match.");
         }
+
+        $('.errors').text('');
     });        
+
 });
