@@ -3,13 +3,15 @@
 </div>
 <div class="comment description">
     <div class="card-header person">
-        {{comment.user}}
+        {{poster_name}}
+        {{#if poster_owner_flag}}
         <span class="updel"><a href="comment_edit.html" class="btn btn-outline-dark"><span
                     class="fas fa-pencil-alt"></span></a>
             <a class="btn btn-outline-dark" href="comment_del.html"><span class="fas fa-trash-alt"></span></a></span>
+        {{/if}}
     </div>
     <div class="card-body text">
-        {{comment.desc}}
+        {{description}}
     </div>
     <br><br>
     <a class="btn btn-outline-dark" href="comment_create.html"><span class="fas fa-plus-square"></span> Add comment</a>
