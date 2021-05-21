@@ -23,5 +23,6 @@ app.get('/chat',controller.get_chat);
 app.get('/register',controller.get_register);
 app.get('/accounts',accounts_controller.getAccounts);
 app.get('/listings',listings_controller.getListings);
+app.get('/listings/find',listings_controller.findListings);
 // app.get('/logout',controller.get_logout);
 module.exports = app;
