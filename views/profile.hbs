@@ -1,40 +1,127 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Profile</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+		integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	<link rel="stylesheet" href="../CSS/profile.css">
 
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="/JS/profile.js" type="text/javascript"></script>
+</head>
 
-
-
-  </head>
-  <body>
+<body>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-	
-    <div class="row container-fluid">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+
+	<div class="row container-fluid">
 		{{> nav_partial}}
 		<div class="col-md-10">
 			<div class="row profile-content">
 				<div class="col-md-4">
 					<img class="profile card-img" src="../Images/{{user_name}}.png" alt="{{user_name}}" />
 					<br><br>
-					
+
 					<div class="CRUD">
-						<a href="rating_create.html"  class="btn btn-outline-dark"><span class="fas fa-plus-square" ></span> Rate Account</a>
-						{{#if owner}}
-						<a href="profile_edit.html"><button class="btn btn-outline-dark"><span class="fas fa-pencil-alt"></span>Edit Info</button></a>
-						<a href="profile_del.html"  class="btn btn-outline-dark"><span class="fas fa-trash-alt" ></span> Delete Account</a>
-						{{/if}}
+						<button id="rate-acc" class="btn btn-outline-dark"><i class="fas fa-plus-square mr-1"
+								aria-hidden="true"></i>Rate
+							Account</button>
+						{{!-- {{#if owner}} --}}
+						<button id="edit-info" class="btn btn-outline-dark"><i class="fas fa-pencil-alt mr-1"
+								aria-hidden="true"></i>Edit Info</button>
+
+						<button id="del-acc" class="btn btn-outline-dark"><i class="fas fa-trash-alt mr-1"
+								aria-hidden="true"></i>Delete Account</button>
+						{{!-- {{/if}} --}}
+					</div>
+				</div>
+				<div class="page-darken"></div>
+				<div class="rate-container card">
+					<h3 class="dropdown-header text-font">Rate Account</h3>
+					<div class="card-body">
+						<form class="form-group text-center">
+
+							<select id="rating">
+								<option value="" selected disabled hidden> Rate me!</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+							<div class="text-center mt-2 text-center mt-5">
+								<button id="cancel-rate" class="btn btn-outline-secondary btn-sm">Cancel</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="edit-container card">
+					<div class="row card-header d-flex justify-content-between">
+						<h3 class="dropdown-header text-font">Edit Information</h3>
+						<button id="exit-edit" class="btn btn-outline-secondary float-right">X</button>
+					</div>
+					<div class="card-body">
+						<form>
+							<div class="container-fluid">
+								<div class="form-group">
+									<label for="Name">Full Name</label>
+									<input type="text" class="form-control" id="name" placeholder="Input new name">
+								</div>
+							</div>
+							<div class="container-fluid">
+								<div class="form-group">
+									<label for="Name">Contact Number</label>
+									<input type="text" class="form-control" id="number"
+										placeholder="Input new contact number">
+								</div>
+							</div>
+							<div class="container-fluid">
+								<div class="form-group">
+									<label for="Name">Description</label>
+									<input type="text" class="form-control" id="description"
+										placeholder="Input new description">
+								</div>
+							</div>
+							<div id="error-msg" class="container-fluid error-edit-msg">
+								Please fill up all the
+								necessary fields.
+							</div>
+						</form>
+						<div class="text-center mt-2 text-center mt-5">
+							<button id="confirm-edit" class="btn btn-outline-secondary btn-sm">Confirm</button>
+						</div>
+					</div>
+				</div>
+				<div class="delete-container card">
+					<div class="">
+						<h3 class="dropdown-header text-center"><i id="warning-icon"
+								class="fas fa-exclamation-circle"></i>
+						</h3>
+					</div>
+					<div class="card-body">
+						<div class="warning-msg">
+							<h3>Your account will be deleted permanently !</h3>
+						</div>
+						<div class="warning-submsg mb-4">
+							<h6>Are you sure to proceed?</h6>
+						</div>
+						<div class="row d-flex justify-content-around">
+							<button id="cancel-delete" class="btn btn-outline-secondary">Cancel</button>
+							<button id="confirm-delete" class="btn btn-danger">Delete</button>
+						</div>
 					</div>
 				</div>
 				<div class="content card-body col-md-7">
@@ -42,14 +129,14 @@
 					<div class="name">
 						<p>{{full_name}}</p>
 					</div>
-					
+
 					<div class="rating">
 						{{rating}}
 						<span class="fas fa-star"></span>
 					</div>
 					<br>
 					<div class="description">
-							{{description}}
+						{{description}}
 					</div>
 				</div>
 			</div>
@@ -59,12 +146,13 @@
 				Items
 			</p>
 			<div class="row card-deck">
-                {{#each item}}
-                    {{>itemcard_partial}}
-                {{/each}}
+				{{#each item}}
+				{{>itemcard_partial}}
+				{{/each}}
 			</div>
 		</div>
 	</div>
-</div>
-  </body>
+	</div>
+</body>
+
 </html>
