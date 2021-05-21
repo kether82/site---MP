@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $("#send").click(function() {
+    $("#send").on('click', function() {
 
         var message = $("#message").val();
         console.log(message);
@@ -22,6 +22,18 @@ $(document).ready(function() {
             $("#message").val("");
         }
     });
+
+    $("#add-contact").on('click', function() {
+
+        $('.contacts_container').hide();
+        $('.card_add_contacts').show();  
+    });
+
+    $("#exit-add-contact").on('click', function() {
+
+        $('.card_add_contacts').hide();
+        $('.contacts_container').show();
+    })
 
     function validateField(content) {
 

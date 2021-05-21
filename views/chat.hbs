@@ -27,25 +27,37 @@
             <div class="container-fluid mt-5 ml-1">
                 <h2>Contacts</h2> <br>
                 <div class="card card_contacts">
-                    <div class="input-group">
-                        <input class="form-control float-left" placeholder="Search"></input>
-                        <button type="button" class="btn btn-outline-secondary float-right"><i class="fa fa-search"
-                                aria-hidden="true"></i></button>
-                        <button type="button" class="btn btn-outline-secondary float-right"><i class="fas fa-user-plus"
-                                aria-hidden="true"></i></button>
+                    <div class="contacts_container">
+                        <div class="input-group">
+                            <input class="form-control float-left" placeholder="Search"></input>
+                            <button id="search" type="button" class="btn btn-outline-secondary float-right"><i
+                                    class="fa fa-search" aria-hidden="true"></i></button>
+                            <button id="add-contact" type="button" class="btn btn-outline-secondary float-right"><i
+                                    class="fas fa-user-plus" aria-hidden="true"></i></button>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content">
+                                <i class="fa fa-user mt-1" aria-hidden="true"></i>
+                                <div class="container-fluid">Ivan Kitir Lim<span class="status-online">Online</span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content">
+                                <i class="fa fa-user mt-1" aria-hidden="true"></i>
+                                <div class="container-fluid">Pat Chon<span class="status-offline">Offline</span></div>
+                            </div>
+                            <div class="d-flex justify-content">
+                                <i class="fa fa-user mt-1" aria-hidden="true"></i>
+                                <div class="container-fluid">Kyle Chua<span class="status-offline">Offline</span></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content">
-                            <i class="fa fa-user mt-1" aria-hidden="true"></i>
-                            <div class="container-fluid">Ivan Kitir Lim<span class="status-online">Online</span></div>
+                    <div class="hide_card card_add_contacts">
+                        <div class="card-header d-flex justify-content-between">
+                            <h5 class="card-title">New Contact</h5>
+                            <button id="exit-add-contact" class="btn btn-outline-secondary float-right">X</button>
                         </div>
-                        <div class="d-flex justify-content">
-                            <i class="fa fa-user mt-1" aria-hidden="true"></i>
-                            <div class="container-fluid">Pat Chon<span class="status-offline">Offline</span></div>
-                        </div>
-                        <div class="d-flex justify-content">
-                            <i class="fa fa-user mt-1" aria-hidden="true"></i>
-                            <div class="container-fluid">Kyle Chua<span class="status-offline">Offline</span></div>
+                        <div class="card-body">
+                            This is the body
                         </div>
                     </div>
                 </div>
