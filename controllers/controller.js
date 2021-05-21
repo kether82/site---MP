@@ -28,7 +28,13 @@ const controller = {
     },
 
     get_chat: function (req, res) {
-        res.render('chat');
+
+        res.render('chat',{flag : false});
+    },
+
+    get_profile: function (req, res) {
+
+        res.render('profile', {flag : false});
     }
 }
 
