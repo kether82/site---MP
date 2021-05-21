@@ -5,7 +5,7 @@ $(document).ready(function() {
         var message = $("#message").val();
         console.log(message);
         
-        if(validateField(message)) {
+        if(validateMessage(message)) {
 
             var html = 
                 `<div class="d-flex justify-content-end mb-3">
@@ -33,13 +33,53 @@ $(document).ready(function() {
 
         $('.card_add_contacts').hide();
         $('.contacts_container').show();
-    })
+    });
 
-    function validateField(content) {
+    $("#add-new-contact").on('click', function() {
 
-        if (content == "")
+        var name = $("#name").val();
+        var email = $("#email").val();
+        var number = $("#number").val();
+
+        console.log(name);
+        console.log(email);
+        console.log(number);
+        console.log(validateContact(name, email, number));
+
+        if(validateContact(name, email, number)) {
+
+            $('error-msg-contact').hide();
+            $('.card_add_contacts').hide();
+            $('.contacts_container').show();
+
+            var html = 
+                `<div class="d-flex justify-content">
+                <i class="fa fa-user mt-1" aria-hidden="true"></i>
+                <div class="container-fluid">${name}<span class="status-online">Online</span>
+                </div>
+            </div>`
+
+            $("#contacts_main_container").append(html);
+        }
+
+        else $('#error-msg-contact').show();
+       
+    });
+
+    function validateMessage(message) {
+
+        if (message == "")
             return false;
         else
             return true;
+    }
+
+    function validateContact(name, email, number) {
+        
+        if(name === "" || email === "" || number === ""){
+            return false;
+        }
+
+        else return true;
     }
 });

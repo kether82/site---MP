@@ -15,11 +15,16 @@ h2 {
     
 }
 
+.error_contacts_msg {
+    color: red;
+    font-size: smaller;
+}
+
 .card_contacts {
     width: 300px;
 }
 
-.hide_card {
+.hide_content {
     display: none;
 }
 
