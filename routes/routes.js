@@ -24,7 +24,7 @@ app.get('/listing/:listing_id', listing_controller.getListing);
 // app.get('/chat',controller.get_chat);
 // app.get('/chat/:user_id',chat_controller.getConversation);
 // app.get('/login',login_controller.getLogIn);
-app.get('/register', controller.get_register);
+app.get('/register', register_controller.getRegister);
 app.post('/register', validation.signupValidation(), register_controller.postRegister);
 app.get('/check_user_name', register_controller.getCheckUserName);
 app.get('/success', success_controller.getSuccess);

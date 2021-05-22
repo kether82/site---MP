@@ -25,9 +25,9 @@ const registerController = {
     getRegister: function (req, res) {
         var details = {};
         console.log("ASDASD");
-        console.log(req.session.name);
+        console.log(req.session.id);
         // checks if a user is logged-in by checking the session data
-        if (req.session.name) {
+        if (req.session.id) {
 
             /*
                 sets `details.flag` to true
@@ -46,6 +46,8 @@ const registerController = {
             details.flag = true;
             details.name = req.session.name;
             details.id = req.session.user_id;
+            details.my_user_name = req.session.user_name;
+            details.user_fullname = req.session.name;
         }
 
         // else if a user is not yet logged-in
