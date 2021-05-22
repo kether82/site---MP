@@ -92,7 +92,7 @@ div#nav-container a:hover {
 
 .error{
     color:red ;
-    font-size: 30px;
+    /* font-size: 30px; */
 }
 
 .login-text {
