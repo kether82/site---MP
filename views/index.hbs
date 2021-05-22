@@ -21,7 +21,9 @@
 		<div class="row">
 			{{>nav_partial}}
 			<div class="col-md-10">
-				<br><br>
+				<div class="page-header mt-5 ml-3">
+					<h1>Home</h1>
+				</div>
 				<form role="form">
 					<div class="form-group container-fluid search">
 						<input type="search" class="form-control searchBar" id="searchBar"
@@ -31,9 +33,9 @@
 					</div>
 				</form>
 				<p>
-				<h2 class="ml-1">Top Selling</h2>
+				<h2 class="ml-3">Top Selling</h2>
 				</p>
-				<div class="row card-deck">
+				<div class="row card-deck ml-3">
 					{{#each item}}
 					{{>itemcard_partial }}
 					{{/each}}
