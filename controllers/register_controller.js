@@ -84,7 +84,7 @@ const registerController = {
             var details = {};
             
             // checks if a user is logged-in by checking the session data
-            if (req.session) {
+            if (req.session.id) {
 
                 /*
                     sets `details.flag` to true
@@ -182,6 +182,7 @@ const registerController = {
                                 which calls getSuccess() method
                                 defined in `./successController.js`
                             */
+
                             res.redirect('/success?username=' + username + '&fullName=' + full_name + '&userID=' + user_id2);
                         }
                     });

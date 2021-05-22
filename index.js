@@ -20,6 +20,15 @@ const db = require('./models/db.js');
 const app = express();
 const port = 3000;
 
+app.use(session({
+    secret: 'market_place',
+    resave: false,
+    saveUnitialized: false,
+    store: MongoStore.create({'mongoUrl': mongoURL}),
+    cookie: { path: '/', httpOnly: false }
+}))
+
+
 // set `hbs` as view engine
 app.set('view engine', 'hbs');
 
@@ -33,13 +42,6 @@ app.use(express.urlencoded({extended: true}));
 // such as css, js, and image files
 app.use(express.static('public'));
 
-app.use(session({
-    secret: 'market_place',
-    resave: false,
-    saveUnitialized: false,
-    store: MongoStore.create({'mongoUrl': mongoURL}),
-    cookie: { path: '/', httpOnly: false }
-}))
 
 // define the paths contained in `./routes/routes.js`
 app.use('/', routes);
