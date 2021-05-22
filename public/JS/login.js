@@ -12,7 +12,7 @@ function login_form() {
   
     // prob function to check if username and pw is in db
 
-    if(username ==="" && pw ===""){
+    if(username ==="" || pw ===""){
         alert('Invalid credentials. Username or Password is incorrect.')
 
         return false;
