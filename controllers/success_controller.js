@@ -20,7 +20,8 @@ const successController = {
         var details = {
             user_name: req.query.username,
             full_name: req.query.fullName,
-            userID: req.query.userID
+            userID: req.query.userID,
+            my_user_name : req.query.username
         };
         // console.log(details.userID);
 
