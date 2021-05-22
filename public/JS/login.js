@@ -2,7 +2,7 @@ $(document).ready(function () {
    
   });
   
-function login_form() {
+$("#login").click (function(e){
     var username = $('#username').val();
     var pw = $('#password').val();
     var check = $('#rememberMe').is(":checked");
@@ -20,4 +20,4 @@ function login_form() {
         alert("Something");
     }
 
-  }
+  });
