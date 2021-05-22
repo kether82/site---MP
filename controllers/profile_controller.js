@@ -16,10 +16,8 @@ const profile_controller = {
         as defined in `../routes/routes.js`
     */
     getProfile: function (req, res) {
-        console.log(req.session);
-        if(req.params.user_name != ""){
+        // console.log(req.session);
         // query where `idNum` is equal to URL parameter `idNum`
-        
         // var query ={full_name: req.params.user_id };
         var query = {user_name: req.params.user_name};
         // console.log(req.params.user_id);
@@ -46,6 +44,7 @@ const profile_controller = {
                 render the profile page with their details
             */
             //console.log(result);
+            
             if(result != null) {
                 var details = {
                     "user_id": result.user_id,
@@ -94,7 +93,6 @@ const profile_controller = {
                 res.render('error');
             }
         });
-        }else res.redirect('/login');
     },
 
     delProfile: function(req,res){
@@ -110,12 +108,13 @@ const profile_controller = {
             }
             console.log(query);
             db.deleteOne(User,query,(flag) =>{
-                // res.redirect('/logout');
+                res.redirect('/logout');
             });
         }else res.render('error');
     },
 
     editProfile : function(req,res){
+
         if(req.session.user_id){
             var user_name = req.session.user_name;
             var user_id = req.session.user_id;
