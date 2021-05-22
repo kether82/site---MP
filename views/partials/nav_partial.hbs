@@ -6,38 +6,43 @@
         </div>
     </a>
     <div class="btn-group btn-group-vertical special navibar" role="group">
-        <a class="btn btn-secondary mt-5" type="button" href="/index">
-            Home
-        </a>
-        <a class="btn btn-secondary" type="button" href="/profile/{{my_user_name}}">
-            Profile
-        </a>
-        <a class="btn btn-secondary" type="button" href="/chat">
-            Chat
-        </a>
+        <div>
+            <a class="btn btn-secondary mt-5" type="button" href="/index">
+                Home
+            </a>
+            <a class="btn btn-secondary" type="button" href="/profile/{{my_user_name}}">
+                Profile
+            </a>
+            <a class="btn btn-secondary" type="button" href="/chat">
+                Chat
+            </a>
 
-        <a class="btn btn-secondary" type="button" href="/register">
-            Register
-        </a>
-        <a class="btn btn-secondary" type="button" href="/accounts">
-            Accounts
-        </a>
-        <a class="btn btn-secondary" type="button" href="/listings">
-            Listings
-        </a>
+            <a class="btn btn-secondary" type="button" href="/register">
+                Register
+            </a>
+            <a class="btn btn-secondary" type="button" href="/accounts">
+                Accounts
+            </a>
+            <a class="btn btn-secondary" type="button" href="/listings">
+                Listings
+            </a>
 
-        {{#unless flag}}
-        <a class="btn btn-secondary" type="button" href="/login">
-            Login
-        </a>
-        {{/unless}}
+            {{#unless flag}}
+            <a class="btn btn-secondary" type="button" href="/login">
+                Login
+            </a>
+            {{/unless}}
+            {{#if flag}}
+            <a class="btn btn-secondary" type="button" href="/logout">
+                Logout
+            </a>
+            {{/if}}
+        </div>
         {{#if flag}}
-        <a class="btn btn-secondary" type="button" href="/logout">
-            Logout
-        </a>
-        <p>
-            {{user_fullname}}
-        </p>
+        <div class="container-fluid text-center login-text login-text">
+            <h6>Currently logged in as:</h6>
+            <h5>{{user_fullname}}</h5>
+        </div>
         {{/if}}
     </div>
 </div>
