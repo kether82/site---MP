@@ -30,7 +30,7 @@ const loginController = {
                 which calls getProfile() method
                 defined in `./profileController.js`
             */
-            res.redirect('/profile/' + req.session.id);
+            res.redirect('/profile/' + req.session.user_name);
         }
 
         // else if a user is not yet logged-in
@@ -79,7 +79,8 @@ const loginController = {
 
                 var user = {
                     id : result.user_id,
-                    name : result.full_name
+                    name : result.full_name,
+                    user_name : result.user_name
                 };
 
                 /*
@@ -106,7 +107,7 @@ const loginController = {
                         */
                         req.session.user_id = user.id;
                         req.session.name = user.full_name;
-
+                        req.session.user_name = user.user_name;
                         /*
                             redirects the client to `/profile/idNum`
                             where `idNum` is equal

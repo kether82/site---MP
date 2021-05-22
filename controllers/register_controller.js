@@ -26,7 +26,7 @@ const registerController = {
         var details = {};
 
         // checks if a user is logged-in by checking the session data
-        if (req.session.user_id) {
+        if (req.session.id) {
 
             /*
                 sets `details.flag` to true
@@ -98,6 +98,7 @@ const registerController = {
                 */
                 details.flag = true;
                 details.name = req.session.name;
+                details.user_name = req.session.user_name;
                 details.id = req.session.user_id;
             }
 
@@ -156,7 +157,7 @@ const registerController = {
                     user_id: user_id2,
                     rating: rating
                 }
-                console.log(user);
+                // console.log(user);
 
                 bcrypt.hash(pw, saltRounds, function (err, hash) {
                     user.pw = hash;
@@ -189,7 +190,7 @@ const registerController = {
         executed when the client sends an HTTP GET request `/getCheckID`
         as defined in `../routes/routes.js`
     */
-    getCheckID: function (req, res) {
+    getCheckUserName: function (req, res) {
 
         /*
             when passing values using HTTP GET method
@@ -197,7 +198,7 @@ const registerController = {
             Example url: `http://localhost/getCheckID?idNum=11312345`
             To retrieve the value of parameter `idNum`: `req.query.idNum`
         */
-        var id = req.query.id;
+        var user_name = req.query.user_name;
 
         /*
             calls the function findOne()
@@ -206,7 +207,7 @@ const registerController = {
             sends an empty string to the user if there are no match
             otherwise, sends an object containing the `idNum`
         */
-        db.findOne(User, { user_id: id }, 'user_id', function (result) {
+        db.findOne(User, { user_name: user_name }, 'user_name', function (result) {
             res.send(result);
         });
     }

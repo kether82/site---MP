@@ -1,5 +1,17 @@
+
+
 $(document).ready(function(){
     $('.errors').text('');
+    $('#u_name').keyup(()=>{
+        let user_name = ($('#u_name').val().trim());
+        jQuery.get('/check_user_name', {user_name:user_name},function(res){
+            if(res.user_name != user_name){
+
+            }else{
+                alert("Username is taken.");
+            }
+        })
+    })
     $('#verify').click(function(e) {
         var full_name = $("#name");
         var username = $("#u_name");
@@ -16,8 +28,9 @@ $(document).ready(function(){
         if(full_name.val() === "")
             alert("ERROR: Full name is empty.");
         
-        else if(username.val() === "")
+        else if(username.val() === ""){
             alert("ERROR: Username is empty.");
+        }
 
         else if(password.val() === "")
             alert("ERROR: Password is empty.");
@@ -37,10 +50,7 @@ $(document).ready(function(){
                 alert("You may now submit");
                 $('button').prop('disabled',false);
             }
-                
-          
-        else
-            alert("ERROR:  Password and Confirm Password doesn't match.");
+            else alert("ERROR:  Password and Confirm Password doesn't match.");
         }
 
         $('.errors').text('');

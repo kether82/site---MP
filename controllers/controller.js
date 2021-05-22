@@ -16,7 +16,14 @@ const controller = {
     get_index: function (req, res) {
 
         // render `../views/index.hbs`
-        res.render('index',{flag : false});
+        if(req.session.user_id){
+            res.redirect('/profile' + req.session.user_name);
+        }else{
+            var details={
+                flag : false
+            };
+            res.render('index',details);
+        }
     },
 
     get_login: function(req,res){

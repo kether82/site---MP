@@ -65,9 +65,9 @@ const profile_controller = {
                                         "item_desc": arr['description'],
                                         "item_id": arr['listing_id']
                                     }));
-                    // if(req.session.id === details.user_id){
-                    //     details.owner = true;
-                    // }
+                    if(req.session.user_id === details.user_id){
+                        details.owner = true;
+                    }
                         console.log(details);
                         res.render('profile', details);
                     }

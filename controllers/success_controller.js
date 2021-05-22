@@ -14,17 +14,18 @@ const successController = {
         /*
             when passing values using HTTP GET method
             the values are stored in the req.query object
-            Example url: `http://localhost/success?fName=A&lName=B&idNum=123`
+            Example url: res.redirect('/success?username=' + username + '&fullName=' + full_name + '&userID=' + user_id2);
             To retrieve the value of parameter `fName`: req.query.fName
         */
         var details = {
-            username: req.query.username,
+            user_name: req.query.username,
             full_name: req.query.fullName,
-            user_id: req.query.userID
+            userID: req.query.userID
         };
+        console.log(details.userID);
 
         // checks if a user is logged-in by checking the session data
-        if(req.session.idNum) {
+        if(req.session.id) {
 
             /*
                 sets `details.flag` to true
@@ -41,8 +42,9 @@ const successController = {
                 these values are rendered in `../views/partials/header.hbs`
             */
             details.flag = true;
-            req.session.user_id = user.id;
-            req.session.name = user.full_name;
+            req.session.user_id = details.userID;
+            req.session.user_name = details.user_name;
+            req.session.name = details.full_name;
         }
 
         // else if a user is not yet logged-in
