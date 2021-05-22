@@ -32,10 +32,11 @@
 		<div class="row">
 			{{>nav_partial}}
 			<div class="col-md-10 no-gutters">
-				<div class="page-header">
+				<div class="page-header mt-5 ml-3">
 					<h1>Register</h1>
+					<h6>Please fill in this form to create an account</h6>
 				</div>
-				<form role="form" method="POST">
+				<form class="mb-5" role="form" method="POST">
 					<div class="form-group  w-50 p-3 ">
 						<label for="fullName">
 							Full Name
@@ -82,12 +83,14 @@
 							Upload Profile Picture
 						</p>
 					</div>
-					<button type="submit" class="btn btn-primary" disabled>
-						Submit
-					</button>
-					<button class="btn btn-primary" id="verify" type="button">
-						Verify
-					</button>
+					<div class="col-md-10">
+						<button type="submit" class="btn btn-secondary submit-btn-size" disabled>
+							Submit
+						</button>
+						<button class="btn btn-secondary verify-btn-size" id="verify" type="button">
+							Verify
+						</button>
+					</div>
 					<div class="error">
 						{{error}}
 					</div>
