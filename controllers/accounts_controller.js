@@ -16,7 +16,7 @@ const accounts_controller = {
     */
     getAccounts: function (req, res) {
         db.findMany(User, {}, "", function (result) {
-            console.log(result);
+            // console.log(result);
             var details ={};
             if (result != null) {
                 details.account = result.map(arr => ({
@@ -27,11 +27,18 @@ const accounts_controller = {
 
                 }));
 
-                //console.log(details);
+                if(req.session.id){
+                    details.my_user_name = req.session.user_name;
+                    details.flag = true;
+                    details.user_fullname = req.session.name;
+                }
+
+                // console.log(details);
                 res.render('accounts', details);
+
             } else {
                 // render `../views/error.hbs`
-                console.log("here");
+                // console.log("here");
                 res.render('error');
             }
         })

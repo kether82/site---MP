@@ -20,7 +20,7 @@ const listings_controller = {
         var projection = "";
         var details = {};
         db.findMany(Listing, {}, "", function (result) {
-            console.log(result);
+            // console.log(result);
 
             if (result != null) {
 
@@ -37,12 +37,17 @@ const listings_controller = {
                 //     owner_name = result.full_name;
                 // })
                 //console.log(details);
+                if(req.session.id){
+                    details.my_user_name = req.session.user_name;
+                    details.flag = true;
+                    details.user_fullname = req.session.name;
+                }
                 res.render('listings', details);
             }
 
             else {
                 // render `../views/error.hbs`
-                console.log("here");
+                // console.log("here");
                 res.render('error');
             }
         })

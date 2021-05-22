@@ -57,7 +57,7 @@ const listing_controller = {
                 var query = {listing_id: details.item_id}
                 var projection = "";
                 db.findMany(Comment, query, projection, function(result){
-                    console.log(result);
+                    // console.log(result);
                     
                     if(result != null) {
                         details.comments = result.map(arr =>({
@@ -74,14 +74,19 @@ const listing_controller = {
                                             comment.poster_name = result.full_name;
                                         });
                                     });
-                                    
-
-                        if(req.session.user_id === details.owner){
-                            details.owner_flag = true;
-                        }
-                            // console.log(details);
-                            res.render('listing', details);
                     }
+                    if(req.session.user_id == details.owner){
+                        details.owner_flag = true;
+                    }
+                    if(req.session.id){
+                        details.my_user_name = req.session.user_name;
+                        details.flag = true;
+                        details.user_fullname = req.session.name;
+                    }
+
+
+                        // console.log(details);
+                        res.render('listing', details);
                 })
                 
             }
@@ -91,7 +96,7 @@ const listing_controller = {
             */
             else {
                 // render `../views/error.hbs`
-                console.log("here");
+                // console.log("here");
                 res.render('error');
             }
         });
