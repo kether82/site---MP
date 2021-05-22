@@ -145,14 +145,17 @@
 			</div>
 
 			<hr>
-			<p class="card-body">
-				Items
-			</p>
-			<div class="row card-deck">
-				{{#each item}}
-				{{>itemcard_partial}}
-				{{/each}}
+			<div id="items-container">
+				<p class="card-body">
+					Items
+				</p>
+				<div class="row card-deck">
+					{{#each item}}
+					{{>itemcard_partial}}
+					{{/each}}
+				</div>
 			</div>
+
 		</div>
 	</div>
 	</div>
