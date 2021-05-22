@@ -43,6 +43,14 @@ p{
     z-index: 10;
 }
 
+.addlist-container {
+    position: absolute;
+    top: calc(50% - 270px); 
+    left: calc(50% - 200px); 
+    display: none;
+    z-index: 10;
+}
+
 .edit-container {
     position: absolute;
     display: none;

@@ -19,9 +19,53 @@ $(document).ready(function() {
         $(".rate-container").hide();
         $(".page-darken").hide();
     });
+
+    $("#add-list").on('click', function() {
+
+        $("#add-error-msg").hide();
+        $(".addlist-container").show();
+        $(".page-darken").show(); 
+    });
+
+    $("#cancel-addlist").on('click', function() {
+
+        $(".addlist-container").hide();
+        $(".page-darken").hide(); 
+    });
+
+    $("#confirm-addlist").on('click', function() {
+
+        var name = $("#name").val();
+        var description = $("#description").val();
+        //get image
+
+        console.log(name);
+        console.log(description);
+
+        if(validateAddList(name, description)) {
+            $("#add-error-msg").hide();
+            $(".addlist-container").hide();
+            $(".page-darken").hide(); 
+    
+            //CODE ADD CONTENTS OF ADD LIST DB
+        }
+
+        else $("#add-error-msg").show();
+    });
+
+    //image to be added if ever
+    function validateAddList(name, description) {
+
+        if(name === "" || description === ""){
+            return false;
+        }
+
+        else return true;
+    }
+
     //EDIT ACCOUNT TO BE IMPROVED WHEN DATABASE IS AVAILABLE
     $("#edit-info").on('click', function () {
-
+        
         $(".page-darken").show();
         $(".edit-container").show();
 
@@ -31,6 +75,7 @@ $(document).ready(function() {
 
         $(".edit-container").hide();
         $(".page-darken").hide();
+        $("#edit-error-msg").hide();
     });
 
     $("#confirm-edit").on('click', function () {
@@ -50,7 +95,7 @@ $(document).ready(function() {
         }
 
         else {
-            $("#error-msg").show();
+            $("#edit-error-msg").show();
         }
     });
 
