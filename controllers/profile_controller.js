@@ -70,7 +70,7 @@ const profile_controller = {
                     if(req.session.user_id == details.user_id){
                         details.owner = true;
                     }
-                    console.log(req.session);
+                    console.log(req.session.id);
                     if(req.session.id){
                         details.my_user_name = req.session.user_name;
                         details.flag = true;
@@ -93,14 +93,13 @@ const profile_controller = {
                 res.render('error');
             }
         });
-    }else res.redirect('/login');
-}
-    ,
+        }else res.redirect('/login');
+    },
 
     delProfile: function(res,req){
-        console.log(req.session);
         console.log(req);
-        
+        console.log(req.session.user_id);
+
         if(req.session.id){
             var user_name = req.session.user_name;
             var user_id = req.session.user_id;
@@ -110,7 +109,15 @@ const profile_controller = {
             }
             db.deleteOne(User,query);
         }else res.render('error');
+        //ano
+    },
+
+    editProfile : function(res,req){
+        // console.log(req.session);
     }
+
+
+
 }
 
 
