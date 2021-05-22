@@ -31,11 +31,11 @@ var UserSchema = new mongoose.Schema({
     contact_number:{
         type: String,
         required: true
-    }
-    // image:{
-    //     type: Buffer,
-    //     required: true
-    // } 
+    },
+    image:{
+        type: String,
+        required: true
+    } 
 });
 
 /*

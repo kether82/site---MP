@@ -23,11 +23,11 @@ var ListingSchema = new mongoose.Schema({
     rating:{
         type: Number,
         required: true
+    },
+    image:{
+        type: Buffer,
+        required: true
     }
-    // image:{
-    //     type: Buffer,
-    //     required: true
-    // }
 });
 
 /*

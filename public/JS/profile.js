@@ -34,21 +34,22 @@ $(document).ready(function() {
     });
 
     $("#confirm-addlist").on('click', function() {
-
         var name = $("#name").val();
         var description = $("#itemDesc").val();
         //get image
-
-        console.log(name);
-        console.log(description);
-
+        //write image to path
+        var pic = document.querySelector('#itemPic');
+        console.log(pic);
+        const file = pic.files[0];
+        const picURI = URL.createObjectURL(file);
+        console.log(picURI);
         if(validateAddList(name, description)) {
             $("#add-error-msg").hide();
             $(".addlist-container").hide();
             $(".page-darken").hide(); 
-    
-            //CODE ADD CONTENTS OF ADD LIST DB
-            jQuery.post("/profile/",{name : name, description : description},function(val){
+            // console.log(picURI);
+            // CODE ADD CONTENTS OF ADD LIST DB
+            jQuery.post("/profile/",{name : name, description : description, pic: picURI},function(val){
                 // console.log(val.listing_id);
                 // window.location.replace("/listing/"+val.listing_id);
                 $('body').load('');
@@ -56,6 +57,7 @@ $(document).ready(function() {
         }
 
         else $("#add-error-msg").show();
+
     });
 
     //image to be added if ever
