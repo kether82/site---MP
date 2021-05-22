@@ -90,6 +90,11 @@ div#nav-container a:hover {
     margin: 15px;
 }
 
+.card-img-top{
+    height: 300px;
+    width: 300px;
+}
+
 .error{
     color:red ;
     /* font-size: 30px; */
