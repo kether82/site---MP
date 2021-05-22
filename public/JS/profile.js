@@ -3,7 +3,7 @@ $(document).ready(function() {
     $("#rate-acc").on('click', function () {
 
         $(".rate-container").show();
-        $(".page-darken").show();
+        $(".page-darken").show(); 
     });
     
     
