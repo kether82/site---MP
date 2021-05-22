@@ -1,14 +1,14 @@
 
-
 $(document).ready(function(){
     $('.errors').text('');
     $('#u_name').keyup(()=>{
         let user_name = ($('#u_name').val().trim());
         jQuery.get('/check_user_name', {user_name:user_name},function(res){
             if(res.user_name != user_name){
-
+                $('#verify').prop('disabled',false);
             }else{
                 alert("Username is taken.");
+                $('#verify').prop('disabled',true);
             }
         })
     })

@@ -15,13 +15,16 @@ const logoutController = {
             logs-out the current user
             destroys the current values stored in `req.session`
         */
-        req.session.destroy(function(err) {
+            console.log("destro");
+            req.session.destroy(function(err) {
             if(err) throw err;
 
             /*
                 redirects the client to `/profile` using HTTP GET,
                 defined in `../routes/routes.js`
             */
+                console.log("destroy???");
+                console.log(req.session);
             res.redirect('/');
         });
 

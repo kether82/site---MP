@@ -54,10 +54,10 @@ const profile_controller = {
                     "rating" : result.rating
                 };
                 var query = {owner: details.user_id};
-                console.log(query);
+                // console.log(query);
                 var projection = "name listing_id description";
                 db.findMany(Listing, query, projection, function(result){
-                    console.log(result);
+                    // console.log(result);
                     
                     if(result != null) {
                         details.item = result.map(arr =>({
@@ -65,12 +65,16 @@ const profile_controller = {
                                         "item_desc": arr['description'],
                                         "item_id": arr['listing_id']
                                     }));
-                    if(req.session.user_id === details.user_id){
-                        details.owner = true;
                     }
+                    console.log(req.session.user_id + "vs" + details.user_id);
+                    if(req.session.user_id == details.user_id){
+                        details.owner = true;
+                        details.flag = true;
+                    }
+
                         console.log(details);
                         res.render('profile', details);
-                    }
+                    
                 })
                 
             }

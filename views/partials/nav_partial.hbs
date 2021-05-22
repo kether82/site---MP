@@ -15,11 +15,7 @@
         <a class="btn btn-secondary" type="button" href="/chat">
             Chat
         </a>
-        {{#unless flag}}
-        <a class="btn btn-secondary" type="button" href="/login">
-            Login
-        </a>
-        {{/unless}}
+
         <a class="btn btn-secondary" type="button" href="/register">
             Register
         </a>
@@ -29,8 +25,14 @@
         <a class="btn btn-secondary" type="button" href="/listings">
             Listings
         </a>
+        
+        {{#unless flag}}
+        <a class="btn btn-secondary" type="button" href="/login">
+            Login
+        </a>
+        {{/unless}}
         {{#if flag}}
-        <a class="btn btn-secondary" type="button" href="/index">
+        <a class="btn btn-secondary" type="button" href="/logout">
             Logout
         </a>
         <p>

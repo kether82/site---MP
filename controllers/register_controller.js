@@ -24,9 +24,10 @@ const registerController = {
     */
     getRegister: function (req, res) {
         var details = {};
-
+        console.log("ASDASD");
+        console.log(req.session.name);
         // checks if a user is logged-in by checking the session data
-        if (req.session.id) {
+        if (req.session.name) {
 
             /*
                 sets `details.flag` to true
@@ -48,14 +49,15 @@ const registerController = {
         }
 
         // else if a user is not yet logged-in
-        else
+        else{
             /*
                 sets `details.flag` to false
                 to hide the profile and logout tabs in the nav bar
             */
             details.flag = false;
-
+            console.log("false");
         // render `../views/signup.hbs`
+        }
         res.render('register', details);
     },
 
@@ -78,9 +80,9 @@ const registerController = {
             errors = errors.errors;
 
             var details = {};
-
+            
             // checks if a user is logged-in by checking the session data
-            if (req.session.id) {
+            if (req.session) {
 
                 /*
                     sets `details.flag` to true

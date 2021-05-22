@@ -76,7 +76,7 @@ const listing_controller = {
                                     });
                                     
 
-                        if(req.session.user_id === details.owner){
+                        if(req.session.user_id == details.owner){
                             details.owner_flag = true;
                         }
                             // console.log(details);
