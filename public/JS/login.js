@@ -2,7 +2,7 @@ $(document).ready(function () {
    
   });
   
-function login_form() {
+$("#login").click (function(e){
     var username = $('#username').val();
     var pw = $('#password').val();
     var check = $('#rememberMe').is(":checked");
@@ -12,7 +12,7 @@ function login_form() {
   
     // prob function to check if username and pw is in db
 
-    if(username ==="" && pw ===""){
+    if(username ==="" || pw ===""){
         alert('Invalid credentials. Username or Password is incorrect.')
 
         return false;
@@ -20,4 +20,4 @@ function login_form() {
         alert("Something");
     }
 
-  }
+  });

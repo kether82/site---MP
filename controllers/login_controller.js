@@ -63,7 +63,7 @@ const loginController = {
             can be retrieved using `req.body.idNum`
         */
         var username = req.body.username;
-        var pw = req.body.pw;
+        var pw = req.body.password;
 
         /*
             calls the function findOne()
@@ -152,7 +152,7 @@ const loginController = {
                 */
                 var details = {
                     flag: false,
-                    error: `ID Number and/or Password is incorrect.`
+                    error: `Username and/or Password is incorrect.`
                 };
 
                 /*
