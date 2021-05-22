@@ -117,7 +117,7 @@ const loginController = {
                             defined in `./profileController.js`
                         */
                        
-                        res.redirect('/profile/' + user.id);
+                        res.redirect('/profile/' + user.user_name);
                     }
 
                     /*
