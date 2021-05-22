@@ -66,13 +66,17 @@ const profile_controller = {
                                         "item_id": arr['listing_id']
                                     }));
                     }
-                    console.log(req.session.user_id + "vs" + details.user_id);
+                    // console.log(req.session.user_id + "vs" + details.user_id);
                     if(req.session.user_id == details.user_id){
                         details.owner = true;
+                    }
+                    if(req.session.id){
+                        details.my_user_name = req.session.user_name;
                         details.flag = true;
+                        details.user_fullname = req.session.name;
                     }
 
-                        console.log(details);
+                        // console.log(details);
                         res.render('profile', details);
                     
                 })
@@ -84,7 +88,7 @@ const profile_controller = {
             */
             else {
                 // render `../views/error.hbs`
-                console.log("here");
+                // console.log("here");
                 res.render('error');
             }
         });

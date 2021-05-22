@@ -100,7 +100,7 @@ const registerController = {
                 */
                 details.flag = true;
                 details.name = req.session.name;
-                details.user_name = req.session.user_name;
+                details.my_user_name = req.session.user_name;
                 details.id = req.session.user_id;
             }
 
