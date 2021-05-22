@@ -15,7 +15,7 @@ const options = {
     useUnifiedTopology: true,
     useNewUrlParser: true
 };
-
+// copy from mco3
 // defines an object which contains necessary database functions
 const database = {
     connect: function () {
