@@ -100,6 +100,35 @@ const listing_controller = {
                 res.render('error');
             }
         });
+    },
+
+    addListing: function(req,res){
+        console.log(req.session.user_id);
+        var listing ={};
+        var name = req.body.name;
+        var description = req.body.description;
+        var listing_id = 0;
+        var owner = req.session.user_id;
+        Listing.findOne().sort('-listing_id').exec(function (err,listing){
+            listing_id = parseInt(listing.listing_id) + 1;
+
+            listing ={
+                name : name,
+                description : description,
+                listing_id : listing_id,
+                owner : owner,
+                rating : 0
+            }
+
+            db.insertOne(Listing,listing,function(flag){
+                if(flag){
+                    console.log("added");
+                    // res.status(200).send({listing_id : listing.listing_id})
+                    res.status(200).send();
+                    // res.redirect('/listing/' + listing.listing_id);
+                }
+            })
+        })
     }
 }
 

@@ -36,7 +36,7 @@ $(document).ready(function() {
     $("#confirm-addlist").on('click', function() {
 
         var name = $("#name").val();
-        var description = $("#description").val();
+        var description = $("#itemDesc").val();
         //get image
 
         console.log(name);
@@ -48,6 +48,11 @@ $(document).ready(function() {
             $(".page-darken").hide(); 
     
             //CODE ADD CONTENTS OF ADD LIST DB
+            jQuery.post("/profile/",{name : name, description : description},function(val){
+                // console.log(val.listing_id);
+                // window.location.replace("/listing/"+val.listing_id);
+                $('body').load('');
+            });
         }
 
         else $("#add-error-msg").show();

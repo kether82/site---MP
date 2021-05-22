@@ -21,6 +21,7 @@ app.get('/', controller.get_index);
 app.get('/index', controller.get_index);
 app.get('/profile/', profile_controller.getProfile);
 app.get('/profile/:user_name', profile_controller.getProfile);
+app.post('/profile/', listing_controller.addListing)
 app.get('/listing/:listing_id', listing_controller.getListing);
 // app.get('/chat',controller.get_chat);
 // app.get('/chat/:user_id',chat_controller.getConversation);
