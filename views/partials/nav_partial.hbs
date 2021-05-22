@@ -1,40 +1,38 @@
-<div class="col-md-2 ">
+<div id="nav-container" class="col-md-2 ">
     <a href="/index" class="app_name">
-        <div class="nav-title mt-5">
+        <div class="nav-title mt-5 mb-5 text-center">
             <span id="nav-title">NAVI</span>
             <br>
         </div>
     </a>
-    <div class="btn-group btn-group-vertical special navibar" role="group">
-        <div>
-            <a class="btn btn-secondary mt-5" type="button" href="/index">
-                Home
+    <div class="special navibar" role="group">
+        <div class="nav-item">
+            <a class="nav-link" type="button" href="/index"><i class="fas fa-home fa-fw"></i>&nbsp; Home
             </a>
-            <a class="btn btn-secondary" type="button" href="/profile/{{my_user_name}}">
-                Profile
-            </a>
-            <a class="btn btn-secondary" type="button" href="/chat">
-                Chat
+            <a class="nav-link" type="button" href="/profile/{{my_user_name}}"><i class="fas fa-user fa-fw"></i>&nbsp;
+                Profile</a>
+            <a class="nav-link" type="button" href="/chat">
+                <i class="fas fa-comments fa-fw"></i>&nbsp; Chat
             </a>
 
-            <a class="btn btn-secondary" type="button" href="/register">
-                Register
+            <a class="nav-link" type="button" href="/register">
+                <i class="fas fa-user-plus fa-fw"></i>&nbsp; Register
             </a>
-            <a class="btn btn-secondary" type="button" href="/accounts">
-                Accounts
+            <a class="nav-link" type="button" href="/accounts">
+                <i class="fas fa-users fa-fw"></i>&nbsp; Accounts
             </a>
-            <a class="btn btn-secondary" type="button" href="/listings">
-                Listings
+            <a class="nav-link" type="button" href="/listings">
+                <i class="fas fa-list-ul fa-fw"></i>&nbsp; Listings
             </a>
 
             {{#unless flag}}
-            <a class="btn btn-secondary" type="button" href="/login">
-                Login
+            <a class="nav-link" type="button" href="/login">
+                <i class="fas fa-sign-in-alt fa-fw"></i>&nbsp; Login
             </a>
             {{/unless}}
             {{#if flag}}
             <a class="btn btn-secondary" type="button" href="/logout">
-                Logout
+                <i class="fas fa-sign-out-alt fa-fw"></i>&nbsp; Logout
             </a>
             {{/if}}
         </div>

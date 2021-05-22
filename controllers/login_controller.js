@@ -116,7 +116,8 @@ const loginController = {
                             which calls getProfile() method
                             defined in `./profileController.js`
                         */
-                        res.redirect('/profile/' + user.id);
+                       
+                        res.redirect('/profile/' + user.user_name);
                     }
 
                     /*

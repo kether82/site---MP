@@ -3,3 +3,11 @@
 .page-header{
     height: 100px;
 }
+
+.submit-btn-size {
+    width: 20em;
+}
+
+.verify-btn-size {
+    width: 6em;
+}
