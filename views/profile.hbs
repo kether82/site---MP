@@ -40,7 +40,7 @@
 								aria-hidden="true"></i>Rate
 							Account</button>
 						{{#if owner}}
-						<button id="del-acc" class="btn btn-outline-dark"><i class="fas fa-trash-alt mr-1"
+						<button id="add-list" class="btn btn-outline-dark"><i class="fas fa-trash-alt mr-1"
 								aria-hidden="true"></i>Add Listing</button>
 						<button id="edit-info" class="btn btn-outline-dark"><i class="fas fa-pencil-alt mr-1"
 								aria-hidden="true"></i>Edit Info</button>
@@ -69,6 +69,37 @@
 						</form>
 					</div>
 				</div>
+				<div class="addlist-container card">
+					<div class="row card-header d-flex justify-content-between">
+						<h3 class="dropdown-header text-font">Add Listing</h3>
+						<button id="cancel-addlist" class="btn btn-outline-secondary float-right">X</button>
+					</div>
+					<div class="card-body">
+						<form class="form-group">
+							<div class="container-fluid">
+								<div class="form-group">
+									<label for="itemName">Item Name</label>
+									<input type="text" class="form-control" id="name" placeholder="Input item name">
+								</div>
+								<div class="form-group">
+									<label for="itemName">Description</label>
+									<input type="text" class="form-control" id="itemDesc"
+										placeholder="Input item description">
+								</div>
+								<div class="form-group">
+									<label for="itemPic">Item Image</label>
+									<input type="file" class="form-control" id="itemPic" />
+								</div>
+								<div id="add-error-msg" class="container-fluid error-edit-msg">
+									Please fill up item name and description.
+								</div>
+							</div>
+						</form>
+						<div class="text-center mt-2 text-center mt-5">
+							<button id="confirm-addlist" class="btn btn-outline-secondary btn-sm">Add</button>
+						</div>
+					</div>
+				</div>
 				<div class="edit-container card">
 					<div class="row card-header d-flex justify-content-between">
 						<h3 class="dropdown-header text-font">Edit Information</h3>
@@ -78,25 +109,25 @@
 						<form>
 							<div class="container-fluid">
 								<div class="form-group">
-									<label for="Name">Full Name</label>
+									<label for="name">Full Name</label>
 									<input type="text" class="form-control" id="name" placeholder="Input new name">
 								</div>
 							</div>
 							<div class="container-fluid">
 								<div class="form-group">
-									<label for="Name">Contact Number</label>
+									<label for="number">Contact Number</label>
 									<input type="text" class="form-control" id="number"
 										placeholder="Input new contact number">
 								</div>
 							</div>
 							<div class="container-fluid">
 								<div class="form-group">
-									<label for="Name">Description</label>
+									<label for="description">Description</label>
 									<input type="text" class="form-control" id="description"
 										placeholder="Input new description">
 								</div>
 							</div>
-							<div id="error-msg" class="container-fluid error-edit-msg">
+							<div id="edit-error-msg" class="container-fluid error-edit-msg">
 								Please fill up all the
 								necessary fields.
 							</div>
