@@ -14,7 +14,7 @@ const accounts_controller = require('../controllers/accounts_controller.js');
 const listings_controller = require('../controllers/listings_controller.js');
 const chat_controller = require('../controllers/chat_controller.js');
 const register_controller = require('../controllers/register_controller');
-
+const successController = require('../controllers/success_controller');
 
 app.get('/', controller.get_index);
 app.get('/index', controller.get_index);
@@ -26,7 +26,7 @@ app.get('/listing/:listing_id', listing_controller.getListing);
 // app.get('/login',login_controller.getLogIn);
 app.get('/register', controller.get_register);
 app.post('/register', validation.signupValidation(), register_controller.postRegister);
-app.get('/success', successController.getSuccess);
+ app.get('/success', successController.getSuccess);
 
 app.get('/accounts', accounts_controller.getAccounts);
 app.get('/listings', listings_controller.getListings);
