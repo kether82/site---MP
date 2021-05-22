@@ -24,8 +24,8 @@ const registerController = {
     */
     getRegister: function (req, res) {
         var details = {};
-        console.log("ASDASD");
-        console.log(req.session.id);
+        // console.log("ASDASD");
+        // console.log(req.session.id);
         // checks if a user is logged-in by checking the session data
         if (req.session.id) {
 

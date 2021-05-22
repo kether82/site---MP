@@ -30,5 +30,6 @@ app.get('/check_user_name', register_controller.getCheckUserName);
 app.get('/success', success_controller.getSuccess);
 app.get('/accounts', accounts_controller.getAccounts);
 app.get('/listings', listings_controller.getListings);
+app.get('/delete_account', profile_controller.delProfile);
 app.get('/logout', logoutController.getLogOut);
 module.exports = app;

@@ -37,8 +37,8 @@ app.use(session({
     secret: 'market_place',
     resave: false,
     saveUnitialized: false,
-    store: MongoStore.create({'mongoUrl': mongoURL})
-    //cookie: { secure: true }
+    store: MongoStore.create({'mongoUrl': mongoURL}),
+    cookie: { path: '/', httpOnly: false }
 }))
 
 // define the paths contained in `./routes/routes.js`
