@@ -13,9 +13,8 @@ const login_controller = require('../controllers/login_controller.js');
 const accounts_controller = require('../controllers/accounts_controller.js');
 const listings_controller = require('../controllers/listings_controller.js');
 const chat_controller = require('../controllers/chat_controller.js');
-const register_controller = require('../controllers/register_controller');
+const register_controller = require('../controllers/register_controller.js');
 const success_controller = require('../controllers/success_controller.js');
-
 
 app.get('/', controller.get_index);
 app.get('/index', controller.get_index);
