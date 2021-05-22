@@ -17,6 +17,7 @@ const successController = {
             Example url: res.redirect('/success?username=' + username + '&fullName=' + full_name + '&userID=' + user_id2);
             To retrieve the value of parameter `fName`: req.query.fName
         */
+        console.log(req.session);
         var details = {
             user_name: req.query.username,
             full_name: req.query.fullName,
@@ -26,7 +27,7 @@ const successController = {
         // console.log(details.userID);
 
         // checks if a user is logged-in by checking the session data
-        if(req.session.user_id) {
+        if(req.session.id) {
 
             /*
                 sets `details.flag` to true
@@ -46,6 +47,8 @@ const successController = {
             req.session.user_id = details.userID;
             req.session.user_name = details.user_name;
             req.session.name = details.full_name;
+            // console.log(req.session.id);
+            // console.log("session stored");
         }
 
         // else if a user is not yet logged-in
