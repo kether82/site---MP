@@ -17,6 +17,7 @@ const controller = {
 
         // render `../views/index.hbs`
         // console.log(req.session);
+        // check if already logged in
         if(req.session.id){
             res.render('index',
                 {flag:true,
@@ -29,7 +30,8 @@ const controller = {
             res.render('index',details);
         }
     },
-
+    // testing shit lng 
+    // yep
     get_login: function(req,res){
         res.render('login');
     },

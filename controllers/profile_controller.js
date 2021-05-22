@@ -96,9 +96,9 @@ const profile_controller = {
         }else res.redirect('/login');
     },
 
-    delProfile: function(res,req){
-        console.log(req);
-        console.log(req.session.user_id);
+    delProfile: function(req,res){
+        // console.log(req);
+        // console.log(req.session.user_id);
 
         if(req.session.id){
             var user_name = req.session.user_name;
@@ -107,13 +107,26 @@ const profile_controller = {
                 user_name : user_name,
                 user_id : user_id
             }
-            db.deleteOne(User,query);
+            console.log(query);
+            db.deleteOne(User,query,(flag) =>{
+                res.redirect('/logout');
+            });
         }else res.render('error');
-        //ano
     },
 
-    editProfile : function(res,req){
-        // console.log(req.session);
+    editProfile : function(req,res){
+        if(req.session.id){
+            var user_name = req.session.user_name;
+            var user_id = req.session.user_id;
+            var query ={
+                user_name : user_name,
+                user_id : user_id
+            }
+            console.log(query);
+            db.deleteOne(User,query,(flag) =>{
+                res.redirect('/logout');
+            });
+        }else res.render('error');
     }
 
 
