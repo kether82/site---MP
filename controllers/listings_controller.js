@@ -28,7 +28,8 @@ const listings_controller = {
                     "name": arr['name'],
                     "owner": arr['owner'],
                     "description": arr['description'],
-                    "listing_id": arr['listing_id']
+                    "listing_id": arr['listing_id'],
+                    'image' : arr['image']
                 }));
                 // query ={user_id:owner};
                 // projection ='full_name';

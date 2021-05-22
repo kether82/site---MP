@@ -23,7 +23,7 @@ const profile_controller = {
         // console.log(req.params.user_id);
         //console.log(query);
  
-        var projection = 'user_id full_name user_name description rating';
+        var projection = '';
         /*
             calls the function findOne()
             defined in the `database` object in `../models/db.js`
@@ -51,11 +51,12 @@ const profile_controller = {
                     "full_name": result.full_name,
                     "description": result.description,
                     "user_name" : result.user_name,
-                    "rating" : result.rating
+                    "rating" : result.rating,
+                    "image" : result.image
                 };
                 var query = {owner: details.user_id};
                 // console.log(query);
-                var projection = "name listing_id description";
+                var projection = "";
                 db.findMany(Listing, query, projection, function(result){
                     // console.log(result);
                     
@@ -63,7 +64,8 @@ const profile_controller = {
                         details.item = result.map(arr =>({
                                         "item_name": arr['name'],
                                         "item_desc": arr['description'],
-                                        "item_id": arr['listing_id']
+                                        "item_id": arr['listing_id'],
+                                        "image" : arr['image']
                                     }));
                     }
                     // console.log(req.session.user_id + "vs" + details.user_id);

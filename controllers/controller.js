@@ -16,8 +16,8 @@ const controller = {
     get_index: function (req, res) {
 
         // render `../views/index.hbs`
-        console.log(req.session.id);
-        console.log(req.session.user_id);
+        // console.log(req.session.id);
+        // console.log(req.session.user_id);
         // check if already logged in
         if(req.session.user_id){
             res.render('index',

@@ -6,6 +6,7 @@ const Handlebars = require('handlebars')
 const Listing = require('../models/listing_model.js');
 const Comment = require('../models/comment_model.js');
 const User = require('../models/user_model.js');
+const fs = require('fs');
 /*
     defines an object which contains functions executed as callback
     when a client requests for `profile` paths in the server
@@ -52,7 +53,8 @@ const listing_controller = {
                     "item_name": result.name,
                     "item_desc": result.description,
                     "owner" : result.owner,
-                    "rating" : result.rating
+                    "rating" : result.rating,
+                    "image" : result.image
                 };
                 var query = {listing_id: details.item_id}
                 var projection = "";
@@ -103,12 +105,13 @@ const listing_controller = {
     },
 
     addListing: function(req,res){
-        console.log(req.session.user_id);
+        // console.log(req.session.user_id);
         var listing ={};
         var name = req.body.name;
         var description = req.body.description;
         var listing_id = 0;
         var owner = req.session.user_id;
+        var image = req.body.pic;
         Listing.findOne().sort('-listing_id').exec(function (err,listing){
             listing_id = parseInt(listing.listing_id) + 1;
 
@@ -117,7 +120,8 @@ const listing_controller = {
                 description : description,
                 listing_id : listing_id,
                 owner : owner,
-                rating : 0
+                rating : 0,
+                image : image
             }
 
             db.insertOne(Listing,listing,function(flag){
@@ -129,8 +133,10 @@ const listing_controller = {
                 }
             })
         })
-    }
+    },
+    
 }
+
 
 
 /*

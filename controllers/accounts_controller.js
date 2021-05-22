@@ -23,8 +23,8 @@ const accounts_controller = {
                     "name": arr['full_name'],
                     "rating": arr['rating'],
                     "description": arr['description'],
-                    "user_name": arr['user_name']
-
+                    "user_name": arr['user_name'],
+                    "image" : arr['image']
                 }));
 
                 if(req.session.user_id){

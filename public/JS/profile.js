@@ -38,26 +38,31 @@ $(document).ready(function() {
         var description = $("#itemDesc").val();
         //get image
         //write image to path
-        var pic = document.querySelector('#itemPic');
-        console.log(pic);
-        const file = pic.files[0];
-        const picURI = URL.createObjectURL(file);
-        console.log(picURI);
-        if(validateAddList(name, description)) {
-            $("#add-error-msg").hide();
-            $(".addlist-container").hide();
-            $(".page-darken").hide(); 
-            // console.log(picURI);
-            // CODE ADD CONTENTS OF ADD LIST DB
-            jQuery.post("/profile/",{name : name, description : description, pic: picURI},function(val){
-                // console.log(val.listing_id);
-                // window.location.replace("/listing/"+val.listing_id);
-                $('body').load('');
-            });
-        }
+        // var pic = document.querySelector('#itemPic');
+        // console.log(pic);
+        // const file = pic.files[0];
+        // const picURI = URL.createObjectURL(file);
+        // console.log(picURI);
 
-        else $("#add-error-msg").show();
-
+        let file = document.getElementById("itemPic").files[0];
+        readFile(file,(b64)=>{
+            if(validateAddList(name, description)) {
+                $("#add-error-msg").hide();
+                $(".addlist-container").hide();
+                $(".page-darken").hide(); 
+                // console.log(picURI);
+                // CODE ADD CONTENTS OF ADD LIST DB
+                jQuery.post("/profile/",{name : name, description : description, pic: b64},function(val){
+                    // console.log(val.listing_id);
+                    // window.location.replace("/listing/"+val.listing_id);
+                    $('body').load('');
+                });
+            }
+    
+            else $("#add-error-msg").show();
+    
+        })
+        
     });
 
     //image to be added if ever
@@ -69,7 +74,13 @@ $(document).ready(function() {
 
         else return true;
     }
-
+    function readFile(file, cb) {
+        let myReader = new FileReader();
+        myReader.onloadend = function (e) {
+            cb(myReader.result);
+        };
+        myReader.readAsDataURL(file);
+    };
     //EDIT ACCOUNT TO BE IMPROVED WHEN DATABASE IS AVAILABLE
     $("#edit-info").on('click', function () {
         
