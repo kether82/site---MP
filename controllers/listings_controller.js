@@ -37,7 +37,7 @@ const listings_controller = {
                 //     owner_name = result.full_name;
                 // })
                 //console.log(details);
-                if(req.session.id){
+                if(req.session.user_id){
                     details.my_user_name = req.session.user_name;
                     details.flag = true;
                     details.user_fullname = req.session.name;

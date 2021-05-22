@@ -27,7 +27,7 @@ const registerController = {
         // console.log("ASDASD");
         // console.log(req.session.id);
         // checks if a user is logged-in by checking the session data
-        if (req.session.id) {
+        if (req.session.user_id) {
 
             /*
                 sets `details.flag` to true
@@ -84,7 +84,7 @@ const registerController = {
             var details = {};
             
             // checks if a user is logged-in by checking the session data
-            if (req.session.id) {
+            if (req.session.user_id) {
 
                 /*
                     sets `details.flag` to true

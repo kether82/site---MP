@@ -21,7 +21,7 @@ const loginController = {
     getLogIn: function (req, res) {
 
         // checks if a user is logged-in by checking the session data
-        if(req.session.id) {
+        if(req.session.user_id) {
 
             /*
                 redirects the client to `/profile` using HTTP GET,

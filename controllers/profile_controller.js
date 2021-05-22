@@ -71,7 +71,7 @@ const profile_controller = {
                         details.owner = true;
                     }
                     console.log(req.session.id);
-                    if(req.session.id){
+                    if(req.session.user_id){
                         details.my_user_name = req.session.user_name;
                         details.flag = true;
                         details.user_fullname = req.session.name;
@@ -100,7 +100,7 @@ const profile_controller = {
         // console.log(req);
         // console.log(req.session.user_id);
 
-        if(req.session.id){
+        if(req.session.user_id){
             var user_name = req.session.user_name;
             var user_id = req.session.user_id;
             var query ={
@@ -115,7 +115,7 @@ const profile_controller = {
     },
 
     editProfile : function(req,res){
-        if(req.session.id){
+        if(req.session.user_id){
             var user_name = req.session.user_name;
             var user_id = req.session.user_id;
             var query ={

@@ -26,7 +26,7 @@ const successController = {
         // console.log(details.userID);
 
         // checks if a user is logged-in by checking the session data
-        if(req.session.id) {
+        if(req.session.user_id) {
 
             /*
                 sets `details.flag` to true

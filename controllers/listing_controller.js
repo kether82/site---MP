@@ -78,7 +78,7 @@ const listing_controller = {
                     if(req.session.user_id == details.owner){
                         details.owner_flag = true;
                     }
-                    if(req.session.id){
+                    if(req.session.user_id){
                         details.my_user_name = req.session.user_name;
                         details.flag = true;
                         details.user_fullname = req.session.name;
