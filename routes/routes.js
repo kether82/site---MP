@@ -19,7 +19,7 @@ const logoutController = require('../controllers/logout_controller.js');
 
 app.get('/', controller.get_index);
 app.get('/index', controller.get_index);
-// app.get('/profile', controller.get_profile);
+app.get('/profile/', profile_controller.getProfile);
 app.get('/profile/:user_name', profile_controller.getProfile);
 app.get('/listing/:listing_id', listing_controller.getListing);
 // app.get('/chat',controller.get_chat);
