@@ -29,11 +29,6 @@ div#nav-container a:hover {
     top: 0px;
 }
 
-.col-md-2 .btn{
-    background-color: midnightblue;
-    border-color:gray;
-    width: 100%;
-}
 
 .description{
     word-wrap: break-word;
