@@ -57,7 +57,7 @@ const registerController = {
                 to hide the profile and logout tabs in the nav bar
             */
             details.flag = false;
-            console.log("false");
+            // console.log("false");
         // render `../views/signup.hbs`
         }
         res.render('register', details);

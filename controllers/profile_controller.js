@@ -16,6 +16,7 @@ const profile_controller = {
         as defined in `../routes/routes.js`
     */
     getProfile: function (req, res) {
+        console.log(req.session);
         if(req.params.user_name != ""){
         // query where `idNum` is equal to URL parameter `idNum`
         
@@ -109,7 +110,7 @@ const profile_controller = {
             }
             console.log(query);
             db.deleteOne(User,query,(flag) =>{
-                res.redirect('/logout');
+                // res.redirect('/logout');
             });
         }else res.render('error');
     },
@@ -123,9 +124,7 @@ const profile_controller = {
                 user_id : user_id
             }
             console.log(query);
-            db.deleteOne(User,query,(flag) =>{
-                res.redirect('/logout');
-            });
+            
         }else res.render('error');
     }
 
