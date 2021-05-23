@@ -115,10 +115,12 @@ $(document).ready(function() {
             $("#error-msg").hide();
             $(".page-darken").hide();
             $(".edit-container").hide();
+
+            $("#add-error-msg").hide();
+            $(".addlist-container").hide();
+            $(".page-darken").hide(); 
             if(files.length===0){
-                    $("#add-error-msg").hide();
-                    $(".addlist-container").hide();
-                    $(".page-darken").hide(); 
+                    
                     console.log(name);
                     console.log(number);
                     console.log(description);
@@ -131,9 +133,6 @@ $(document).ready(function() {
                     });
             }else{
                 readFile(file,(b64)=>{
-                    $("#add-error-msg").hide();
-                    $(".addlist-container").hide();
-                    $(".page-darken").hide(); 
                     console.log(b64);
                     console.log(name);
                     console.log(number);

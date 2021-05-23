@@ -21,9 +21,8 @@
 	<!-- Optional JavaScript -->
 
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
 		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 		crossorigin="anonymous"></script>
@@ -48,16 +47,17 @@
 							<button id="edit-info" class="btn btn-outline-dark"><i class="fas fa-pencil-alt"
 									aria-hidden="true"></i>
 								Edit Info</button>
-							{{!-- <a class="btn btn-outline-dark" href="product_del.html"><span class="fas fa-trash"></span>
+							{{!-- <a class="btn btn-outline-dark" href="product_del.html"><span
+									class="fas fa-trash"></span>
 								Delete</a> --}}
 							<button id="del-listing" class="btn btn-outline-dark"><i class="fas fa-trash"
 									aria-hidden="true"></i>
 								Delete</button>
 							{{/if}}
 							{{!-- EDIT HREF HERE REDIRECT TO USER'S PAGE OR SMTHING --}}
-							<a href="{{}}" class="btn btn-outline-dark"><i class="fas fa-phone" aria-hidden="true"></i>
+							{{!-- <a href="{{}}" class="btn btn-outline-dark"><i class="fas fa-phone" aria-hidden="true"></i>
 								Contact
-								Seller</a>
+								Seller</a> --}}
 						</div>
 					</div>
 					<div class="content col-md-8">
@@ -98,6 +98,15 @@
 									<input type="text" class="form-control" id="iDescription" name="description"
 										placeholder="Input new item description / Leave blank for no changes">
 								</div>
+							</div>
+							<div class="container-fluid">
+								<div class="form-group">
+									<label for="itemPic">Item Image</label>
+									<input type="file" class="form-control" id="itemPic" name="itemPic" accept="image/*">
+								</div>
+							</div>
+							<div class="container-fluid">
+								Leave field blank if there are no changes to the field.
 							</div>
 							<div id="edit-error-msg" class="container-fluid error-edit-msg">
 								Please fill up atleast one field that you want to edit.

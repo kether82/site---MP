@@ -15,26 +15,52 @@ $(document).ready(function() {
         $("#edit-error-msg").hide();
     });
 
-    function validateEdit(name, description) {
+    function validateEdit(name, description, files) {
         
-        if(name !== "" || description !== ""){
+        if(name !== "" || description !== "" || files.length!==0){
             return true;
         }
 
         else return false;
     }
+    function readFile(file, cb) {
+        let myReader = new FileReader();
+        myReader.onloadend = function (e) {
+            cb(myReader.result);
+        };
+        myReader.readAsDataURL(file);
+    };
 
     $("#confirm-edit").on('click', function () {
 
-        var item_name = $("#iName").val();
-        var item_desc = $("#iDescription").val();
+        var name = $("#iName").val();
+        var description = $("#iDescription").val();
+        var parser = document.createElement("a");
+        var url = $(location).attr('href');
+        parser.href = url;
+        var listing_id = parser.pathname.split("/listing/")[1];
+        // alert(listing_id)
+        
+        
+        var files = document.getElementById("itemPic").files;
+        var file = files[0];
 
-        if (validateEdit(item_name, item_desc)) {
+        if (validateEdit(name, description, files)) {
 
             $(".edit-container").hide();
             $(".page-darken").hide(); 
-
-            //EDIT ITEM INFO CODE DB
+            if(files.length===0){
+                jQuery.post('/listing/editListing',{name : name, description : description, listing_id : listing_id},function(){
+                    $('body').load('');
+                })
+            }else{
+                readFile(file,(b64)=>{
+                    jQuery.post('/listing/editListing',{name : name, description : description, listing_id : listing_id, image : b64},function(){
+                        $('body').load('');
+                    })
+                })
+            }
+           
         }
 
         else $("#edit-error-msg").show();

@@ -134,6 +134,28 @@ const listing_controller = {
             })
         })
     },
+
+    editListing: function(req,res){
+        let name = req.body.name;
+        let description = req.body.description;
+        let image = req.body.image;
+        let listing_id = req.body.listing_id;
+        let update={};
+
+        if(name!=="") update.name = name;
+        if(description!=="") update.description = description;
+        if(image!=="") update.image = image;
+
+        
+
+        let query = {listing_id : listing_id};
+
+
+        db.updateOne(Listing,query,update,function(flag){
+            if(flag) res.redirect('/listing'+listing_id);
+            else console.log("fail update");
+        })
+    }
     
 }
 
