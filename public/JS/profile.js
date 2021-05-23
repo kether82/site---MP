@@ -14,6 +14,20 @@ $(document).ready(function () {
         console.log(rating);
         $(".rate-container").hide();
         $(".page-darken").hide();
+
+        
+        var parser = document.createElement("a");
+        var url = $(location).attr('href');
+        parser.href = url;
+        var user_name = parser.pathname.split("/profile/")[1];
+        // alert(user_id);
+        jQuery.post("/profile/addRating",{rating : rating, user_name:user_name}, ()=>{
+            console.log("asd");
+            $('body').load('');
+        })
+
+
+        
     });
 
     $("#cancel-rate").on('click', function () {
@@ -48,7 +62,7 @@ $(document).ready(function () {
 
         let files = document.getElementById("itemPic").files;
         let file = files[0];
-        console.log("asd");
+        // console.log("asd");
         if (validateAddList(name, description, files)) {
             readFile(file, (b64) => {
                 $("#add-error-msg").hide();

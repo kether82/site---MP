@@ -168,6 +168,19 @@ const profile_controller = {
             })
 
         } else res.render('error');
+    },
+    addRating: function(req, res){
+        // console.log("ZXC");
+        let rating = req.body.rating;
+        let user_name = req.body.user_name;
+        // console.log(user_name);
+        // console.log(rating);
+        db.updateOne(User,{user_name:user_name},{$push:{rating : rating}},(flag)=>{
+            if(flag) {
+            // console.log("rating pushed");
+            res.status(200).send();
+        }
+        })
     }
 
 

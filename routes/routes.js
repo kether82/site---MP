@@ -39,6 +39,7 @@ app.post('/listing/addComment', comment_controller.addComment);
 app.post('/listing/delComment',comment_controller.delComment);
 app.post('/listing/editComment', comment_controller.editComment);
 
+app.post('/profile/addRating',profile_controller.addRating);
 app.get('/chat',controller.get_chat);
 // app.get('/chat/:user_id',chat_controller.getConversation);
 // app.get('/login',controller.get_login);
