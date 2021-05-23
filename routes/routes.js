@@ -4,6 +4,9 @@ const express = require('express');
 const validation = require('../helpers/validation.js');
 // import module `controller` from `../controllers/controller.js`
 // const controller = require('../controllers/controller.js')
+const multer = require('multer');
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage })
 
 const app = express();
 const controller = require('../controllers/controller.js');
@@ -23,8 +26,8 @@ app.get('/index', controller.get_index);
 app.get('/accounts', accounts_controller.getAccounts);
 app.get('/profile/', profile_controller.getProfile);
 app.get('/profile/:user_name', profile_controller.getProfile);
-app.post('/profile/', listing_controller.addListing);
-
+app.post('/profile/addListing', listing_controller.addListing);
+app.post('/profile/editProfile', profile_controller.editProfile);
 app.get('/listings', listings_controller.getListings);
 app.get('/listing/:listing_id', listing_controller.getListing);
 // app.get('/chat',controller.get_chat);
@@ -34,7 +37,7 @@ app.get('/login',login_controller.getLogIn);
 app.post('/login', login_controller.postLogIn);
 
 app.get('/register', register_controller.getRegister);
-app.post('/register', validation.signupValidation(), register_controller.postRegister);
+app.post('/register', upload.single('userPic'), validation.signupValidation(), register_controller.postRegister);
 app.get('/check_user_name', register_controller.getCheckUserName);
 app.get('/success', success_controller.getSuccess);
 

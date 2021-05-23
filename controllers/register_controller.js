@@ -6,6 +6,8 @@ const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
+
+
 // import module `database` from `../models/db.js`
 const db = require('../models/db.js');
 
@@ -74,6 +76,7 @@ const registerController = {
     postRegister: function (req, res) {
 
         // checks if there are validation errors
+        console.log("post reg");
         var errors = validationResult(req);
         // if there are validation errors
         if (!errors.isEmpty()) {
@@ -150,6 +153,9 @@ const registerController = {
             var description = req.body.description;
             var user_id2 = 1000;
             var rating = 0;
+            // var image = req.file;
+            var image = "data:image/png;base64,"+ req.file.buffer.toString('base64');
+            // console.log(image);
             User.findOne().sort('-user_id').exec(function (err, acc) {
                 user_id2 = parseInt(acc.user_id) + 1;
                 // console.log(user_id2);
@@ -159,13 +165,14 @@ const registerController = {
                     contact_number: contact_num,
                     description: description,
                     user_id: user_id2,
-                    rating: rating
+                    rating: rating,
+                    image : image
                 }
                 // console.log(user);
 
                 bcrypt.hash(pw, saltRounds, function (err, hash) {
                     user.pw = hash;
-                    console.log(user);
+                    // console.log(user);
                     /*
                         calls the function insertOne()
                         defined in the `database` object in `../models/db.js`
@@ -182,7 +189,7 @@ const registerController = {
                                 which calls getSuccess() method
                                 defined in `./successController.js`
                             */
-
+                            console.log("succ redirect");
                             res.redirect('/success?username=' + username + '&fullName=' + full_name + '&userID=' + user_id2);
                         }
                     });

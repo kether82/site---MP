@@ -36,7 +36,7 @@
 					<h1>Register</h1>
 					<h6>Please fill in this form to create an account</h6>
 				</div>
-				<form class="mb-5" role="form" method="POST">
+				<form class="mb-5" role="form" method="POST" enctype="multipart/form-data">
 					<div class="form-group  w-50 p-3 ">
 						<label for="fullName">
 							Full Name
@@ -78,13 +78,13 @@
 						<label for="profilePicture">
 							File input
 						</label>
-						<input type="file" class="form-control-file" id="profilePicture" />
+						<input type="file" class="form-control-file" id="userPic" name="userPic" />
 						<p class="help-block">
 							Upload Profile Picture
 						</p>
 					</div>
 					<div class="col-md-10">
-						<button type="submit" class="btn btn-secondary submit-btn-size" disabled>
+						<button type="submit" class="btn btn-secondary submit-btn-size" disabled id="submit">
 							Submit
 						</button>
 						<button class="btn btn-secondary verify-btn-size" id="verify" type="button">

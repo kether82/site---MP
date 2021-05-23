@@ -43,7 +43,7 @@ const profile_controller = {
                 if the user exists in the database
                 render the profile page with their details
             */
-            //console.log(result);
+            console.log(result);
             
             if(result != null) {
                 var details = {
@@ -118,15 +118,32 @@ const profile_controller = {
     },
 
     editProfile : function(req,res){
+        let name = req.body.name;
+        let number = req.body.number;
+        let description = req.body.description;
+        let pic = req.body.pic;
+        let update={};
+
+        if(name!=="") update.full_name = name;
+        if(description!=="") update.description = description;
+        if(pic!=="") update.image = pic;
+        if(number!=="") update.number = number;
 
         if(req.session.user_id){
-            var user_name = req.session.user_name;
             var user_id = req.session.user_id;
             var query ={
-                user_name : user_name,
                 user_id : user_id
             }
+
+            
             console.log(query);
+            db.updateOne(User,query,update,function(flag){
+                if(flag){
+                    console.log("success update");
+                }else{
+                    console.log("fail update");
+                }
+            })
             
         }else res.render('error');
     }
