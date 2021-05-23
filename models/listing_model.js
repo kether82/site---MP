@@ -4,23 +4,23 @@ var mongoose = require('mongoose');
 
 // defines the schema for collection `users`
 var ListingSchema = new mongoose.Schema({
-    listing_id:{
+    listing_id: {
         type: Number,
         required: true
     },
-    name:{
+    name: {
         type: String,
         required: true
     },
-    description:{
+    description: {
         type: String,
         required: true
     },
-    owner:{
+    owner: {
         type: Number,
         required: true
     },
-    image:{
+    image: {
         type: String,
         required: true
     }

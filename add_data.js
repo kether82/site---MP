@@ -70,15 +70,15 @@ db.createDatabase();
 //     pw: 'password1'
 // };
 
-for(var i = 0; i<6; i++){
+for (var i = 0; i < 6; i++) {
     var user = {
-        user_id: 1001+i,
+        user_id: 1001 + i,
         user_name: 'username' + i,
         full_name: 'firstname_lastname' + i,
         rating: 2,
         pw: 'password1',
-        description : 'description' + i,
-        contact_number : i
+        description: 'description' + i,
+        contact_number: i
     }
     db.insertOne(collection, user);
 }
@@ -96,12 +96,12 @@ collection = 'comments';
 //     type: String,
 //     required: true
 // }
-for(var i = 0; i<6; i++){
+for (var i = 0; i < 6; i++) {
     var comment = {
-        comment_id: 100+i,
-        poster : 1001+i,
-        description : 'description' + i,
-        listing_id: 10000+i
+        comment_id: 100 + i,
+        poster: 1001 + i,
+        description: 'description' + i,
+        listing_id: 10000 + i
     }
     db.insertOne(collection, comment);
 }
@@ -124,27 +124,27 @@ collection = 'listings';
 //     type: Number,
 //     required: true
 
-for(var i = 0; i<6; i++){
+for (var i = 0; i < 6; i++) {
     var listing = {
-        listing_id: 10000+i,
-        name : 'name' + i,
-        description : 'description' + i,
-        owner : 1001+i,
-        rating : 2
+        listing_id: 10000 + i,
+        name: 'name' + i,
+        description: 'description' + i,
+        owner: 1001 + i,
+        rating: 2
     }
     db.insertOne(collection, listing);
 }
 
 collection = 'chats';
 
-for(var i = 0; i<6; i++){
+for (var i = 0; i < 6; i++) {
     var chat = {
-        conversationId: 1000+i,
-        senderId : 10+i,
-        receiverId : 16-i,
-        senderName : 'name'+i,
-        receiverName : 'namer'+i,
-        message : "text"+i
+        conversationId: 1000 + i,
+        senderId: 10 + i,
+        receiverId: 16 - i,
+        senderName: 'name' + i,
+        receiverName: 'namer' + i,
+        message: "text" + i
     }
     db.insertOne(collection, chat);
 }

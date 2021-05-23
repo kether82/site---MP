@@ -8,7 +8,7 @@ const controller = {
     getFavicon: function (req, res) {
         res.status(204);
     },
-    
+
     /*
         executed when the client sends an HTTP GET request `/`
         as defined in `../routes/routes.js`
@@ -19,36 +19,38 @@ const controller = {
         // console.log(req.session.id);
         // console.log(req.session.user_id);
         // check if already logged in
-        if(req.session.user_id){
+        if (req.session.user_id) {
             res.render('index',
-                {flag:true,
-                user_fullname : req.session.name,
-                my_user_name : req.session.user_name});
-        }else{
-            var details={
-                flag : false
+                {
+                    flag: true,
+                    user_fullname: req.session.name,
+                    my_user_name: req.session.user_name
+                });
+        } else {
+            var details = {
+                flag: false
             };
-            res.render('index',details);
+            res.render('index', details);
         }
     },
     // testing shit lng 
     // yep
-    get_login: function(req,res){
+    get_login: function (req, res) {
         res.render('login');
     },
 
-    get_register: function(req,res){
-        res.render('register',{flag : false});
+    get_register: function (req, res) {
+        res.render('register', { flag: false });
     },
 
     get_chat: function (req, res) {
 
-        res.render('chat',{flag : false});
+        res.render('chat', { flag: false });
     },
 
     get_profile: function (req, res) {
 
-        res.render('profile', {flag : false});
+        res.render('profile', { flag: false });
     }
 }
 

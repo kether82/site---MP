@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     $("#edit-info").on('click', function () {
 
         $(".edit-container").show();
-        $(".page-darken").show(); 
+        $(".page-darken").show();
         $("#iName").val("");
         $("#iDescription").val("");
     });
@@ -11,13 +11,13 @@ $(document).ready(function() {
     $("#exit-edit").on('click', function () {
 
         $(".edit-container").hide();
-        $(".page-darken").hide(); 
+        $(".page-darken").hide();
         $("#edit-error-msg").hide();
     });
 
     function validateEdit(name, description, files) {
-        
-        if(name !== "" || description !== "" || files.length!==0){
+
+        if (name !== "" || description !== "" || files.length !== 0) {
             return true;
         }
 
@@ -40,27 +40,27 @@ $(document).ready(function() {
         parser.href = url;
         var listing_id = parser.pathname.split("/listing/")[1];
         // alert(listing_id)
-        
-        
+
+
         var files = document.getElementById("itemPic").files;
         var file = files[0];
 
         if (validateEdit(name, description, files)) {
 
             $(".edit-container").hide();
-            $(".page-darken").hide(); 
-            if(files.length===0){
-                jQuery.post('/listing/editListing',{name : name, description : description, listing_id : listing_id},function(){
+            $(".page-darken").hide();
+            if (files.length === 0) {
+                jQuery.post('/listing/editListing', { name: name, description: description, listing_id: listing_id }, function () {
                     $('body').load('');
                 })
-            }else{
-                readFile(file,(b64)=>{
-                    jQuery.post('/listing/editListing',{name : name, description : description, listing_id : listing_id, image : b64},function(){
+            } else {
+                readFile(file, (b64) => {
+                    jQuery.post('/listing/editListing', { name: name, description: description, listing_id: listing_id, image: b64 }, function () {
                         $('body').load('');
                     })
                 })
             }
-           
+
         }
 
         else $("#edit-error-msg").show();
@@ -69,18 +69,18 @@ $(document).ready(function() {
     $("#del-listing").on('click', function () {
 
         $(".delete-container").show();
-        $(".page-darken").show(); 
+        $(".page-darken").show();
     });
 
     $("#cancel-delete").on('click', function () {
-        
+
         $(".page-darken").hide();
         $(".delete-container").hide();
 
     });
 
     $("#confirm-delete").on('click', function () {
-        
+
         $(".page-darken").hide();
         $(".delete-container").hide();
 
@@ -90,55 +90,55 @@ $(document).ready(function() {
     });
 
     //COMMENTS CODE
-    $('#send').attr('disabled',true);
-    $('#comment').keyup(function(){
-        if($(this).val().length !=0)
-            $('#send').attr('disabled', false);            
+    $('#send').attr('disabled', true);
+    $('#comment').keyup(function () {
+        if ($(this).val().length != 0)
+            $('#send').attr('disabled', false);
         else
-            $('#send').attr('disabled',true);
+            $('#send').attr('disabled', true);
     });
 
     $("#send").on('click', function () {
 
         var comment = $('#comment').val();
 
-        if(validateComment(comment)) {
+        if (validateComment(comment)) {
 
             //ADD COMMENT DATA DB CODE
         }
     });
 
     function validateComment(comment) {
-        if(comment === "")
+        if (comment === "")
             return false;
         else return true;
     }
 
     $("#edit-comment").on('click', function () {
 
-       $("#new-comment").val("");
-       $(".edit-comment-container").show();
-       $(".page-darken").show(); 
+        $("#new-comment").val("");
+        $(".edit-comment-container").show();
+        $(".page-darken").show();
     });
 
     $("#exit-comment-edit").on('click', function () {
 
         $(".edit-comment-container").hide();
-        $(".page-darken").hide(); 
-     });
+        $(".page-darken").hide();
+    });
 
-     $('#confirm-edit-comment').attr('disabled',true);
-     $('#new-comment').keyup(function(){
-         if($(this).val().length !=0)
-             $('#confirm-edit-comment').attr('disabled', false);            
-         else
-             $('#confirm-edit-comment').attr('disabled',true);
-     });
+    $('#confirm-edit-comment').attr('disabled', true);
+    $('#new-comment').keyup(function () {
+        if ($(this).val().length != 0)
+            $('#confirm-edit-comment').attr('disabled', false);
+        else
+            $('#confirm-edit-comment').attr('disabled', true);
+    });
 
     $("#confirm-edit-comment").on('click', function () {
 
         $(".edit-comment-container").hide();
-        $(".page-darken").hide(); 
+        $(".page-darken").hide();
     });
 
     $("#delete-comment").on('click', function () {
@@ -152,6 +152,6 @@ $(document).ready(function() {
     $("#cancel-comment-del").on('click', function () {
 
         $(".del-comment-container").hide();
-        $(".page-darken").hide(); 
-     });
+        $(".page-darken").hide();
+    });
 });

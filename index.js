@@ -23,14 +23,14 @@ const app = express();
 const port = 3000;
 
 //payload error(?)
-app.use(bodyParser.json({limit: "50mb"}));
-app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
+app.use(bodyParser.json({ limit: "50mb" }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }));
 
 app.use(session({
     secret: 'market_place',
     resave: false,
     saveUnitialized: false,
-    store: MongoStore.create({'mongoUrl': mongoURL}),
+    store: MongoStore.create({ 'mongoUrl': mongoURL }),
     cookie: { path: '/', httpOnly: false },
     unset: 'destroy'
 }))
@@ -43,7 +43,7 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 
 // parses incoming requests with urlencoded payloads
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 // set the folder `public` as folder containing static assets
 // such as css, js, and image files

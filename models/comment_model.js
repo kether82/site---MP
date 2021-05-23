@@ -4,19 +4,19 @@ var mongoose = require('mongoose');
 
 // defines the schema for collection `users`
 var CommentSchema = new mongoose.Schema({
-    comment_id:{
+    comment_id: {
         type: Number,
         required: true
     },
-    poster:{
+    poster: {
         type: Number,
         required: true
     },
-    description:{
+    description: {
         type: String,
         required: true
     },
-    listing_id:{
+    listing_id: {
         type: Number,
         required: true
     },
@@ -24,7 +24,7 @@ var CommentSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
-    
+
 
 
 });

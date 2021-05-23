@@ -1,14 +1,14 @@
 
-$(document).ready(function(){
+$(document).ready(function () {
     $('.errors').text('');
-    $('#u_name').keyup(()=>{
+    $('#u_name').keyup(() => {
         let user_name = ($('#u_name').val().trim());
-        jQuery.get('/check_user_name', {user_name:user_name},function(res){
-            if(res.user_name != user_name){
-                $('#verify').prop('disabled',false);
-            }else{
+        jQuery.get('/check_user_name', { user_name: user_name }, function (res) {
+            if (res.user_name != user_name) {
+                $('#verify').prop('disabled', false);
+            } else {
                 alert("Username is taken.");
-                $('#verify').prop('disabled',true);
+                $('#verify').prop('disabled', true);
             }
         })
     })
@@ -31,12 +31,12 @@ $(document).ready(function(){
     //     readFile(file,(b64)=>{
     //         details.userPic = b64;
     //         jQuery.post('/register', details ,function(res){
-                
+
     //         })
     //     })
-        
+
     // })
-    
+
     // function readFile(file, cb) {
     //     let myReader = new FileReader();
     //     myReader.onloadend = function (e) {
@@ -45,7 +45,7 @@ $(document).ready(function(){
     //     myReader.readAsDataURL(file);
     // };
 
-    $('#verify').click(function(e) {
+    $('#verify').click(function (e) {
         var full_name = $("#name");
         var username = $("#u_name");
         var password = $("#p_word");
@@ -58,20 +58,20 @@ $(document).ready(function(){
         console.log(confirm_password.val());
         console.log(contact_number.val());
 
-        if(full_name.val() === "")
+        if (full_name.val() === "")
             alert("ERROR: Full name is empty.");
-        
-        else if(username.val() === ""){
+
+        else if (username.val() === "") {
             alert("ERROR: Username is empty.");
         }
 
-        else if(password.val() === "")
+        else if (password.val() === "")
             alert("ERROR: Password is empty.");
 
-        else if(confirm_password.val() === "")
+        else if (confirm_password.val() === "")
             alert("ERROR: Confirm Password is empty.");
 
-        else if(contact_number.val() === "")
+        else if (contact_number.val() === "")
             alert("ERROR: Contact Number is empty.");
 
         // else 
@@ -79,14 +79,14 @@ $(document).ready(function(){
         //     alert("ERROR: Please put a number in the contact number field.");
 
         else {
-            if(password.val() === confirm_password.val()){
+            if (password.val() === confirm_password.val()) {
                 alert("You may now submit");
-                $('button').prop('disabled',false);
+                $('button').prop('disabled', false);
             }
             else alert("ERROR:  Password and Confirm Password doesn't match.");
         }
 
         $('.errors').text('');
-    });        
+    });
 
 });

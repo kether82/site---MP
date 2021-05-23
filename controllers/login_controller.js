@@ -21,7 +21,7 @@ const loginController = {
     getLogIn: function (req, res) {
 
         // checks if a user is logged-in by checking the session data
-        if(req.session.user_id) {
+        if (req.session.user_id) {
 
             /*
                 redirects the client to `/profile` using HTTP GET,
@@ -79,16 +79,16 @@ const loginController = {
             this function finds a document from collection `users`
             where `idNum` is equal to `idNum`
         */
-        var query = {user_name : username}
+        var query = { user_name: username }
         db.findOne(User, query, '', function (result) {
 
             // if a user with `idNum` equal to `idNum` exists
-            if(result) {
+            if (result) {
 
                 var user = {
-                    id : result.user_id,
-                    name : result.full_name,
-                    user_name : result.user_name
+                    id: result.user_id,
+                    name: result.full_name,
+                    user_name: result.user_name
                 };
 
                 /*
@@ -96,13 +96,13 @@ const loginController = {
                     to check if the password entered by the user
                     is equal to the hashed password in the database
                 */
-                bcrypt.compare(pw, result.pw, function(err, equal) {
+                bcrypt.compare(pw, result.pw, function (err, equal) {
 
                     /*
                         if the entered password
                         match the hashed password from the database
                     */
-                    if(equal) {
+                    if (equal) {
 
                         /*
                             stores `user.idNum` to `req.session.idNum`
@@ -124,7 +124,7 @@ const loginController = {
                             which calls getProfile() method
                             defined in `./profileController.js`
                         */
-                       
+
                         res.redirect('/profile/' + user.user_name);
                     }
 

@@ -5,12 +5,12 @@ var mongoose = require('mongoose');
 // defines the schema for collection `users`
 var UserSchema = new mongoose.Schema({
     user_id: {
-        type:Number,
+        type: Number,
         required: true
     },
-    user_name:{
+    user_name: {
         type: String,
-        required: true  
+        required: true
     },
     full_name: {
         type: String,
@@ -24,18 +24,18 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    description:{
+    description: {
         type: String,
         required: true
     },
-    contact_number:{
+    contact_number: {
         type: String,
         required: true
     },
-    image:{
+    image: {
         type: String,
         required: true
-    } 
+    }
 });
 
 /*

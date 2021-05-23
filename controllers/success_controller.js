@@ -22,12 +22,12 @@ const successController = {
             user_name: req.query.username,
             full_name: req.query.fullName,
             userID: req.query.userID,
-            my_user_name : req.query.username
+            my_user_name: req.query.username
         };
         // console.log(details.userID);
 
         // checks if a user is logged-in by checking the session data
-        if(req.session.id) {
+        if (req.session.id) {
 
             /*
                 sets `details.flag` to true

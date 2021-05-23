@@ -29,7 +29,7 @@ const listings_controller = {
                     "owner": arr['owner'],
                     "description": arr['description'],
                     "listing_id": arr['listing_id'],
-                    'image' : arr['image']
+                    'image': arr['image']
                 }));
                 // query ={user_id:owner};
                 // projection ='full_name';
@@ -38,7 +38,7 @@ const listings_controller = {
                 //     owner_name = result.full_name;
                 // })
                 //console.log(details);
-                if(req.session.user_id){
+                if (req.session.user_id) {
                     details.my_user_name = req.session.user_name;
                     details.flag = true;
                     details.user_fullname = req.session.name;

@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 
 var chatSchema = new mongoose.Schema({
-    conversationId:{
+    conversationId: {
         type: Number,
         required: true
     },

@@ -1,12 +1,12 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     $("#rate-acc").on('click', function () {
 
         $(".rate-container").show();
-        $(".page-darken").show(); 
+        $(".page-darken").show();
     });
-    
-    
+
+
     $("#rating").change(function () {
 
         //gets the value of the button
@@ -22,20 +22,20 @@ $(document).ready(function() {
         $(".page-darken").hide();
     });
 
-    $("#add-list").on('click', function() {
+    $("#add-list").on('click', function () {
 
         $("#add-error-msg").hide();
         $(".addlist-container").show();
-        $(".page-darken").show(); 
+        $(".page-darken").show();
     });
 
-    $("#cancel-addlist").on('click', function() {
+    $("#cancel-addlist").on('click', function () {
 
         $(".addlist-container").hide();
-        $(".page-darken").hide(); 
+        $(".page-darken").hide();
     });
 
-    $("#confirm-addlist").on('click', function() {
+    $("#confirm-addlist").on('click', function () {
         var name = $("#itemName").val();
         var description = $("#itemDesc").val();
         //get image
@@ -49,30 +49,30 @@ $(document).ready(function() {
         let files = document.getElementById("itemPic").files;
         let file = files[0];
         console.log("asd");
-            if(validateAddList(name, description,files)) {
-                readFile(file,(b64)=>{
-                    $("#add-error-msg").hide();
-                    $(".addlist-container").hide();
-                    $(".page-darken").hide(); 
-                    // console.log(picURI);
-                    // CODE ADD CONTENTS OF ADD LIST DB
-                    jQuery.post("/profile/addListing",{name : name, description : description, pic: b64},function(val){
-                        // console.log(val.listing_id);
-                        // window.location.replace("/listing/"+val.listing_id);
-                        $('body').load('');
-                    });
-                })
-            }
-    
-            else $("#add-error-msg").show();
-    
-        
-        
+        if (validateAddList(name, description, files)) {
+            readFile(file, (b64) => {
+                $("#add-error-msg").hide();
+                $(".addlist-container").hide();
+                $(".page-darken").hide();
+                // console.log(picURI);
+                // CODE ADD CONTENTS OF ADD LIST DB
+                jQuery.post("/profile/addListing", { name: name, description: description, pic: b64 }, function (val) {
+                    // console.log(val.listing_id);
+                    // window.location.replace("/listing/"+val.listing_id);
+                    $('body').load('');
+                });
+            })
+        }
+
+        else $("#add-error-msg").show();
+
+
+
     });
 
     function validateAddList(name, description, files) {
 
-        if(name === "" || description === "" || files.length===0){
+        if (name === "" || description === "" || files.length === 0) {
             return false;
         }
 
@@ -87,7 +87,7 @@ $(document).ready(function() {
     };
     //EDIT ACCOUNT TO BE IMPROVED WHEN DATABASE IS AVAILABLE
     $("#edit-info").on('click', function () {
-        
+
         $(".page-darken").show();
         $(".edit-container").show();
 
@@ -110,7 +110,7 @@ $(document).ready(function() {
         var file = files[0];
         // console.log(validateEdit(name, number, description, files));
 
-        if(validateEdit(name, number, description, files)) {
+        if (validateEdit(name, number, description, files)) {
             //change values
             $("#error-msg").hide();
             $(".page-darken").hide();
@@ -118,35 +118,35 @@ $(document).ready(function() {
 
             $("#add-error-msg").hide();
             $(".addlist-container").hide();
-            $(".page-darken").hide(); 
-            if(files.length===0){
-                    
-                    console.log(name);
-                    console.log(number);
-                    console.log(description);
-                    // console.log(picURI);
-                    // CODE ADD CONTENTS OF ADD LIST DB
-                    jQuery.post("/profile/editProfile",{name : name, number : number, description : description, pic: ""},function(val){
-                        // console.log(val.listing_id);
-                        // window.location.replace("/listing/"+val.listing_id);
-                        $('body').load('');
-                    });
-            }else{
-                readFile(file,(b64)=>{
+            $(".page-darken").hide();
+            if (files.length === 0) {
+
+                console.log(name);
+                console.log(number);
+                console.log(description);
+                // console.log(picURI);
+                // CODE ADD CONTENTS OF ADD LIST DB
+                jQuery.post("/profile/editProfile", { name: name, number: number, description: description, pic: "" }, function (val) {
+                    // console.log(val.listing_id);
+                    // window.location.replace("/listing/"+val.listing_id);
+                    $('body').load('');
+                });
+            } else {
+                readFile(file, (b64) => {
                     console.log(b64);
                     console.log(name);
                     console.log(number);
                     console.log(description);
                     // console.log(picURI);
                     // CODE ADD CONTENTS OF ADD LIST DB
-                    jQuery.post("/profile/editProfile",{name : name, number : number, description : description, pic: b64},function(val){
+                    jQuery.post("/profile/editProfile", { name: name, number: number, description: description, pic: b64 }, function (val) {
                         // console.log(val.listing_id);
                         // window.location.replace("/listing/"+val.listing_id);
                         $('body').load('');
                     });
                 })
             }
-            
+
         }
 
         else {
@@ -162,14 +162,14 @@ $(document).ready(function() {
     });
 
     $("#cancel-delete").on('click', function () {
-        
+
         $(".page-darken").hide();
         $(".delete-container").hide();
 
     });
 
     $("#confirm-delete").on('click', function () {
-        
+
         $(".page-darken").hide();
         $(".delete-container").hide();
 
@@ -179,8 +179,8 @@ $(document).ready(function() {
     });
 
     function validateEdit(name, number, description, files) {
-        
-        if(name === "" && description === "" && number === "" && files.length===0){
+
+        if (name === "" && description === "" && number === "" && files.length === 0) {
             return false;
         }
 

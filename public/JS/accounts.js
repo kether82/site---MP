@@ -4,14 +4,14 @@ $(document).ready(function () {
         let name = $('#searchBar').val().toLowerCase();
         // console.log(name);
 
-        
+
         if (name === "") {
             $('#error').text("Enter listing name on search bar");
         } else {
             $('#error').text(' ');
-            $(".card").filter(function() {
+            $(".card").filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(name) > -1)
-              });
+            });
             // $('.card').show();
             // $('.card').find(".card-title:not(:contains(" + name + "))").parent().parent().css('display','none');
 
@@ -21,9 +21,9 @@ $(document).ready(function () {
             //     if (status == 'success') {
             //         $('#name').val('');
             //         $('#searchBar').val('');
-                    
+
             //         // $('body').load('/listings');
-                   
+
             //     }
             // })
 
