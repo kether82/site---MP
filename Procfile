@@ -1,1 +1,1 @@
-npm deploy
+web: node index.js
