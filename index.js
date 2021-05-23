@@ -26,12 +26,12 @@ const port = process.env.PORT || 3000 ;
 //payload error(?)
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }));
-
+// console.log(process.env_MONGODB_URI);
 app.use(session({
     secret: 'market_place',
     resave: false,
     saveUnitialized: false,
-    store: MongoStore.create({ 'mongoUrl': process.env_MONGODB_URI }),
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
     cookie: { path: '/', httpOnly: false },
     unset: 'destroy'
 }))
