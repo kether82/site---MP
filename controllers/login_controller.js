@@ -65,6 +65,14 @@ const loginController = {
         var username = req.body.username;
         var pw = req.body.password;
 
+        // TODO REMEMBER ME
+        // var rem = req.body.rememberMe;
+        // console.log(rem);
+        // if(rem){
+        //     req.session.cookie.maxAge = 7 * 24 * 3600000 // 1 week
+        // }else{
+        //     req.session.cookie.expires = false;
+        // }
         /*
             calls the function findOne()
             defined in the `database` object in `../models/db.js`
@@ -106,9 +114,8 @@ const loginController = {
                             if the user logs-out from the web application
                         */
                         req.session.user_id = user.id;
-                        req.session.name = user.full_name;
+                        req.session.name = user.name;
                         req.session.user_name = user.user_name;
-                        user
                         /*
                             redirects the client to `/profile/idNum`
                             where `idNum` is equal
