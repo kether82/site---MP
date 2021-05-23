@@ -11,3 +11,12 @@
     word-wrap: break-word;
     overflow-x: hidden;
 }
+
+#welcome-container {
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
