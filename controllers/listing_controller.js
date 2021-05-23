@@ -63,8 +63,8 @@ const listing_controller = {
                 // })
 
                 // details.rating = (accu / details.ratingArr.length).toFixed(2);
-                // var query = { listing_id: details.item_id }
-                // var projection = "";
+                var query = { listing_id: details.item_id }
+                var projection = "";
                 db.findMany(Comment, query, projection, function (result) {
                     // console.log(result);
 
@@ -78,15 +78,22 @@ const listing_controller = {
                         }));
                         // console.log(details.comments);
                         details.comments.forEach((comment) => {
-                            // console.log(comment.poster);
+                            // console.log(comment);
                             query = { user_id: comment.poster };
+                            // async func is messing with the sequence.
                             db.findOne(User, query, "full_name", (result) => {
+                                // console.log(result.full_name);
                                 comment.poster_name = result.full_name;
+                                console.log(comment);
+                                // console.log(comment.poster_name);
                                 if(req.session.name === result.full_name){
                                     comment.poster_owner_flag = true;
                                 }
                             });
+                            // console.log(comment);
                         });
+                        // console.log("ASD");
+                        // console.log(details.comments);
                     }
                     if (req.session.user_id == details.owner) {
                         details.owner_flag = true;
