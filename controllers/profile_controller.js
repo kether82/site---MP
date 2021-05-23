@@ -149,6 +149,7 @@ const profile_controller = {
             db.updateOne(User,query,update,function(flag){
                 if(flag){
                     // console.log("success update");
+                    req.session.name = name;
                     res.redirect('/profile' + req.session.user_name)
                 }else{
                     // console.log("fail update");

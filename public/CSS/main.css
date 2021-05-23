@@ -84,12 +84,20 @@ div#nav-container a:hover {
     padding: 10px;
     margin: 15px;
     width: 275px;
-    height: 400px;
+    min-height: 400px;
 }
 
 .card-img-top{
     max-width: 250px;
     max-height: 250px;
+}
+
+.card-text{
+    font-size: 25px;
+}
+
+.card-title{
+    font-size: 35px;
 }
 
 .error{

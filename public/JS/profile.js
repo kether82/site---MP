@@ -106,8 +106,8 @@ $(document).ready(function() {
         var name = $("#userName").val();
         var number = $("#number").val();
         var description = $("#description").val();
-        let files = document.getElementById("userPic").files;
-        let file = files[0];
+        var files = document.getElementById("userPic").files;
+        var file = files[0];
         // console.log(validateEdit(name, number, description, files));
 
         if(validateEdit(name, number, description, files)) {
@@ -184,6 +184,6 @@ $(document).ready(function() {
             return false;
         }
 
-        else return false;
+        else return true;
     }
 });

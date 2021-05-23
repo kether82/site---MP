@@ -17,7 +17,7 @@
     overflow-x: hidden;
 }
 
-p{
+p.name p.rating  p.description{
     font-size: 40px;
     font-weight: 200;
 }

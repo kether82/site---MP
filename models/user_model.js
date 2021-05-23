@@ -17,7 +17,7 @@ var UserSchema = new mongoose.Schema({
         required: true
     },
     rating: {
-        type: Number,
+        type: [Number],
         required: true,
     },
     pw: {

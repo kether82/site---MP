@@ -126,7 +126,7 @@ const listing_controller = {
 
             db.insertOne(Listing,listing,function(flag){
                 if(flag){
-                    console.log("added");
+                    // console.log("added");
                     // res.status(200).send({listing_id : listing.listing_id})
                     res.status(200).send();
                     // res.redirect('/listing/' + listing.listing_id);
