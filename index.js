@@ -31,7 +31,7 @@ app.use(session({
     secret: 'market_place',
     resave: false,
     saveUnitialized: false,
-    store: MongoStore.create({ 'mongoUrl': process.env_MONGODB_URI || 'mongodb://localhost:27017/market_place'}),
+    store: MongoStore.create({ 'mongoUrl': process.env_MONGODB_URI }),
     cookie: { path: '/', httpOnly: false },
     unset: 'destroy'
 }))
