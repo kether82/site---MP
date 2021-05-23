@@ -1,1 +1,1 @@
-npm deploy-start
+npm deploy
