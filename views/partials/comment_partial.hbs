@@ -3,13 +3,17 @@
         {{poster_name}}
         {{#if poster_owner_flag}}
         <div class="float-right">
-            <button id="edit-comment" class="btn btn-outline-dark"><i class="fas fa-pencil-alt"></i></button>
-            <button id="delete-comment" class="btn btn-outline-dark"><i class="fas fa-trash-alt"></i></button>
+            <button class="btn btn-outline-dark edit-comment"><i class="fas fa-pencil-alt"></i></button>
+            <button class="btn btn-outline-dark delete-comment"><i class="fas fa-trash-alt"></i></button>
         </div>
         {{/if}}
     </div>
     <div class="card-body text">
         {{description}}
     </div>
+    <div class="secret-data">
+        {{comment_id}}
+    </div>
+
     <br><br>
 </div>

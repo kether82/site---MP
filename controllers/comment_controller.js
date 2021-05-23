@@ -35,26 +35,32 @@ const comment_controller = {
         })
     },
 
-    editListing: function (req, res) {
-        let name = req.body.name;
-        let description = req.body.description;
-        let image = req.body.image;
-        let listing_id = req.body.listing_id;
-        let update = {};
+    editComment: function (req, res) {
+        let comment_id = req.body.comment_id;
+        let description = req.body.description; 
+        console.log("desc:"+description);
+        console.log("cid:"+comment_id);
+        let query = { comment_id: comment_id };
+        let update = { description : description }
 
-        if (name !== "") update.name = name;
-        if (description !== "") update.description = description;
-        if (image !== "") update.image = image;
-
-
-
-        let query = { listing_id: listing_id };
-
-
-        db.updateOne(Listing, query, update, function (flag) {
-            if (flag) res.redirect('/listing' + listing_id);
+        db.updateOne(Comment, query, update, function (flag) {
+            if (flag){
+                console.log('suc update');
+                res.status(200).send();
+            } 
             else console.log("fail update");
         })
+    },
+
+    delComment: function(req,res){
+        let comment_id  = req.body.comment_id;
+        console.log(comment_id);
+        db.deleteOne(Comment,{comment_id : comment_id},(flag)=>{
+            if(flag){
+                console.log("delete success");
+                res.status(200).send();
+            }
+        })  
     }
 
 }

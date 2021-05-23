@@ -36,6 +36,8 @@ app.get('/listing/:listing_id', listing_controller.getListing);
 app.post('/listing/editListing', listing_controller.editListing);
 
 app.post('/listing/addComment', comment_controller.addComment);
+app.post('/listing/delComment',comment_controller.delComment);
+app.post('/listing/editComment', comment_controller.editComment);
 
 // app.get('/chat',controller.get_chat);
 // app.get('/chat/:user_id',chat_controller.getConversation);

@@ -73,7 +73,8 @@ const listing_controller = {
                             "description": arr['description'],
                             "poster": arr['poster'],
                             "poster_name": "",
-                            "time": arr['time']
+                            "time": arr['time'],
+                            "comment_id" : arr['comment_id']
                         }));
                         // console.log(details.comments);
                         details.comments.forEach((comment) => {

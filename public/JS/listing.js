@@ -114,17 +114,20 @@ $(document).ready(function () {
         }
     });
 
+    $(".secret-data").hide();
+
     function validateComment(comment) {
         if (comment === "")
             return false;
         else return true;
     }
 
-    $("#edit-comment").on('click', function () {
+    $(".edit-comment").on('click', function () {
 
         $("#new-comment").val("");
         $(".edit-comment-container").show();
         $(".page-darken").show();
+
     });
 
     $("#exit-comment-edit").on('click', function () {
@@ -146,15 +149,31 @@ $(document).ready(function () {
 
         $(".edit-comment-container").hide();
         $(".page-darken").hide();
+
+        var comment_id = $(this).parent().parent().parent().parent().parent().find("div.secret-data").text().trim();
+        var description = $('#new-comment').val();
+        // alert(comment_id);
+        jQuery.post('/listing/editComment', { comment_id : comment_id, description : description }, function () {
+           $('body').load('');
+        })
     });
 
-    $("#delete-comment").on('click', function () {
+    $("#delete-comment-confirm").on('click', function () {
 
+        $(".del-comment-container").hide();
+        $(".page-darken").hide();
+        var comment_id = $(this).parent().parent().parent().parent().parent().find("div.secret-data").text().trim();
+        
+        // alert(comment_id);
+        jQuery.post('/listing/delComment', { comment_id : comment_id }, function () {
+           $('body').load('');
+        })
+    });
+
+    $(".delete-comment").on('click',function(){
         $(".del-comment-container").show();
         $(".page-darken").show();
-
-        //DELETE COMMENT CODE
-    });
+    })
 
     $("#cancel-comment-del").on('click', function () {
 
