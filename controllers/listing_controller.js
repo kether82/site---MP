@@ -20,12 +20,12 @@ const listing_controller = {
     getListing: function (req, res) {
 
         // query where `idNum` is equal to URL parameter `idNum`
-        
+
         // var query ={full_name: req.params.user_id };
-        var query = {listing_id: req.params.listing_id};
+        var query = { listing_id: req.params.listing_id };
         // console.log(req.params.user_id);
         //console.log(query);
- 
+
         var projection = '';
         /*
             calls the function findOne()
@@ -40,57 +40,64 @@ const listing_controller = {
         // db.findMany(User,{},projection,function(result){
         //     console.log(result); 
         // });
-        db.findOne(Listing,query, projection, function(result) {
+        db.findOne(Listing, query, projection, function (result) {
 
             /*
                 if the user exists in the database
                 render the profile page with their details
             */
             //console.log(result);
-            if(result != null) {
+            if (result != null) {
                 var details = {
                     "item_id": result.listing_id,
                     "item_name": result.name,
                     "item_desc": result.description,
-                    "owner" : result.owner,
-                    "rating" : result.rating,
-                    "image" : result.image
+                    "owner": result.owner,
+                    "ratingArr": result.rating,
+                    "image": result.image
                 };
-                var query = {listing_id: details.item_id}
-                var projection = "";
-                db.findMany(Comment, query, projection, function(result){
+                // rem to change 'rating' -> 'ratingArr'
+                // var accu = 0;
+                // details.ratingArr.forEach((rating) => {
+                //     accu += rating;
+                // })
+
+                // details.rating = (accu / details.ratingArr.length).toFixed(2);
+                // var query = { listing_id: details.item_id }
+                // var projection = "";
+                db.findMany(Comment, query, projection, function (result) {
                     // console.log(result);
-                    
-                    if(result != null) {
-                        details.comments = result.map(arr =>({
-                                        "description": arr['description'],
-                                        "poster": arr['poster'],
-                                        "poster_name": "",
-                                        "time": arr['time']
-                                    }));
-                                    // console.log(details.comments);
-                                    details.comments.forEach((comment) => {
-                                        // console.log(comment.poster);
-                                        query = {user_id:comment.poster};
-                                        db.findOne(User,query,"full_name",(result)=>{
-                                            comment.poster_name = result.full_name;
-                                        });
-                                    });
+
+                    if (result != null) {
+                        details.comments = result.map(arr => ({
+                            "description": arr['description'],
+                            "poster": arr['poster'],
+                            "poster_name": "",
+                            "time": arr['time']
+                        }));
+                        // console.log(details.comments);
+                        details.comments.forEach((comment) => {
+                            // console.log(comment.poster);
+                            query = { user_id: comment.poster };
+                            db.findOne(User, query, "full_name", (result) => {
+                                comment.poster_name = result.full_name;
+                            });
+                        });
                     }
-                    if(req.session.user_id == details.owner){
+                    if (req.session.user_id == details.owner) {
                         details.owner_flag = true;
                     }
-                    if(req.session.user_id){
+                    if (req.session.user_id) {
                         details.my_user_name = req.session.user_name;
                         details.flag = true;
                         details.user_fullname = req.session.name;
                     }
 
 
-                        // console.log(details);
-                        res.render('listing', details);
+                    // console.log(details);
+                    res.render('listing', details);
                 })
-                
+
             }
             /*
                 if the user does not exist in the database
@@ -104,28 +111,28 @@ const listing_controller = {
         });
     },
 
-    addListing: function(req,res){
+    addListing: function (req, res) {
         // console.log(req.session.user_id);
-        var listing ={};
+        var listing = {};
         var name = req.body.name;
         var description = req.body.description;
         var listing_id = 0;
         var owner = req.session.user_id;
         var image = req.body.pic;
-        Listing.findOne().sort('-listing_id').exec(function (err,listing){
+        Listing.findOne().sort('-listing_id').exec(function (err, listing) {
             listing_id = parseInt(listing.listing_id) + 1;
 
-            listing ={
-                name : name,
-                description : description,
-                listing_id : listing_id,
-                owner : owner,
-                rating : 0,
-                image : image
+            listing = {
+                name: name,
+                description: description,
+                listing_id: listing_id,
+                owner: owner,
+                rating: 0,
+                image: image
             }
 
-            db.insertOne(Listing,listing,function(flag){
-                if(flag){
+            db.insertOne(Listing, listing, function (flag) {
+                if (flag) {
                     // console.log("added");
                     // res.status(200).send({listing_id : listing.listing_id})
                     res.status(200).send();
@@ -135,28 +142,28 @@ const listing_controller = {
         })
     },
 
-    editListing: function(req,res){
+    editListing: function (req, res) {
         let name = req.body.name;
         let description = req.body.description;
         let image = req.body.image;
         let listing_id = req.body.listing_id;
-        let update={};
+        let update = {};
 
-        if(name!=="") update.name = name;
-        if(description!=="") update.description = description;
-        if(image!=="") update.image = image;
-
-        
-
-        let query = {listing_id : listing_id};
+        if (name !== "") update.name = name;
+        if (description !== "") update.description = description;
+        if (image !== "") update.image = image;
 
 
-        db.updateOne(Listing,query,update,function(flag){
-            if(flag) res.redirect('/listing'+listing_id);
+
+        let query = { listing_id: listing_id };
+
+
+        db.updateOne(Listing, query, update, function (flag) {
+            if (flag) res.redirect('/listing' + listing_id);
             else console.log("fail update");
         })
     }
-    
+
 }
 
 

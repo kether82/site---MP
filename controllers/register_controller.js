@@ -53,14 +53,14 @@ const registerController = {
         }
 
         // else if a user is not yet logged-in
-        else{
+        else {
             /*
                 sets `details.flag` to false
                 to hide the profile and logout tabs in the nav bar
             */
             details.flag = false;
             // console.log("false");
-        // render `../views/signup.hbs`
+            // render `../views/signup.hbs`
         }
         res.render('register', details);
     },
@@ -85,7 +85,7 @@ const registerController = {
             errors = errors.errors;
 
             var details = {};
-            
+
             // checks if a user is logged-in by checking the session data
             if (req.session.user_id) {
 
@@ -152,9 +152,9 @@ const registerController = {
             var contact_num = req.body.contactNumber;
             var description = req.body.description;
             var user_id2 = 1000;
-            var rating = 0;
+            var rating = [];
             // var image = req.file;
-            var image = "data:image/png;base64,"+ req.file.buffer.toString('base64');
+            var image = "data:image/png;base64," + req.file.buffer.toString('base64');
             // console.log(image);
             User.findOne().sort('-user_id').exec(function (err, acc) {
                 user_id2 = parseInt(acc.user_id) + 1;
@@ -165,9 +165,16 @@ const registerController = {
                     contact_number: contact_num,
                     description: description,
                     user_id: user_id2,
-                    rating: rating,
-                    image : image
+                    ratingArr: rating,
+                    image: image
                 }
+                // rem to change 'rating' -> 'ratingArr'
+                // var accu = 0;
+                // details.ratingArr.forEach((rating) => {
+                //     accu += rating;
+                // })
+
+                // details.rating = (accu / details.ratingArr.length).toFixed(2);
                 // console.log(user);
 
                 bcrypt.hash(pw, saltRounds, function (err, hash) {
@@ -179,7 +186,7 @@ const registerController = {
                         this function adds a document to collection `users`
                     */
                     db.insertOne(User, user, function (flag) {
-                        
+
                         if (flag) {
                             /*
                                 upon adding a user to the database,

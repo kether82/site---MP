@@ -17,17 +17,25 @@ const accounts_controller = {
     getAccounts: function (req, res) {
         db.findMany(User, {}, "", function (result) {
             // console.log(result);
-            var details ={};
+            var details = {};
             if (result != null) {
                 details.account = result.map(arr => ({
                     "name": arr['full_name'],
-                    "rating": arr['rating'],
+                    "ratingArr": arr['rating'],
                     "description": arr['description'],
                     "user_name": arr['user_name'],
-                    "image" : arr['image']
+                    "image": arr['image']
                 }));
+                // rem to change 'rating' -> 'ratingArr'
+                var accu = 0;
+                details.ratingArr.forEach((rating) => {
+                    accu += rating;
+                })
 
-                if(req.session.user_id){
+                details.rating = (accu / details.ratingArr.length).toFixed(2);
+
+
+                if (req.session.user_id) {
                     details.my_user_name = req.session.user_name;
                     details.flag = true;
                     details.user_fullname = req.session.name;
