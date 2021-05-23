@@ -12,6 +12,39 @@ $(document).ready(function(){
             }
         })
     })
+
+    // $('#submit').click(function(e){
+    //     var full_name = $("#name").val();
+    //     var username = $("#u_name").val();
+    //     var password = $("#p_word").val();
+    //     var contact_number = $("#number").val();
+    //     var description = $("description").val();
+    //     var files = document.getElementById("userPic").files;
+    //     var file = files[0];
+    //     var details = {
+    //         name : full_name,
+    //         u_name : username,
+    //         p_word : password,
+    //         contactNumber : contact_number,
+    //         description : description
+    //     }
+    //     readFile(file,(b64)=>{
+    //         details.userPic = b64;
+    //         jQuery.post('/register', details ,function(res){
+                
+    //         })
+    //     })
+        
+    // })
+    
+    // function readFile(file, cb) {
+    //     let myReader = new FileReader();
+    //     myReader.onloadend = function (e) {
+    //         cb(myReader.result);
+    //     };
+    //     myReader.readAsDataURL(file);
+    // };
+
     $('#verify').click(function(e) {
         var full_name = $("#name");
         var username = $("#u_name");

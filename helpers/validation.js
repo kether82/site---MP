@@ -21,6 +21,7 @@ const validation = {
             to be displayed when the value to the parameter fails
             the validation
         */
+        console.log("validation");
         var validation = [
 
             check('name', 'First name should not be empty.').notEmpty(),

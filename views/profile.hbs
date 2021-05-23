@@ -52,6 +52,7 @@
 				<div class="page-darken"></div>
 				<div class="rate-container card">
 					<h3 class="dropdown-header text-font">Rate Account</h3>
+					
 					<div class="card-body">
 						<form class="form-group text-center">
 
@@ -64,6 +65,7 @@
 								<option value="5">5</option>
 							</select>
 							<div class="text-center mt-2 text-center mt-5">
+
 								<button id="cancel-rate" class="btn btn-outline-secondary btn-sm">Cancel</button>
 							</div>
 						</form>
@@ -79,7 +81,7 @@
 							<div class="container-fluid">
 								<div class="form-group">
 									<label for="itemName">Item Name</label>
-									<input type="text" class="form-control" id="name" placeholder="Input item name">
+									<input type="text" class="form-control" id="itemName" placeholder="Input item name">
 								</div>
 								<div class="form-group">
 									<label for="itemName">Description</label>
@@ -110,29 +112,38 @@
 							<div class="container-fluid">
 								<div class="form-group">
 									<label for="name">Full Name</label>
-									<input type="text" class="form-control" id="name" name="name" placeholder="Input new name / Leave blank for no changes">
+									<input type="text" class="form-control" id="userName" name="userName" placeholder="Input new name">
 								</div>
 							</div>
 							<div class="container-fluid">
 								<div class="form-group">
 									<label for="number">Contact Number</label>
 									<input type="text" class="form-control" id="number" name="number"
-										placeholder="Input new contact number / Leave blank for no changes">
+										placeholder="Input new contact number">
 								</div>
 							</div>
 							<div class="container-fluid">
 								<div class="form-group">
 									<label for="description">Description</label>
 									<input type="text" class="form-control" id="description" name="description"
-										placeholder="Input new description / Leave blank for no changes">
+										placeholder="Input new description">
 								</div>
 							</div>
 							<div class="container-fluid">
 								<div class="form-group">
 									<label for="description">Password</label>
 									<input type="password" class="form-control" id="password" name="password"
-										placeholder="Input new password / Leave blank for no changes">
+										placeholder="Input new password">
 								</div>
+							</div>
+							<div class="container-fluid">
+							<div class="form-group">
+									<label for="userPic">User Image</label>
+									<input type="file" class="form-control" id="userPic" accept="image/*">
+								</div>
+							</div>
+							<div id="note" class="container-fluid">
+								Leave field blank if there are no changes to the field.
 							</div>
 							<div id="edit-error-msg" class="container-fluid error-edit-msg">
 								Please fill up all the

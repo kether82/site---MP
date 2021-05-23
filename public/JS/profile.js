@@ -12,6 +12,8 @@ $(document).ready(function() {
         //gets the value of the button
         var rating = $('#rating').find(":selected").text();
         console.log(rating);
+        $(".rate-container").hide();
+        $(".page-darken").hide();
     });
 
     $("#cancel-rate").on('click', function () {
@@ -34,7 +36,7 @@ $(document).ready(function() {
     });
 
     $("#confirm-addlist").on('click', function() {
-        var name = $("#name").val();
+        var name = $("#itemName").val();
         var description = $("#itemDesc").val();
         //get image
         //write image to path
@@ -54,7 +56,7 @@ $(document).ready(function() {
                     $(".page-darken").hide(); 
                     // console.log(picURI);
                     // CODE ADD CONTENTS OF ADD LIST DB
-                    jQuery.post("/profile/",{name : name, description : description, pic: b64},function(val){
+                    jQuery.post("/profile/addListing",{name : name, description : description, pic: b64},function(val){
                         // console.log(val.listing_id);
                         // window.location.replace("/listing/"+val.listing_id);
                         $('body').load('');
@@ -101,17 +103,51 @@ $(document).ready(function() {
     $("#confirm-edit").on('click', function () {
 
 
-        var name = $("#name").val();
+        var name = $("#userName").val();
         var number = $("#number").val();
         var description = $("#description").val();
+        let files = document.getElementById("userPic").files;
+        let file = files[0];
+        // console.log(validateEdit(name, number, description, files));
 
-        console.log(validateEdit(name, number, description));
-
-        if(validateEdit(name, number, description)) {
+        if(validateEdit(name, number, description, files)) {
             //change values
             $("#error-msg").hide();
             $(".page-darken").hide();
             $(".edit-container").hide();
+            if(files.length===0){
+                    $("#add-error-msg").hide();
+                    $(".addlist-container").hide();
+                    $(".page-darken").hide(); 
+                    console.log(name);
+                    console.log(number);
+                    console.log(description);
+                    // console.log(picURI);
+                    // CODE ADD CONTENTS OF ADD LIST DB
+                    jQuery.post("/profile/editProfile",{name : name, number : number, description : description, pic: ""},function(val){
+                        // console.log(val.listing_id);
+                        // window.location.replace("/listing/"+val.listing_id);
+                        $('body').load('');
+                    });
+            }else{
+                readFile(file,(b64)=>{
+                    $("#add-error-msg").hide();
+                    $(".addlist-container").hide();
+                    $(".page-darken").hide(); 
+                    console.log(b64);
+                    console.log(name);
+                    console.log(number);
+                    console.log(description);
+                    // console.log(picURI);
+                    // CODE ADD CONTENTS OF ADD LIST DB
+                    jQuery.post("/profile/editProfile",{name : name, number : number, description : description, pic: b64},function(val){
+                        // console.log(val.listing_id);
+                        // window.location.replace("/listing/"+val.listing_id);
+                        $('body').load('');
+                    });
+                })
+            }
+            
         }
 
         else {
@@ -143,10 +179,10 @@ $(document).ready(function() {
 
     });
 
-    function validateEdit(name, number, description) {
+    function validateEdit(name, number, description, files) {
         
-        if(name !== "" || description !== "" || number !== ""){
-            return true;
+        if(name === "" && description === "" && number === "" && files.length===0){
+            return false;
         }
 
         else return false;
