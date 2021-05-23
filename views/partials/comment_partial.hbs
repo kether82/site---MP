@@ -1,18 +1,15 @@
-<div class="description card-body">
-    <strong>Comments</strong>
-</div>
 <div class="comment description">
     <div class="card-header person">
         {{poster_name}}
         {{#if poster_owner_flag}}
-        <span class="updel"><a href="comment_edit.html" class="btn btn-outline-dark"><span
-                    class="fas fa-pencil-alt"></span></a>
-            <a class="btn btn-outline-dark" href="comment_del.html"><span class="fas fa-trash-alt"></span></a></span>
+        <div class="float-right">
+            <button id="edit-comment" class="btn btn-outline-dark"><i class="fas fa-pencil-alt"></i></button>
+            <button id="delete-comment" class="btn btn-outline-dark"><i class="fas fa-trash-alt"></i></button>
+        </div>
         {{/if}}
     </div>
     <div class="card-body text">
         {{description}}
     </div>
     <br><br>
-    <a class="btn btn-outline-dark" href="comment_create.html"><span class="fas fa-plus-square"></span> Add comment</a>
 </div>

@@ -88,4 +88,70 @@ $(document).ready(function() {
         //Delete account code
 
     });
+
+    //COMMENTS CODE
+    $('#send').attr('disabled',true);
+    $('#comment').keyup(function(){
+        if($(this).val().length !=0)
+            $('#send').attr('disabled', false);            
+        else
+            $('#send').attr('disabled',true);
+    });
+
+    $("#send").on('click', function () {
+
+        var comment = $('#comment').val();
+
+        if(validateComment(comment)) {
+
+            //ADD COMMENT DATA DB CODE
+        }
+    });
+
+    function validateComment(comment) {
+        if(comment === "")
+            return false;
+        else return true;
+    }
+
+    $("#edit-comment").on('click', function () {
+
+       $("#new-comment").val("");
+       $(".edit-comment-container").show();
+       $(".page-darken").show(); 
+    });
+
+    $("#exit-comment-edit").on('click', function () {
+
+        $(".edit-comment-container").hide();
+        $(".page-darken").hide(); 
+     });
+
+     $('#confirm-edit-comment').attr('disabled',true);
+     $('#new-comment').keyup(function(){
+         if($(this).val().length !=0)
+             $('#confirm-edit-comment').attr('disabled', false);            
+         else
+             $('#confirm-edit-comment').attr('disabled',true);
+     });
+
+    $("#confirm-edit-comment").on('click', function () {
+
+        $(".edit-comment-container").hide();
+        $(".page-darken").hide(); 
+    });
+
+    $("#delete-comment").on('click', function () {
+
+        $(".del-comment-container").show();
+        $(".page-darken").show();
+
+        //DELETE COMMENT CODE
+    });
+
+    $("#cancel-comment-del").on('click', function () {
+
+        $(".del-comment-container").hide();
+        $(".page-darken").hide(); 
+     });
 });
