@@ -76,7 +76,7 @@ const registerController = {
     postRegister: function (req, res) {
 
         // checks if there are validation errors
-        console.log("post reg");
+        // console.log("post reg");
         var errors = validationResult(req);
         // if there are validation errors
         if (!errors.isEmpty()) {

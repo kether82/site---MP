@@ -43,7 +43,7 @@ const profile_controller = {
                 if the user exists in the database
                 render the profile page with their details
             */
-            console.log(result);
+            // console.log(result);
             
             if(result != null) {
                 var details = {
@@ -110,7 +110,7 @@ const profile_controller = {
                 user_name : user_name,
                 user_id : user_id
             }
-            console.log(query);
+            // console.log(query);
             db.deleteOne(User,query,(flag) =>{
                 res.redirect('/logout');
             });
@@ -136,12 +136,13 @@ const profile_controller = {
             }
 
             
-            console.log(query);
+            // console.log(query);
             db.updateOne(User,query,update,function(flag){
                 if(flag){
-                    console.log("success update");
+                    // console.log("success update");
+                    res.redirect('/profile' + req.session.user_name)
                 }else{
-                    console.log("fail update");
+                    // console.log("fail update");
                 }
             })
             
