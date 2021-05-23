@@ -1,14 +1,14 @@
 
 // import module `mongoose`
 const mongoose = require('mongoose');
-
+require('dotenv').config();
 // import module `User` from `../models/UserModel.js`
 const User = require('./user_model.js');
 const Comment = require('./comment_model.js');
 const Listing = require('./listing_model.js');
 
 // ccapdev-mongoose is the name of the database
-const url = 'mongodb://localhost:27017/market_place';
+const url = 'mongodb://localhost:27017/market_place' || process.env.MONGODB_URI;
 
 // additional connection options
 const options = {

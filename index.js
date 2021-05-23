@@ -2,6 +2,7 @@
 // npm run start
 
 // import module `express`
+require('dotenv').config();
 const express = require('express');
 
 // import module `hbs`
