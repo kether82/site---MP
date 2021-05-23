@@ -157,7 +157,10 @@ const registerController = {
             var image = "data:image/png;base64," + req.file.buffer.toString('base64');
             // console.log(image);
             User.findOne().sort('-user_id').exec(function (err, acc) {
-                user_id2 = parseInt(acc.user_id) + 1;
+                if(acc != null){
+                    user_id2 = parseInt(acc.user_id) + 1;
+                }else user_id2 = 1000;
+                
                 // console.log(user_id2);
                 user = {
                     full_name: full_name,
