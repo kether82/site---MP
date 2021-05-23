@@ -21,7 +21,7 @@ const db = require('./models/db.js');
 
 
 const app = express();
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT;
 
 //payload error(?)
 app.use(bodyParser.json({ limit: "50mb" }));
