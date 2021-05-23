@@ -28,11 +28,14 @@
   <div class="container-fluid">
     <div class="row">
       {{>nav_partial}}
-      <div class="col-md-10 no-gutters">
-        <div class="page-header">
+      <div class="col-md-10 no-gutters container-fluid">
+        <div class="page-header mt-5 ml-3">
+
           <h1>Accounts</h1>
+          <h6>Here are the list of users!</h6>
+
           <form role="form">
-            <div class="form-group container-fluid search">
+            <div class="form-group search">
               <input type="search" class="form-control searchBar" id="searchBar"
                 placeholder="Search for accounts name" />
               <label for="searchBar"><button type="button" class="btn btn-secondary mb-1" id="search"><span
@@ -40,7 +43,7 @@
             </div>
           </form>
         </div>
-        <div class="row card-deck">
+        <div class="row card-deck ">
           {{#each account}}
           {{>account_partial}}
           {{/each}}
