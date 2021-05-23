@@ -86,3 +86,24 @@
     font-size: 6.7em;
     text-align: center;
 }
+
+.edit-comment-container {
+    position: absolute;
+    display: none;
+    top: calc(50% - 240px); 
+    left: calc(50% - 250px); 
+    z-index: 10;
+    width: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.del-comment-container {
+    position: absolute;
+    display: none;
+    top: calc(50% - 240px); 
+    left: calc(50% - 250px); 
+    z-index: 10;
+    width: 500px;
+    height: 195px;
+}

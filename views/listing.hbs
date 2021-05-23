@@ -21,7 +21,7 @@
 	<!-- Optional JavaScript -->
 
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
 		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -42,14 +42,9 @@
 						<br><br>
 						<div class="CRUD">
 							{{#if owner_flag}}
-							{{!-- <a class="btn btn-outline-dark" href="product_edit.html"><i class="fas fa-pencil-alt"
-									aria-hidden="true"></i> </a> --}}
 							<button id="edit-info" class="btn btn-outline-dark"><i class="fas fa-pencil-alt"
 									aria-hidden="true"></i>
 								Edit Info</button>
-							{{!-- <a class="btn btn-outline-dark" href="product_del.html"><span
-									class="fas fa-trash"></span>
-								Delete</a> --}}
 							<button id="del-listing" class="btn btn-outline-dark"><i class="fas fa-trash"
 									aria-hidden="true"></i>
 								Delete</button>
@@ -75,9 +70,49 @@
 					<br><br>
 				</div>
 				<hr>
+				<div class="description card-body">
+					<strong>Comments</strong>
+				</div>
+				<div class="card-body clearfix mb-3">
+					<div class="input-group">
+						<textarea id="comment" class="form-control float-left msg_box"
+							placeholder="Add a public comment.."></textarea>
+						<button id="send" type="button"
+							class="btn btn-outline-secondary btn-sm float-right">Comment</button>
+					</div>
+				</div>
 				{{#each comments}}
 				{{>comment_partial }}
 				{{/each}}
+				<div class="edit-comment-container container-fluid card">
+					<div class="row card-header d-flex justify-content-between">
+						<h3 class="dropdown-header text-font">Edit Comment</h3>
+						<button id="exit-comment-edit" class="btn btn-outline-secondary float-right">X</button>
+					</div>
+					<div class="card-body">
+						<form class="container">
+							<div class="form-group">
+								<textarea type="text" class="form-control" id="new-comment" name="comment"
+									placeholder="Input new comment"></textarea>
+							</div>
+						</form>
+						<div class="text-center mt-2 text-center mt-4">
+							<button id="confirm-edit-comment" class="btn btn-outline-secondary btn-sm">Confirm</button>
+						</div>
+					</div>
+				</div>
+				<div class="del-comment-container card">
+					<div class="card-header">
+						<div class="card-body">
+							<h4>Delete your comment permanently ?</h4>
+							<div class="text-center mt-5">
+								<button id="cancel-comment-del" type="button"
+									class="btn btn-outline-secondary btn-sm">Cancel</button>
+								<button id="delete-comment" type="button" class="btn btn-danger btn-sm">Delete</button>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="edit-container card">
 					<div class="row card-header d-flex justify-content-between">
 						<h3 class="dropdown-header text-font">Edit Information</h3>
@@ -102,7 +137,8 @@
 							<div class="container-fluid">
 								<div class="form-group">
 									<label for="itemPic">Item Image</label>
-									<input type="file" class="form-control" id="itemPic" name="itemPic" accept="image/*">
+									<input type="file" class="form-control" id="itemPic" name="itemPic"
+										accept="image/*">
 								</div>
 							</div>
 							<div class="container-fluid">
