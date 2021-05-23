@@ -127,7 +127,18 @@ $(document).ready(function () {
         $("#new-comment").val("");
         $(".edit-comment-container").show();
         $(".page-darken").show();
+        var comment_id = $(this).parent().find("div.secret-data").text().trim();
+        $("#confirm-edit-comment").on('click', function () {
 
+            $(".edit-comment-container").hide();
+            $(".page-darken").hide();
+    
+            var description = $('#new-comment').val();
+            // alert(comment_id);
+            jQuery.post('/listing/editComment', { comment_id : comment_id, description : description }, function () {
+               $('body').load('');
+            })
+        });
     });
 
     $("#exit-comment-edit").on('click', function () {
@@ -145,34 +156,26 @@ $(document).ready(function () {
             $('#confirm-edit-comment').attr('disabled', true);
     });
 
-    $("#confirm-edit-comment").on('click', function () {
 
-        $(".edit-comment-container").hide();
-        $(".page-darken").hide();
-
-        var comment_id = $(this).parent().parent().parent().parent().parent().find("div.secret-data").text().trim();
-        var description = $('#new-comment').val();
-        // alert(comment_id);
-        jQuery.post('/listing/editComment', { comment_id : comment_id, description : description }, function () {
-           $('body').load('');
-        })
-    });
-
-    $("#delete-comment-confirm").on('click', function () {
-
-        $(".del-comment-container").hide();
-        $(".page-darken").hide();
-        var comment_id = $(this).parent().parent().parent().parent().parent().find("div.secret-data").text().trim();
-        
-        // alert(comment_id);
-        jQuery.post('/listing/delComment', { comment_id : comment_id }, function () {
-           $('body').load('');
-        })
-    });
 
     $(".delete-comment").on('click',function(){
         $(".del-comment-container").show();
         $(".page-darken").show();
+        var comment_id = $(this).parent().find("div.secret-data").text().trim();
+        // alert(comment_id);
+
+         $("#delete-comment-confirm").on('click', function () {
+
+            $(".del-comment-container").hide();
+            $(".page-darken").hide();
+
+            jQuery.post('/listing/delComment', { comment_id : comment_id }, function () {
+                $('body').load('');
+             })
+            // alert(comment_id);
+    
+        });
+
     })
 
     $("#cancel-comment-del").on('click', function () {
