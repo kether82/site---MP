@@ -84,8 +84,6 @@ $(document).ready(function () {
         $(".page-darken").hide();
         $(".delete-container").hide();
 
-        //TO BE ADDED ONCE DATABASE BECOMES AVAILABLE
-        //Delete account code
 
     });
 
@@ -101,10 +99,18 @@ $(document).ready(function () {
     $("#send").on('click', function () {
 
         var comment = $('#comment').val();
+        // alert(comment);
+        // get the listing_id
+        var parser = document.createElement("a");
+        var url = $(location).attr('href');
+        parser.href = url;
+        var listing_id = parser.pathname.split("/listing/")[1];
+
 
         if (validateComment(comment)) {
-
-            //ADD COMMENT DATA DB CODE
+            jQuery.post('/listing/addComment', {comment : comment, listing_id : listing_id }, function () {
+                $('body').load('');
+            })
         }
     });
 
@@ -128,6 +134,7 @@ $(document).ready(function () {
     });
 
     $('#confirm-edit-comment').attr('disabled', true);
+
     $('#new-comment').keyup(function () {
         if ($(this).val().length != 0)
             $('#confirm-edit-comment').attr('disabled', false);

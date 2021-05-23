@@ -19,6 +19,7 @@ const chat_controller = require('../controllers/chat_controller.js');
 const register_controller = require('../controllers/register_controller.js');
 const success_controller = require('../controllers/success_controller.js');
 const logoutController = require('../controllers/logout_controller.js');
+const comment_controller = require('../controllers/comment_controller.js');
 
 app.get('/', listings_controller.getListings);
 app.get('/index', listings_controller.getListings);
@@ -33,6 +34,9 @@ app.post('/profile/editProfile', profile_controller.editProfile);
 // app.get('/listings', listings_controller.getListings);
 app.get('/listing/:listing_id', listing_controller.getListing);
 app.post('/listing/editListing', listing_controller.editListing);
+
+app.post('/listing/addComment', comment_controller.addComment);
+
 // app.get('/chat',controller.get_chat);
 // app.get('/chat/:user_id',chat_controller.getConversation);
 // app.get('/login',controller.get_login);

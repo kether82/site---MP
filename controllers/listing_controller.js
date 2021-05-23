@@ -81,6 +81,9 @@ const listing_controller = {
                             query = { user_id: comment.poster };
                             db.findOne(User, query, "full_name", (result) => {
                                 comment.poster_name = result.full_name;
+                                if(req.session.name === result.full_name){
+                                    comment.poster_owner_flag = true;
+                                }
                             });
                         });
                     }
@@ -92,6 +95,7 @@ const listing_controller = {
                         details.flag = true;
                         details.user_fullname = req.session.name;
                     }
+                    
 
 
                     // console.log(details);
