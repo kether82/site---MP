@@ -111,6 +111,15 @@ const profile_controller = {
                 user_id : user_id
             }
             // console.log(query);
+            var query2={owner: req.session.user_id};
+
+             db.deleteMany(Listing, query2 , function(result){
+
+                if(result!=null)
+                console.log('listings deleted');
+             });
+
+
             db.deleteOne(User,query,(flag) =>{
                 res.redirect('/logout');
             });
