@@ -145,10 +145,10 @@ $(document).ready(function() {
 
     function validateEdit(name, number, description) {
         
-        if(name === "" || description === "" || number === ""){
-            return false;
+        if(name !== "" || description !== "" || number !== ""){
+            return true;
         }
 
-        else return true;
+        else return false;
     }
 });

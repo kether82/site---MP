@@ -74,13 +74,13 @@ p{
     z-index: 9;
   }
 
-  .text-font {
+.text-font {
     font-family: 'Josefin Sans', sans-serif;
     text-align: center;
     font-size: large;
   }
 
-  .error-edit-msg {
+.error-edit-msg {
     color: red;
     font-size: smaller;
     text-align: center;
