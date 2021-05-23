@@ -15,13 +15,13 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 
 const MongoStore = require('connect-mongo');
-const mongoURL = process.env_MONGODB_URI;
+const mongoURL = process.env_MONGODB_URI || 'mongodb://localhost:27017/market_place' ;
 // import module `database` from `./model/db.js`
 const db = require('./models/db.js');
 
 
 const app = express();
-const port = process.env.PORT ;
+const port = process.env.PORT || 3000 ;
 
 //payload error(?)
 app.use(bodyParser.json({ limit: "50mb" }));
@@ -31,7 +31,7 @@ app.use(session({
     secret: 'market_place',
     resave: false,
     saveUnitialized: false,
-    store: MongoStore.create({ 'mongoUrl': process.env_MONGODB_URI}),
+    store: MongoStore.create({ 'mongoUrl': process.env_MONGODB_URI || 'mongodb://localhost:27017/market_place'}),
     cookie: { path: '/', httpOnly: false },
     unset: 'destroy'
 }))
