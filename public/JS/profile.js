@@ -12,6 +12,8 @@ $(document).ready(function() {
         //gets the value of the button
         var rating = $('#rating').find(":selected").text();
         console.log(rating);
+        $(".rate-container").hide();
+        $(".page-darken").hide();
     });
 
     $("#cancel-rate").on('click', function () {
