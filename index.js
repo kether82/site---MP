@@ -63,6 +63,6 @@ app.use(function (req, res) {
 db.connect();
 
 // binds the server to a specific port
-app.listen(port, function () {
+app.listen(port || process.env.PORT, function () {
     console.log('app listening at port ' + port);
 });
