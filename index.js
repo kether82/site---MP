@@ -11,14 +11,20 @@ const hbs = require('hbs');
 const routes = require('./routes/routes.js');
 const mongoose = require('mongoose');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 
 const MongoStore = require('connect-mongo');
 const mongoURL = 'mongodb://localhost:27017/market_place';
 // import module `database` from `./model/db.js`
 const db = require('./models/db.js');
 
+
 const app = express();
 const port = 3000;
+
+//payload error(?)
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 
 app.use(session({
     secret: 'market_place',
