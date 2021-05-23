@@ -21,8 +21,10 @@
 		<div class="row">
 			{{>nav_partial}}
 			<div class="col-md-10">
-				Welcome {{full_name}} !
-				To access profile <a href="/profile/{{user_name}}">click here</a>
+				<div id="welcome-container">
+					<h1>Welcome {{full_name}} !</h1>
+					<h4>To access profile <a href="/profile/{{user_name}}">click here</a></h4>
+				</div>
 			</div>
 		</div>
 
