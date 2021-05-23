@@ -21,7 +21,7 @@ const db = require('./models/db.js');
 
 
 const app = express();
-const port = 3000;
+const port = 3000 || process.env.PORT;
 
 //payload error(?)
 app.use(bodyParser.json({ limit: "50mb" }));
@@ -64,6 +64,6 @@ app.use(function (req, res) {
 db.connect();
 
 // binds the server to a specific port
-app.listen(port || process.env.PORT, function () {
+app.listen(port, function () {
     console.log('app listening at port ' + port);
 });
