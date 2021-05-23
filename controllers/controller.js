@@ -45,7 +45,7 @@ const controller = {
 
     get_chat: function (req, res) {
 
-        res.render('chat', { flag: false });
+        res.render('chat',{content: "Sorry, feature discontinued :C"});
     },
 
     get_profile: function (req, res) {

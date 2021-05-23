@@ -26,7 +26,7 @@ app.get('/index', listings_controller.getListings);
 
 app.get('/accounts', accounts_controller.getAccounts);
 
-app.get('/profile/', profile_controller.getProfile);
+app.get('/profile/', register_controller.getRegister);
 app.get('/profile/:user_name', profile_controller.getProfile);
 app.post('/profile/addListing', listing_controller.addListing);
 app.post('/profile/editProfile', profile_controller.editProfile);
@@ -39,7 +39,7 @@ app.post('/listing/addComment', comment_controller.addComment);
 app.post('/listing/delComment',comment_controller.delComment);
 app.post('/listing/editComment', comment_controller.editComment);
 
-// app.get('/chat',controller.get_chat);
+app.get('/chat',controller.get_chat);
 // app.get('/chat/:user_id',chat_controller.getConversation);
 // app.get('/login',controller.get_login);
 app.get('/login', login_controller.getLogIn);
