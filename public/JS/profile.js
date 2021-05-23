@@ -44,31 +44,33 @@ $(document).ready(function() {
         // const picURI = URL.createObjectURL(file);
         // console.log(picURI);
 
-        let file = document.getElementById("itemPic").files[0];
-        readFile(file,(b64)=>{
-            if(validateAddList(name, description)) {
-                $("#add-error-msg").hide();
-                $(".addlist-container").hide();
-                $(".page-darken").hide(); 
-                // console.log(picURI);
-                // CODE ADD CONTENTS OF ADD LIST DB
-                jQuery.post("/profile/",{name : name, description : description, pic: b64},function(val){
-                    // console.log(val.listing_id);
-                    // window.location.replace("/listing/"+val.listing_id);
-                    $('body').load('');
-                });
+        let files = document.getElementById("itemPic").files;
+        let file = files[0];
+        
+            if(validateAddList(name, description,files)) {
+                readFile(file,(b64)=>{
+                    $("#add-error-msg").hide();
+                    $(".addlist-container").hide();
+                    $(".page-darken").hide(); 
+                    // console.log(picURI);
+                    // CODE ADD CONTENTS OF ADD LIST DB
+                    jQuery.post("/profile/",{name : name, description : description, pic: b64},function(val){
+                        // console.log(val.listing_id);
+                        // window.location.replace("/listing/"+val.listing_id);
+                        $('body').load('');
+                    });
+                })
             }
     
             else $("#add-error-msg").show();
     
-        })
+        
         
     });
 
-    //image to be added if ever
-    function validateAddList(name, description) {
+    function validateAddList(name, description, files) {
 
-        if(name === "" || description === ""){
+        if(name === "" || description === "" || files.length===0){
             return false;
         }
 

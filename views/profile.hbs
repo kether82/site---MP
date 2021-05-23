@@ -91,7 +91,7 @@
 									<input type="file" class="form-control" id="itemPic" accept="image/*">
 								</div>
 								<div id="add-error-msg" class="container-fluid error-edit-msg">
-									Please fill up item name and description.
+									Please fill up all fields.
 								</div>
 							</div>
 						</form>
@@ -110,21 +110,28 @@
 							<div class="container-fluid">
 								<div class="form-group">
 									<label for="name">Full Name</label>
-									<input type="text" class="form-control" id="name" placeholder="Input new name">
+									<input type="text" class="form-control" id="name" name="name" placeholder="Input new name / Leave blank for no changes">
 								</div>
 							</div>
 							<div class="container-fluid">
 								<div class="form-group">
 									<label for="number">Contact Number</label>
-									<input type="text" class="form-control" id="number"
-										placeholder="Input new contact number">
+									<input type="text" class="form-control" id="number" name="number"
+										placeholder="Input new contact number / Leave blank for no changes">
 								</div>
 							</div>
 							<div class="container-fluid">
 								<div class="form-group">
 									<label for="description">Description</label>
-									<input type="text" class="form-control" id="description"
-										placeholder="Input new description">
+									<input type="text" class="form-control" id="description" name="description"
+										placeholder="Input new description / Leave blank for no changes">
+								</div>
+							</div>
+							<div class="container-fluid">
+								<div class="form-group">
+									<label for="description">Password</label>
+									<input type="password" class="form-control" id="password" name="password"
+										placeholder="Input new password / Leave blank for no changes">
 								</div>
 							</div>
 							<div id="edit-error-msg" class="container-fluid error-edit-msg">

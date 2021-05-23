@@ -19,21 +19,26 @@ const logoutController = require('../controllers/logout_controller.js');
 
 app.get('/', controller.get_index);
 app.get('/index', controller.get_index);
+
+app.get('/accounts', accounts_controller.getAccounts);
 app.get('/profile/', profile_controller.getProfile);
 app.get('/profile/:user_name', profile_controller.getProfile);
-app.post('/profile/', listing_controller.addListing)
+app.post('/profile/', listing_controller.addListing);
+
+app.get('/listings', listings_controller.getListings);
 app.get('/listing/:listing_id', listing_controller.getListing);
 // app.get('/chat',controller.get_chat);
 // app.get('/chat/:user_id',chat_controller.getConversation);
 // app.get('/login',controller.get_login);
 app.get('/login',login_controller.getLogIn);
 app.post('/login', login_controller.postLogIn);
+
 app.get('/register', register_controller.getRegister);
 app.post('/register', validation.signupValidation(), register_controller.postRegister);
 app.get('/check_user_name', register_controller.getCheckUserName);
 app.get('/success', success_controller.getSuccess);
-app.get('/accounts', accounts_controller.getAccounts);
-app.get('/listings', listings_controller.getListings);
+
+
 app.get('/delete_account/:user_name', profile_controller.delProfile);
 // app.get('/delete_account', profile_controller.editProfile);
 app.get('/logout', logoutController.getLogOut);

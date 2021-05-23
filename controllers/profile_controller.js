@@ -72,11 +72,13 @@ const profile_controller = {
                     if(req.session.user_id == details.user_id){
                         details.owner = true;
                     }
-                    console.log(req.session.id);
+                    // console.log(req.session.id);
+                    // console.log(req.session.user_id);
                     if(req.session.user_id){
                         details.my_user_name = req.session.user_name;
                         details.flag = true;
                         details.user_fullname = req.session.name;
+                        
                     }
 
                         // console.log(details);

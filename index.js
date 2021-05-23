@@ -25,7 +25,8 @@ app.use(session({
     resave: false,
     saveUnitialized: false,
     store: MongoStore.create({'mongoUrl': mongoURL}),
-    cookie: { path: '/', httpOnly: false }
+    cookie: { path: '/', httpOnly: false },
+    unset: 'destroy'
 }))
 
 
