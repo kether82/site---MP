@@ -59,11 +59,11 @@ const profile_controller = {
                 details.ratingArr.forEach((rating) => {
                     accu += rating;
                 })
-                db.updateOne(User, { user_id: details.user_id }, { $push: { rating: 1 } }, (flag) => {
-                    console.log("rating pushed");
-                })
+                // db.updateOne(User, { user_id: details.user_id }, { $push: { rating: 1 } }, (flag) => {
+                //     console.log("rating pushed");
+                // })
                 details.rating = (accu / details.ratingArr.length).toFixed(2);
-                console.log(accu);
+                // console.log(accu);
                 // end testing
                 var query = { owner: details.user_id };
                 // console.log(query);
