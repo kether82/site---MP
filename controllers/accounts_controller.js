@@ -26,13 +26,13 @@ const accounts_controller = {
                     "user_name": arr['user_name'],
                     "image": arr['image']
                 }));
-                // rem to change 'rating' -> 'ratingArr'
-                var accu = 0;
-                details.ratingArr.forEach((rating) => {
-                    accu += rating;
-                })
+                // // rem to change 'rating' -> 'ratingArr'
+                // var accu = 0;
+                // details.ratingArr.forEach((rating) => {
+                //     accu += rating;
+                // })
 
-                details.rating = (accu / details.ratingArr.length).toFixed(2);
+                // details.rating = (accu / details.ratingArr.length).toFixed(2);
 
 
                 if (req.session.user_id) {
