@@ -18,7 +18,9 @@ const comment_controller = {
         var poster = req.session.user_id
 
         Comment.findOne().sort('-comment_id').exec(function (err, comment) {
-            comment_id = parseInt(comment.comment_id) + 1;
+            if(comment != null){
+                comment_id = parseInt(comment.comment_id) + 1;
+            }else comment_id = 100;
 
             comment = {
                 comment_id : comment_id,

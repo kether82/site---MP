@@ -125,7 +125,10 @@ const listing_controller = {
         var owner = req.session.user_id;
         var image = req.body.pic;
         Listing.findOne().sort('-listing_id').exec(function (err, listing) {
-            listing_id = parseInt(listing.listing_id) + 1;
+            if(listing != null){
+                listing_id = parseInt(listing.listing_id) + 1;
+            }else listing_id = 1000;
+           
 
             listing = {
                 name: name,
