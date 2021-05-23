@@ -1,7 +1,12 @@
 @import url(main.css);
-
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
 .searchBar{
     width: 90%;
     display: inline-block;
     margin-top: 10px;
+}
+
+.banner{
+    font-family: 'Josefin Sans', sans-serif;
+    color: black;
 }

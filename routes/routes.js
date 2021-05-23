@@ -20,8 +20,8 @@ const register_controller = require('../controllers/register_controller.js');
 const success_controller = require('../controllers/success_controller.js');
 const logoutController = require('../controllers/logout_controller.js');
 
-app.get('/', controller.get_index);
-app.get('/index', controller.get_index);
+app.get('/', listings_controller.getListings);
+app.get('/index', listings_controller.getListings);
 
 app.get('/accounts', accounts_controller.getAccounts);
 
@@ -30,7 +30,7 @@ app.get('/profile/:user_name', profile_controller.getProfile);
 app.post('/profile/addListing', listing_controller.addListing);
 app.post('/profile/editProfile', profile_controller.editProfile);
 
-app.get('/listings', listings_controller.getListings);
+// app.get('/listings', listings_controller.getListings); defunc
 app.get('/listing/:listing_id', listing_controller.getListing);
 app.post('/listing/editListing',listing_controller.editListing);
 // app.get('/chat',controller.get_chat);

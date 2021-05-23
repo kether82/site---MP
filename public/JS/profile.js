@@ -48,7 +48,7 @@ $(document).ready(function() {
 
         let files = document.getElementById("itemPic").files;
         let file = files[0];
-        
+        console.log("asd");
             if(validateAddList(name, description,files)) {
                 readFile(file,(b64)=>{
                     $("#add-error-msg").hide();
