@@ -62,7 +62,8 @@ const profile_controller = {
                 // db.updateOne(User, { user_id: details.user_id }, { $push: { rating: 1 } }, (flag) => {
                 //     console.log("rating pushed");
                 // })
-                details.rating = (accu / details.ratingArr.length).toFixed(2);
+                if(details.ratingArr.length > 0) details.rating = (accu / details.ratingArr.length).toFixed(2);
+                else details.rating = 0;
                 // console.log(accu);
                 // end testing
                 var query = { owner: details.user_id };
