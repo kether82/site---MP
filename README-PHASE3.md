@@ -45,9 +45,9 @@ The concept is about a platform that provides an online marketplace that allows 
 ## User default data:
 ## Screenshots:
 ### Home Page
-![Image of Home Page]()
+![Image of Home Page](https://i.imgur.com/Hy9etAI.png)
 ### Profile Page
-![Image of Profile Page]()
+![Image of Profile Page](https://i.imgur.com/V0M7lmZ.png)
 ### Chat Page (Discontinued)
 ![Image of Chat Page](https://i.imgur.com/pQePXJr.png)
 ### Register Page
@@ -55,7 +55,7 @@ The concept is about a platform that provides an online marketplace that allows 
 ### Login Page
 ![Image of Login Page](https://i.imgur.com/HzuPkeU.png)
 ### Accounts Page
-![Image of Accounts Page]()
+![Image of Accounts Page](https://i.imgur.com/PN5ZMls.png)
 ## Author(s):
 * Ivan Lim
 * Patrick Ong
