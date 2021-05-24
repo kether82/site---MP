@@ -43,6 +43,13 @@ The concept is about a platform that provides an online marketplace that allows 
 * Logout
   * The user may log out of their account.
 ## User default data:
+    Username  | Password
+------------- | -------------
+       patpat | 123
+        tico  | 123
+      normie  | 123
+     VonChon  | 123
+       Kitir  | 123
 ## Screenshots:
 ### Home Page
 ![Image of Home Page](https://i.imgur.com/Hy9etAI.png)
