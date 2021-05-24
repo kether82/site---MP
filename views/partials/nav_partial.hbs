@@ -11,18 +11,22 @@
             </a>
             <a class="nav-link" type="button" href="/profile/{{my_user_name}}"><i class="fas fa-user fa-fw"></i>&nbsp;
                 Profile</a>
+            {{#if flag}}
             <a class="nav-link" type="button" data-toggle="tooltip" data-placement="right"
                 title="Discontinued :'( For Display Only, You can play with the js though :) " href="/chat">
                 <i class="fas fa-comments fa-fw"></i>&nbsp; Chat
             </a>
+            {{/if}}
             {{#unless flag}}
             <a class="nav-link" type="button" href="/register">
                 <i class="fas fa-user-plus fa-fw"></i>&nbsp; Register
             </a>
             {{/unless}}
+            {{#if flag}}
             <a class="nav-link" type="button" href="/accounts">
                 <i class="fas fa-users fa-fw"></i>&nbsp; Accounts
             </a>
+            {{/if}}
             {{!-- <a class="nav-link" type="button" href="/listings">
                 <i class="fas fa-list-ul fa-fw"></i>&nbsp; Listings
             </a> --}}
