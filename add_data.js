@@ -4,7 +4,7 @@
 */
 
 // import module from `./models/db.js`
-const db = require('./models/db2.js');
+const db = require('./models/db.js');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 /*

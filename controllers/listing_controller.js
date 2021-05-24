@@ -166,8 +166,8 @@ const listing_controller = {
 
         if (name !== "") update.name = name;
         if (description !== "") update.description = description;
-        if (image !== "") update.image = image;
-
+        if (typeof image !=='undefined' && image) update.image = image;
+        console.log(image);
 
 
         let query = { listing_id: listing_id };
@@ -176,6 +176,17 @@ const listing_controller = {
         db.updateOne(Listing, query, update, function (flag) {
             if (flag) res.redirect('/listing' + listing_id);
             else console.log("fail update");
+        })
+    },
+
+    delListing : function(req, res){
+        var listing_id = req.params.listing_id;
+        var query = {listing_id : listing_id}
+        db.deleteOne(Listing, query, (flag) =>{
+            if(flag){
+                console.log("Delete success");
+                res.redirect("/profile/"+req.session.user_name);
+            }
         })
     }
 

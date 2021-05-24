@@ -83,8 +83,7 @@ $(document).ready(function () {
 
         $(".page-darken").hide();
         $(".delete-container").hide();
-
-
+        // delete confirm
     });
 
     //COMMENTS CODE

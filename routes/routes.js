@@ -30,10 +30,13 @@ app.get('/profile/', register_controller.getRegister);
 app.get('/profile/:user_name', profile_controller.getProfile);
 app.post('/profile/addListing', listing_controller.addListing);
 app.post('/profile/editProfile', profile_controller.editProfile);
+app.get('/delete_account/:user_name', profile_controller.delProfile);
 
 // app.get('/listings', listings_controller.getListings);
 app.get('/listing/:listing_id', listing_controller.getListing);
+app.get('/delListing/:listing_id',listing_controller.delListing);
 app.post('/listing/editListing', listing_controller.editListing);
+
 
 app.post('/listing/addComment', comment_controller.addComment);
 app.post('/listing/delComment',comment_controller.delComment);
@@ -52,7 +55,7 @@ app.get('/check_user_name', register_controller.getCheckUserName);
 app.get('/success', success_controller.getSuccess);
 
 
-app.get('/delete_account/:user_name', profile_controller.delProfile);
+
 // app.get('/delete_account', profile_controller.editProfile);
 app.get('/logout', logoutController.getLogOut);
 module.exports = app;

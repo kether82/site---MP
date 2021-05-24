@@ -27,13 +27,15 @@ const accounts_controller = {
                     "image": arr['image']
                 }));
                 // rem to change 'rating' -> 'ratingArr'
-                var accu = 0;
-                details.ratingArr.forEach((rating) => {
-                    accu += rating;
+                details.account.forEach((account)=>{
+                    var accu = 0;
+                    account.ratingArr.forEach((rating) => {
+                        accu += rating;
+                    })
+                    if(account.ratingArr.length > 0)
+                        account.rating = (accu / account.ratingArr.length).toFixed(2);
+                    else account.rating = 0;
                 })
-                if(details.ratingArr.length === 0){
-                    details.rating = (accu / details.ratingArr.length).toFixed(2);
-                }else details.rating = 0.00
                 
 
 
