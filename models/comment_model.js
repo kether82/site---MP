@@ -20,6 +20,10 @@ var CommentSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    poster_name: {
+        type: String,
+        required: true
+    },
     time: {
         type: Date,
         default: Date.now

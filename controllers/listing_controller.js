@@ -72,24 +72,27 @@ const listing_controller = {
                         details.comments = result.map(arr => ({
                             "description": arr['description'],
                             "poster": arr['poster'],
-                            "poster_name": "",
+                            "poster_name": arr['poster_name'],
                             "time": arr['time'],
                             "comment_id" : arr['comment_id']
                         }));
                         // console.log(details.comments);
                         details.comments.forEach((comment) => {
                             // console.log(comment);
-                            query = { user_id: comment.poster };
-                            // async func is messing with the sequence.
-                            db.findOne(User, query, "full_name", (result) => {
-                                // console.log(result.full_name);
-                                comment.poster_name = result.full_name;
-                                console.log(comment);
-                                // console.log(comment.poster_name);
-                                if(req.session.name === result.full_name){
-                                    comment.poster_owner_flag = true;
-                                }
-                            });
+                            // query = { user_id: comment.poster };
+                            // // async func is messing with the sequence.
+                            // db.findOne(User, query, "full_name", (result) => {
+                            //     // console.log(result.full_name);
+                            //     comment.poster_name = result.full_name;
+                            //     console.log(comment);
+                            //     // console.log(comment.poster_name);
+                            //     if(req.session.name === result.full_name){
+                            //         comment.poster_owner_flag = true;
+                            //     }
+                            // });
+                            if(comment.poster_name === req.session.user_name){
+                                comment.poster_owner_flag = true;
+                            }
                             // console.log(comment);
                         });
                         // console.log("ASD");

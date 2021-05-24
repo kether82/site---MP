@@ -26,7 +26,8 @@ const comment_controller = {
                 comment_id : comment_id,
                 poster : poster,
                 description : comment_desc,
-                listing_id : listing_id
+                listing_id : listing_id,
+                poster_name : req.session.user_name
             }
 
             db.insertOne(Comment, comment, function (flag) {
