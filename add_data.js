@@ -26,12 +26,12 @@ console.log(collection);
 
         {
             user_id: 1000,
-            user_name: 'mountain' ,
+            user_name: 'patpat' ,
             full_name: 'Sage',
             rating: [],
             description: 'I am not just your healer' ,
             contact_number: 0918,
-            pw : 'password0'
+            pw : '123'
         },
 
         {
@@ -41,27 +41,27 @@ console.log(collection);
             rating: [],
             description: 'egg' ,
             contact_number: 0919,
-            pw : 'password1'
+            pw : '123'
         },
 
         {
             user_id: 1002 ,
-            user_name: 'patchon',
+            user_name: 'normie',
             full_name: 'Patrick Ong' ,
             rating: [],
             description: 'kekw' ,
             contact_number:0920 ,
-            pw : 'password2'
+            pw : '123'
         },
 
         {
             user_id: 1003 ,
-            user_name: 'Junidel',
+            user_name: 'Kitir',
             full_name: 'Junedel de leon' ,
             rating: [],
             description: 'description' ,
             contact_number: 0921,
-            pw : 'password3'
+            pw : '123'
         },
 
         {
@@ -71,7 +71,7 @@ console.log(collection);
             rating: [],
             description: 'description' ,
             contact_number: 0922,
-            pw : 'password4'
+            pw : '123'
         }
     ]
 

@@ -6,7 +6,7 @@ The concept is about a platform that provides an online marketplace that allows 
 1. Clone the repository: `git clone https://github.com/kether82/site---MP`
 2. Make sure to install `Node.js` and `MongoDB`
 3. Run `npm install` in your cmd
-4. Run `node add_data.js` to initialize and add dummy data to the database.
+4. Run `node add_data.js` to initialize and add dummy data to the database. NOTE: the dummy listings don't have images.
 5. After adding the data, you can now start the application via `node index.js`
 ### Access through web
 1. Access the website through this link: https://apdev-navi-market.herokuapp.com/  
