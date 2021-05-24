@@ -2,7 +2,7 @@
 Navi Market is a online marketplace that allows users to sell their own belongings a la olx or ebay style.
 
 ## Installation
-*Make sure to install `Node.js` and `MongoDB`
+Markup : *Make sure to install `Node.js` and `MongoDB`
 *Run `npm install` in your cmd
 *Run `node add_data.js` to initialize and add dummy data to the database.
 *After adding the data, you can now start the application via `node index.js`
