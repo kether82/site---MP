@@ -9,7 +9,7 @@ The concept is about a platform that provides an online marketplace that allows 
 4. Run `node add_data.js` to initialize and add dummy data to the database. NOTE: the dummy listings don't have images.
 5. After adding the data, you can now start the application via `node index.js`
 #### Modules
-The project uses the following modules:
+The project uses the following npm modules:
 * bcrypt 5.0.1
 * body-parser 1.19.0
 * connect-mongo 4.4.4
