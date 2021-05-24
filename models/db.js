@@ -9,8 +9,8 @@ const Comment = require('./comment_model.js');
 const Listing = require('./listing_model.js');
 
 // ccapdev-mongoose is the name of the database
-// const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/market_place' 
-const url = 'mongodb://localhost:27017/market_place' 
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/market_place' 
+// const url = 'mongodb://localhost:27017/market_place' 
 // additional connection options
 const options = {
     useUnifiedTopology: true,
