@@ -8,6 +8,19 @@ The concept is about a platform that provides an online marketplace that allows 
 3. Run `npm install` in your cmd
 4. Run `node add_data.js` to initialize and add dummy data to the database. NOTE: the dummy listings don't have images.
 5. After adding the data, you can now start the application via `node index.js`
+#### Modules
+The project uses the following modules:
+* bcrypt 5.0.1
+* body-parser 1.19.0
+* connect-mongo 4.4.4
+* dotenv 10.0.0
+* express 4.17.1
+* express-session 1.17.2
+* express-validator 6.11.1
+* hbs 4.1.2
+* mongoose 5.12.7
+* multer 1.4.2
+* validator 13.6.0
 ### Access through web
 1. Access the website through this link: https://apdev-navi-market.herokuapp.com/  
 **NOTE: Loading may take a while sometimes, but afterwards you should be able to access the website.**
