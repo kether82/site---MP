@@ -4,8 +4,10 @@ The concept is about a platform that provides an online marketplace that allows 
 ## Instruction to run and view the built website:
 ### Set up locally
 1. Clone the repository.  
-2.
-3. 
+2. Make sure to install Node.js and MongoDB
+3. Run npm install in your cmd
+4. Run node add_data.js to initialize and add dummy data to the database.
+5. After adding the data, you can now start the application via node index.js
 ### Access through web
 1. Access the website through this link: https://apdev-navi-market.herokuapp.com/  
 **NOTE: Loading may take a while sometimes, but afterwards you should be able to access the website.**
