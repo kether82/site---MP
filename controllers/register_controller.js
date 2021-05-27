@@ -154,7 +154,6 @@ const registerController = {
             var user_id2 = 1000;
             var rating = [];
             // var image = req.file;
-            
             var image = "data:image/png;base64," + req.file.buffer.toString('base64');
             // console.log(image);
             User.findOne().sort('-user_id').exec(function (err, acc) {

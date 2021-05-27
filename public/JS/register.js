@@ -73,8 +73,8 @@ $(document).ready(function () {
         else if (contact_number.val() === "")
             alert("ERROR: Contact Number is empty.");
             
-        else if (description.val()==="")
-            alert("ERROR: Description is empty.")
+        // else if (description.val()==="")
+        //     alert("ERROR: Description is empty.")
         // else 
         // if(!Number.isInteger(contact_number.val()))
         //     alert("ERROR: Please put a number in the contact number field.");
